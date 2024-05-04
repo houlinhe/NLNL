@@ -25,13 +25,13 @@ class ImageDataset(torch.utils.data.Dataset):
         if self.transform: 
             sample = self.transform(sample) 
           
-        return sample, target, index
+        return sample, target, index, path
     
     def pil_loader(self, path):
       # open path as file to avoid ResourceWarning (https://github.com/python-pillow/Pillow/issues/835)
       with open(path, 'rb') as f:
           img = Image.open(f)
-          return img.convert('L')
+          return img.convert('RGB')
       
 
 class NLNLCrossEntropyLoss():

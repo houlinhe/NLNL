@@ -16,7 +16,7 @@ def main():
 		assert os.path.isdir(opt.load_dir)
 		opt.save_dir = opt.load_dir
 	else: 			  		   		
-		opt.save_dir = '{}/{}'.format(opt.save_dir, "NLNL5New")
+		opt.save_dir = '{}/{}'.format(opt.save_dir, "NLNL5")
 	try:
 		os.makedirs(opt.save_dir)
 	except OSError:
@@ -92,7 +92,7 @@ def main():
 	num_classes = len(all_labels)
 	print("num class")
 	print(num_classes)
-	in_channels = 1
+	in_channels = 3
 	for c_label in all_labels:
 		if len(c_label)>1: # leave out empty labels
 			data[c_label] = data['Finding Labels'].map(lambda finding: 1.0 if c_label in finding else 0)
@@ -106,7 +106,7 @@ def main():
 	# data = data.sample(5000, weights=sample_weights) # 20000
 	# data = data.sample(1000, weights=sample_weights)
 	# print(data.apply(lambda x:print(x)))
-	data['disease_vec'] = data.apply(lambda x: [x[all_labels].values], 1).map(lambda x: x[0])
+	data['disease_vec'] = data.apply(lambda x: [x[all_labels].values], 1).map(lambda x: x[0]).map(lambda x: np.array([x.argmax()]))
 
 	with open("./real_data/train_val_list.txt") as f:
 		train_data_filenames = f.read().splitlines() 
@@ -203,6 +203,8 @@ def main():
 	labels = [x_value[0] for x_value in df_values]
 	paths = [x_value[1] for x_value in df_values]
 
+	print(labels[0:4])
+
 	trainset_array = [(paths[i], pd.to_numeric(labels[i], downcast='float')) for i in range(len(labels))]
 
 	transform_train = transforms.Compose(
@@ -233,7 +235,7 @@ def main():
 		transforms.RandomCrop(opt.imageSize, padding=4),
 		transforms.RandomHorizontalFlip(),
 		transforms.ToTensor(),
-		transforms.Normalize((mean[0]), (1.0))
+		transforms.Normalize((mean[0], mean[1], mean[2]), (1.0, 1.0, 1.0))
 			# transforms.Normalize((mean[0], mean[1], mean[2]), (0.5, 0.5, 0.5))
 		])
 
@@ -241,7 +243,7 @@ def main():
 		[
 		transforms.Resize(opt.imageSize),
 		transforms.ToTensor(),
-		transforms.Normalize((mean[0]), (1.0))
+		transforms.Normalize((mean[0], mean[1], mean[2]), (1.0, 1.0, 1.0))
 			# transforms.Normalize((mean[0], mean[1], mean[2]), (0.5, 0.5, 0.5))
 		])
 
@@ -304,21 +306,19 @@ def main():
 	# criterion_nll = nn.NLLLoss()
 	# TODO: idk if it is correct -> no as required by the paper it is cross entropy
 	# criterion  	  = nn.CrossEntropyLoss(weight=weight)
-	criterion  	  = NLNLCrossEntropyLossPL(weight, num_classes)
-	criterion_nll = NLNLCrossEntropyLossNL(weight, num_classes)
-	# criterion_nr  = nn.CrossEntropyLoss(reduce=False)
-	# criterion  	  = nn.BCELoss(weight=weight)
-	# criterion_nll = nn.BCELoss(weight=weight)
-	# criterion_nr  = nn.BCELoss(reduce=False)
+	criterion  	  = nn.CrossEntropyLoss(weight=weight)
+	criterion_nll = nn.NLLLoss()
+	criterion_nr  = nn.CrossEntropyLoss(reduce=False)
 
-	# https://www.aime.info/blog/en/multi-gpu-pytorch-training/
-	net = net.cuda()
+	net          .cuda()
+	criterion    .cuda()
+	criterion_nll.cuda()
+	criterion_nr .cuda()
 	net = nn.DataParallel(net)
 	# criterion_nr .cuda()
 
-	# optimizer = optim.SGD(net.parameters(), 
-	# 	lr=opt.lr, momentum=opt.momentum, weight_decay=opt.weight_decay)
-	optimizer = optim.Adam(net.parameters(), lr=opt.lr)
+	optimizer = optim.SGD(net.parameters(), 
+		lr=opt.lr, momentum=opt.momentum, weight_decay=opt.weight_decay)
 
 	train_preds  	  = torch.zeros(len(trainset), num_classes) - 1.
 	# num_hist = 10
@@ -351,250 +351,146 @@ def main():
 		
 	best_test_acc = 0.0
 	for epoch in range(epoch_resume, opt.max_epochs):
-		try:
-			train_loss = train_loss_neg = train_acc = num_no_change = 0.0
-			pl = 0.; nl = 0.; 
-			if epoch in opt.epoch_step:
-				for param_group in optimizer.param_groups:
-					param_group['lr'] *= 0.1
-					opt.lr = param_group['lr']
-
-			logger.info('Begin epoch [%6d]' %(epoch))
-			epoch_number.append(epoch)
-					
-			for i, data in enumerate(trainloader, 0):
-
-				net.zero_grad()
-				imgs, labels, index = data
-				data = None # save space
+		train_loss = train_loss_neg = train_acc = 0.0
+		pl = 0.; nl = 0.; 
+		if epoch in opt.epoch_step:
+			for param_group in optimizer.param_groups:
+				param_group['lr'] *= 0.1
+				opt.lr = param_group['lr']
 				
-				# Get complementary labels
-				labels_neg = torch.full(labels.shape, 1) - labels
-				indices_neg = labels_neg.multinomial(opt.ln_neg, replacement=False)
-				labels_neg = torch.full(labels.shape, 0.0)
-				for index_neg, item in enumerate(indices_neg):
-					for item_index in item:
-						if labels[index_neg, item_index] == 1.0:
-							break
-						labels_neg[index_neg, item_index] = 1.0
+		for i, data in enumerate(trainloader, 0):
 
-				imgs = Variable(imgs.cuda()); labels = Variable(labels.cuda()); 
-				labels_neg = Variable(labels_neg.cuda())
+			net.zero_grad()
+			imgs, labels, index = data
+			labels_neg = (labels.unsqueeze(-1).repeat(1, opt.ln_neg)
+			+ torch.LongTensor(len(labels), opt.ln_neg).random_(1, num_classes)) % num_classes
+			
+			assert labels_neg.max() <= num_classes-1 
+			assert labels_neg.min() >= 0
+			assert (labels_neg != labels.unsqueeze(-1).repeat(1, opt.ln_neg)).sum() == len(labels)*opt.ln_neg
+
+			imgs = Variable(imgs.cuda()); labels = Variable(labels.cuda()); 
+			labels_neg = Variable(labels_neg.cuda())
+
+			logits = net(imgs)
+
+			##
+			s_neg = torch.log( torch.clamp(1.-F.softmax(logits, -1), min=1e-5, max=1.) )
+			s_neg *= weight[labels].unsqueeze(-1).expand(s_neg.size()).cuda()
+
+			_, pred = torch.max(logits.data, -1)
+			acc = float((pred==labels.data).sum()) 
+			train_acc += acc
+
+			train_loss     += imgs.size(0)*criterion    (logits, labels         ).data
+			train_loss_neg += imgs.size(0)*criterion_nll(s_neg , labels_neg[:,0]).data
+			train_losses[index] = criterion_nr(logits, labels).cpu().data
+			##
+
+			if epoch >= opt.switch_epoch:
+				if epoch == opt.switch_epoch and i == 0: logger.info('Switch to SelNL') 
+				labels_neg[ train_preds_hist.mean(1)[index, labels] < 1/float(num_classes) ] = -100
+				labels = labels*0 - 100
+			else:
+				labels = labels*0 - 100
+
+			loss     = criterion    (logits    					, labels      					      ) * float((labels    >=0).sum())
+			loss_neg = criterion_nll(s_neg.repeat(opt.ln_neg, 1), labels_neg.t().contiguous().view(-1)) * float((labels_neg>=0).sum())
+
+			( (loss+loss_neg) / (float((labels>=0).sum())+float((labels_neg[:,0]>=0).sum())) ).backward()
+			optimizer.step()
+
+			train_preds[index.cpu()] = F.softmax(logits, -1).cpu().data
+			pl += float((labels         >=0).sum())
+			nl += float((labels_neg[:,0]>=0).sum())
+
+		train_loss     /= len(trainset)
+		train_loss_neg /= len(trainset)
+		train_acc      /= len(trainset)
+		pl_ratio  		= pl / float(len(trainset))
+		nl_ratio  		= nl / float(len(trainset))
+		noise_ratio = 1. - pl_ratio
+
+		noise = (np.array(trainset.imgs)[:,1].astype(int) != np.array(clean_labels)).sum()
+		logger.info('[%6d/%6d] loss: %5f, loss_neg: %5f, acc: %5f, lr: %5f, noise: %d, pl: %5f, nl: %5f, noise_ratio: %5f' 
+			%(epoch, opt.max_epochs, train_loss, train_loss_neg, train_acc, opt.lr, noise, pl_ratio, nl_ratio, noise_ratio))
+		###############################################################################################
+		if epoch == 0:
+			for i in range(in_channels): imgs.data[:,i] += mean[i].cuda()
+			img = vutils.make_grid(imgs.data)
+			vutils.save_image(img, '%s/x.jpg'%(opt.save_dir))
+			logger.info('%s/x.jpg saved'%(opt.save_dir))
+
+		net.eval()
+		test_loss = test_acc = 0.0
+		with torch.no_grad():
+			for i, data in enumerate(testloader, 0):
+				imgs, labels = data
+				imgs = Variable(imgs.cuda()); labels = Variable(labels.cuda())
 
 				logits = net(imgs)
-				### Change from here
-				# print(logits)
+				loss = criterion(logits, labels)
+				test_loss += imgs.size(0)*loss.data
 
-				# pred = logits.data
-				# logits_pred = F.softmax(logits, -1)
 				_, pred = torch.max(logits.data, -1)
-				pred = pred.unsqueeze(1)
-				pred_acc = labels.gather(1, pred)
-				acc = torch.sum(pred_acc==1.0)
+				acc = float((pred==labels.data).sum())
+				test_acc += acc
 
-				train_acc += acc
+		test_loss /= len(testset)
+		test_acc  /= len(testset)
 
-				train_loss     += imgs.size(0)*criterion.loss(logits, labels         ).data
-				# only one label
-				train_loss_neg += imgs.size(0)*criterion_nll.loss(logits , labels_neg).data
-
-				if epoch >= opt.max_epochs_NL:
-					# selpl
-					if epoch == opt.max_epochs_NL and i == 0: logger.info('Switch to SelPL')
-					## SelPL
-					for items_index, labels_sub in enumerate(labels):
-						this_index = index[items_index].cpu() # get the index of the image
-						set_invalid = True
-
-						# one logit label
-						for index_labels, labels_value in enumerate(labels_sub):
-							# now treat as valid if one of the labels is correct (>= the value)
-							if labels_value == 1 or labels_value == 1.0:
-								if train_preds_hist.mean(1)[this_index, index_labels] >= opt.cut:
-									set_invalid = False
-									break
-							
-						if set_invalid:
-							labels[items_index] = -100
-					labels_neg = labels_neg*0 - 100
-				elif epoch >= opt.switch_epoch:
-					if epoch == opt.switch_epoch and i == 0: logger.info('Switch to SelNL') 
-					for items_index, labels_sub in enumerate(labels):
-						this_index = index[items_index].cpu()
-						set_invalid = True
-
-						# one logit label
-						for index_labels, labels_value in enumerate(labels_sub):
-							# now treat as valid if one of the labels is correct (>= the value)
-							if labels_value == 1 or labels_value == 1.0:
-								# print("============================")
-								# print(items_index)
-								# print(train_preds_hist.mean(1)[this_index, index_labels])
-								# print(train_preds_hist.mean(1)[this_index, index_labels] < 1/float(num_classes))
-								if train_preds_hist.mean(1)[this_index, index_labels] >= 1/float(num_classes):
-									set_invalid = False
-									break
-							
-						if set_invalid:
-							labels_neg[items_index] = -100
-					labels = labels*0 - 100
-				else:
-					if epoch == 0 and i == 0: logger.info('Begin to NL')
-					labels = labels*0 - 100
-				
-				loss     = criterion.loss(logits    					, labels      					      ) * float((labels>=0).sum())
-				loss_neg = criterion_nll.loss(logits, labels_neg.contiguous()) * float((labels_neg>=0).sum())
-
-				divider = (float((labels>=0).sum()) 
-													+ float((labels_neg>=0).sum()))
-				
-				# print("-------------")
-				# print(divider)
-				
-				if divider > 0:
-					cal_loss = (loss+loss_neg) / (float((labels>=0).sum()) 
-														+ float((labels_neg>=0).sum()))
-					# cal_loss.backward()
-					cal_loss.backward()
-					# print(net.layer4[2].conv2.weight.grad[0, 0, 0])
-					# print(net.layer4[2].conv2.weight[0,0,0])
-					# print("cal_loss: " + str(cal_loss))
-					if i == 0 and epoch % 5 == 0:
-						logger.info("Gradient")
-						logger.info(net.module.layer4[2].conv2.weight.grad[0, 0, 0])
-						logger.info(net.module.layer4[2].conv2.weight[0,0,0])
-					optimizer.step()
-
-					train_preds[index.cpu()] = F.softmax(logits, -1).cpu().data
-					pl += float((labels         >=0).sum() / float(num_classes))
-					# TODO: I changed this
-					nl += float((labels_neg >= 0).sum()) / float(num_classes)
-				else:
-					num_no_change += 1
-
-			train_loss     /= len(trainset)
-			train_loss_neg /= len(trainset)
-			# train_loss_real /= len(trainset)
-			train_acc      /= len(trainset)
-			pl_ratio  		= pl / float(len(trainset))
-			nl_ratio  		= nl / float(len(trainset))
-			noise_ratio = 1. - pl_ratio
-
-			try:
-				pred_acc_train.append(train_acc.cpu())
-			except:
-				pred_acc_train.append(train_acc)
-
-			try:
-				pred_loss_train.append(train_loss.cpu())
-			except:
-				pred_loss_train.append(train_loss)
-
-			try:
-				pred_loss_train_neg.append(train_loss_neg.cpu())
-			except:
-				pred_loss_train_neg.append(train_loss_neg)
-
-			plt.plot(epoch_number, pred_acc_train, color="r")
-			plt.savefig("Train_Accuracy.png")
-			plt.clf()
-			plt.plot(epoch_number, pred_loss_train, color="r")
-			plt.savefig("Train_Loss.png")
-			plt.clf()
-			plt.plot(epoch_number, pred_loss_train_neg, color="r")
-			plt.savefig("Train_Negative_Loss.png")
-			plt.clf()
-
-			logger.info('All labels are 0[%6d]' %(num_no_change))
-
-			logger.info('[%6d/%6d] loss: %5f, loss_neg: %5f, loss_real(cal_loss): %5f, acc: %5f, lr: %5f, pl: %5f, nl: %5f, noise_ratio: %5f' 
-				%(epoch, opt.max_epochs, train_loss, train_loss_neg, cal_loss, train_acc, opt.lr, pl_ratio, nl_ratio, noise_ratio))
-			###############################################################################################
-			if epoch == 0:
-				for i in range(in_channels): imgs.data[:,i] += mean[i].cuda()
-				img = vutils.make_grid(imgs.data)
-				vutils.save_image(img, '%s/x.jpg'%(opt.save_dir))
-				logger.info('%s/x.jpg saved'%(opt.save_dir))
-
-			net.eval()
-			test_loss = test_acc = 0.0
-			with torch.no_grad():
-				for i, data in enumerate(testloader, 0):
-					imgs, labels, _ = data
-					data = None
-					imgs = Variable(imgs.cuda()); labels = Variable(labels.cuda())
-
-					logits = net(imgs)
-					loss = criterion.loss(logits, labels)
-					test_loss += imgs.size(0)*loss.data
-
-					# logits_pred = F.softmax(logits, -1)
-					_, pred = torch.max(logits.data, -1)
-					pred = pred.unsqueeze(1)
-					if i % 100 == 0 and epoch % 5 == 0:
-						logger.info("Pred")
-						logger.info(pred[:5])
-						logger.info("Labels")
-						logger.info(labels[:5])
-						logger.info("========")
-					pred_acc = labels.gather(1, pred)
-					acc = float(torch.sum(pred_acc==1.0))
-					test_acc += acc
-
-			test_loss /= len(testset)
-			test_acc  /= len(testset)
-
-			try:
-				pred_acc_test.append(test_acc.cpu())
-			except:
-				pred_acc_test.append(test_acc)
-
-			try:
-				pred_loss_test.append(test_loss.cpu())
-			except:
-				pred_loss_test.append(test_loss)
-			
-			plt.plot(epoch_number, pred_acc_test, color="r")
-			plt.savefig("Test_Accuracy.png")
-			plt.clf()
-			plt.plot(epoch_number, pred_loss_test, color="r")
-			plt.savefig("Test_Loss.png")
-			plt.clf()
-			###############################################################################################
-			logger.info('\tTESTING...loss: %5f, acc: %5f, best_acc: %5f'
-				%(test_loss, test_acc, best_test_acc))
-			net.train()
-			###############################################################################################
-			# assert train_preds[train_preds<0].nelement() == 0
-			print(train_preds.shape)
-			train_preds_hist[:, epoch%num_hist] = train_preds
-			train_preds = train_preds*0 - 1.
-			# assert train_losses[train_losses<0].nelement() == 0
-			train_losses = train_losses*0 - 1.
-			###############################################################################################
-			is_best = test_acc > best_test_acc
-			best_test_acc = max(test_acc, best_test_acc)
-			state = ({
-				'epoch' 		  : epoch,
-				'state_dict' 	  : net 	 .module.state_dict(),
-				'optimizer' 	  : optimizer.state_dict(),
-				'train_preds_hist': train_preds_hist,
-				'pl_ratio' 		  : pl_ratio,
-				'nl_ratio' 		  : nl_ratio,
-				})
-			logger.info('saving model...')
-			fn = os.path.join(opt.save_dir, 'checkpoint.pth.tar')
+		inds  	  = np.argsort(np.array(train_losses))[::-1]
+		rnge  	  = int(len(trainset)*noise_ratio)
+		inds_filt = inds[:rnge]
+		recall    = float( len(np.intersect1d(inds_filt, inds_noisy)) ) / float(len(inds_noisy))
+		precision = float( len(np.intersect1d(inds_filt, inds_noisy)) ) / float(rnge)
+		###############################################################################################
+		logger.info('\tTESTING...loss: %5f, acc: %5f, best_acc: %5f, recall: %5f, precision: %5f'
+			%(test_loss, test_acc, best_test_acc, recall, precision))
+		net.train()
+		###############################################################################################
+		assert train_preds[train_preds<0].nelement() == 0
+		train_preds_hist[:, epoch%num_hist] = train_preds
+		train_preds = train_preds*0 - 1.
+		assert train_losses[train_losses<0].nelement() == 0
+		train_losses = train_losses*0 - 1.
+		###############################################################################################
+		is_best = test_acc > best_test_acc
+		best_test_acc = max(test_acc, best_test_acc)
+		state = ({
+			'epoch' 		  : epoch,
+			'state_dict' 	  : net 	 .state_dict(),
+			'optimizer' 	  : optimizer.state_dict(),
+			'train_preds_hist': train_preds_hist,
+			'pl_ratio' 		  : pl_ratio,
+			'nl_ratio' 		  : nl_ratio,
+			})
+		logger.info('saving model...')
+		fn = os.path.join(opt.save_dir, 'checkpoint.pth.tar')
+		torch.save(state, fn)
+		if epoch % 100 == 0 or epoch == opt.switch_epoch-1 or epoch == opt.max_epochs-1:
+			fn = os.path.join(opt.save_dir, 'checkpoint_epoch%d.pth.tar'%(epoch))
 			torch.save(state, fn)
-			if epoch % 100 == 0 or epoch == opt.switch_epoch-1 or epoch == opt.max_epochs_NL-1 or epoch == opt.max_epochs_NL-1:
-				fn = os.path.join(opt.save_dir, 'checkpoint_epoch%d.pth.tar'%(epoch))
-				torch.save(state, fn)
-			if is_best: 
-				fn_best = os.path.join(opt.save_dir, 'model_best.pth.tar')
-				logger.info('saving best model...')
-				shutil.copyfile(fn, fn_best)
-		except Exception as e:
-			logger.info("Error happens on " + str(epoch))
-			logger.info(e)
+		# if is_best: 
+		# 	fn_best = os.path.join(opt.save_dir, 'model_best.pth.tar')
+		# 	logger.info('saving best model...')
+		# 	shutil.copyfile(fn, fn_best)
+
+		if epoch % 10 == 0:
+			logger.info('saving histogram...')
+			plt.hist(train_preds_hist.mean(1)[torch.arange(len(trainset)), np.array(trainset.imgs)[:,1].astype(int)], bins=20, range=(0., 1.), edgecolor='black', color='g')
+			plt.xlabel('probability'); plt.ylabel('number of data')
+			plt.grid()
+			plt.savefig(opt.save_dir+'/histogram_epoch%03d.jpg'%(epoch))
+			plt.clf()
+
+			logger.info('saving separated histogram...')
+			plt.hist(train_preds_hist.mean(1)[torch.arange(len(trainset))[inds_clean], np.array(trainset.imgs)[:,1].astype(int)[inds_clean]], bins=20, range=(0., 1.), edgecolor='black', alpha=0.5, label='clean')
+			plt.hist(train_preds_hist.mean(1)[torch.arange(len(trainset))[inds_noisy], np.array(trainset.imgs)[:,1].astype(int)[inds_noisy]], bins=20, range=(0., 1.), edgecolor='black', alpha=0.5, label='noisy')
+			plt.xlabel('probability'); plt.ylabel('number of data')
+			plt.grid()
+			plt.savefig(opt.save_dir+'/histogram_sep_epoch%03d.jpg'%(epoch))
+			plt.clf()
 
 if __name__ == "__main__":
 	import args

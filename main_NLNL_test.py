@@ -1,6 +1,6 @@
 from __future__ import print_function
 def main():
-	opt = args.args()
+	opt = args.args_test()
 
 	print("GPU information")
 	print(torch.cuda.is_available())
@@ -16,7 +16,7 @@ def main():
 		assert os.path.isdir(opt.load_dir)
 		opt.save_dir = opt.load_dir
 	else: 			  		   		
-		opt.save_dir = '{}/{}'.format(opt.save_dir, "NLNL5New")
+		opt.save_dir = '{}/{}'.format(opt.save_dir, "NLNLTest")
 	try:
 		os.makedirs(opt.save_dir)
 	except OSError:
@@ -113,7 +113,7 @@ def main():
 	with open("./real_data/test_list.txt") as f:
 		test_data_filenames = f.read().splitlines()
 
-	all_sample_size = 19000
+	all_sample_size = 1000
 	# all_sample_size = 1000
 	num_class_sel = num_classes
 	all_sample_weight = 0.2
@@ -136,7 +136,7 @@ def main():
 	data_no_temp = data[data['Finding Labels'] == "Infiltration"]
 	data_no_temp_test = data_no_temp[data_no_temp['Image Index'].isin(test_data_filenames)]
 	data_no_temp = data_no_temp[data_no_temp['Image Index'].isin(train_data_filenames)]
-	train_df = pd.concat([train_df, data_no_temp.sample(2800)], ignore_index=True, sort=False)
+	train_df = pd.concat([train_df, data_no_temp], ignore_index=True, sort=False)
 	test_df = pd.concat([test_df, data_no_temp_test], ignore_index=True, sort=False)
 
 
@@ -199,9 +199,22 @@ def main():
 
 	pd.set_option("display.max_columns", None)
 	print(train_df['disease_vec'])
+	# labels = train_df['disease_vec'].values # Double -> Float
+	# paths = train_df['path'].values
+
+	# labels, paths = train_df[['disease_vec', 'path']].values
 	df_values = train_df[['disease_vec', 'path']].values
 	labels = [x_value[0] for x_value in df_values]
 	paths = [x_value[1] for x_value in df_values]
+	print(labels[0:10])
+	print(paths[0:10])
+	print()
+	print(labels[5000:5010])
+	print(paths[5000:5010])
+	print()
+	print(labels[15000:15010])
+	print(paths[15000:15010])
+	print()
 
 	trainset_array = [(paths[i], pd.to_numeric(labels[i], downcast='float')) for i in range(len(labels))]
 
@@ -221,11 +234,20 @@ def main():
 
 	mean = 0
 	for i, data in enumerate(trainloader, 0):
-		imgs, labels, index = data
+		imgs, labels, index, _ = data
+		# print(labels[0:5])
+		# print(index[0:5])
+		# # print(path[0:5])
+		# print(imgs.shape)
+		# print(torch.from_numpy(np.mean(np.asarray(imgs), axis=(2,3))))
+		# print(torch.from_numpy(np.mean(np.asarray(imgs), axis=(2,3))).shape)
+		# print(torch.from_numpy(np.mean(np.asarray(imgs), axis=(2,3))))
+		# print(torch.from_numpy(np.mean(np.asarray(imgs), axis=(2,3))).sum(0))
 
 		mean += torch.from_numpy(np.mean(np.asarray(imgs), axis=(2,3))).sum(0)
 	mean = mean / len(trainset)
 	#
+	print(mean)
 
 	transform_train = transforms.Compose(
 		[
@@ -316,9 +338,8 @@ def main():
 	net = nn.DataParallel(net)
 	# criterion_nr .cuda()
 
-	# optimizer = optim.SGD(net.parameters(), 
-	# 	lr=opt.lr, momentum=opt.momentum, weight_decay=opt.weight_decay)
-	optimizer = optim.Adam(net.parameters(), lr=opt.lr)
+	optimizer = optim.SGD(net.parameters(), 
+		lr=opt.lr, momentum=opt.momentum, weight_decay=opt.weight_decay)
 
 	train_preds  	  = torch.zeros(len(trainset), num_classes) - 1.
 	# num_hist = 10
@@ -365,7 +386,10 @@ def main():
 			for i, data in enumerate(trainloader, 0):
 
 				net.zero_grad()
-				imgs, labels, index = data
+				imgs, labels, index, path = data
+				print(labels[0:5])
+				print(index[0:5])
+				print(path[0:5])
 				data = None # save space
 				
 				# Get complementary labels
@@ -520,7 +544,7 @@ def main():
 			test_loss = test_acc = 0.0
 			with torch.no_grad():
 				for i, data in enumerate(testloader, 0):
-					imgs, labels, _ = data
+					imgs, labels, _, _ = data
 					data = None
 					imgs = Variable(imgs.cuda()); labels = Variable(labels.cuda())
 
@@ -531,12 +555,11 @@ def main():
 					# logits_pred = F.softmax(logits, -1)
 					_, pred = torch.max(logits.data, -1)
 					pred = pred.unsqueeze(1)
-					if i % 100 == 0 and epoch % 5 == 0:
+					if i == 0 and epoch % 5 == 0:
 						logger.info("Pred")
-						logger.info(pred[:5])
+						logger.info(pred[:3])
 						logger.info("Labels")
-						logger.info(labels[:5])
-						logger.info("========")
+						logger.info(labels[:3])
 					pred_acc = labels.gather(1, pred)
 					acc = float(torch.sum(pred_acc==1.0))
 					test_acc += acc

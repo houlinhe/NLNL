@@ -9,9 +9,11 @@ GPU='0,1' setting='--dataset cifar10_wo_val --model resnet34 --noise 0.2 --noise
 # GPU=0 setting='--dataset cifar10_wo_val --model resnet34 --noise 0.2 --noise_type val_split_symm_exc'
 # CUDA_VISIBLE_DEVICES=$GPU python3 main_NL.py $setting
 # CUDA_VISIBLE_DEVICES=$GPU python main_NLNL.py $setting
-CUDA_VISIBLE_DEVICES=$GPU python main_NLNL_5.py $setting
-# CUDA_VISIBLE_DEVICES=$GPU python main_NLNL_continue.py $setting
 # CUDA_VISIBLE_DEVICES=$GPU python main_NLNL_original.py $setting
+
+CUDA_VISIBLE_DEVICES=$GPU python main_NLNL_7_short.py $setting
+# CUDA_VISIBLE_DEVICES=$GPU python main_NLNL_test.py $setting
+# CUDA_VISIBLE_DEVICES=$GPU python main_NLNL_continue.py $setting
 # CUDA_VISIBLE_DEVICES=$GPU python3 main_NLNL_test.py $setting
 # CUDA_VISIBLE_DEVICES=$GPU python3 main_NL_o.py $setting
 # CUDA_VISIBLE_DEVICES=$GPU python3 main_NL_Real_Dataset.py $setting

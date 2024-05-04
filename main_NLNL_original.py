@@ -51,6 +51,9 @@ def main():
 	mean = 0
 	for i, data in enumerate(trainloader, 0):
 		imgs, labels = data
+		print(imgs.shape)
+		print(torch.from_numpy(np.mean(np.asarray(imgs), axis=(2,3))))
+		print(torch.from_numpy(np.mean(np.asarray(imgs), axis=(2,3))).shape)
 		mean += torch.from_numpy(np.mean(np.asarray(imgs), axis=(2,3))).sum(0)
 	mean = mean / len(trainset)
 	##
