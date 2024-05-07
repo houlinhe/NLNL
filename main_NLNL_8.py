@@ -121,36 +121,36 @@ def main():
 	data_no_temp = data[data['Finding Labels'] == "Effusion"]
 	data_no_temp_test = data_no_temp[data_no_temp['Image Index'].isin(test_data_filenames)].sample(500)
 	data_no_temp = data_no_temp.drop(data_no_temp_test.index)
-	train_df = data_no_temp.sample(min(len(data_no_temp.index), 8000))
+	train_df = data_no_temp.sample(min(len(data_no_temp.index), 6000))
 	test_df = data_no_temp_test
 
 	logger.info("Number of Effusion")
 	logger.info("Training:")
-	logger.info(min(len(data_no_temp.index), 8000))
+	logger.info(min(len(data_no_temp.index), 6000))
 	logger.info("Testing:")
 	logger.info(len(data_no_temp_test.index))
 
 	data_no_temp = data[data['Finding Labels'] == "Infiltration"]
 	data_no_temp_test = data_no_temp[data_no_temp['Image Index'].isin(test_data_filenames)].sample(500)
 	data_no_temp = data_no_temp.drop(data_no_temp_test.index)
-	train_df = pd.concat([train_df, data_no_temp.sample(min(len(data_no_temp.index), 8000))], ignore_index=True, sort=False)
+	train_df = pd.concat([train_df, data_no_temp.sample(min(len(data_no_temp.index), 6000))], ignore_index=True, sort=False)
 	test_df = pd.concat([test_df, data_no_temp_test], ignore_index=True, sort=False)
 
 	logger.info("Number of Infiltration")
 	logger.info("Training:")
-	logger.info(min(len(data_no_temp.index), 8000))
+	logger.info(min(len(data_no_temp.index), 6000))
 	logger.info("Testing:")
 	logger.info(len(data_no_temp_test.index))
 
 	data_no_temp = data[data['Finding Labels'] == "Atelectasis"]
 	data_no_temp_test = data_no_temp[data_no_temp['Image Index'].isin(test_data_filenames)].sample(500)
 	data_no_temp = data_no_temp.drop(data_no_temp_test.index)
-	train_df = pd.concat([train_df, data_no_temp.sample(min(len(data_no_temp.index), 8000))], ignore_index=True, sort=False)
+	train_df = pd.concat([train_df, data_no_temp.sample(min(len(data_no_temp.index), 6000))], ignore_index=True, sort=False)
 	test_df = pd.concat([test_df, data_no_temp_test], ignore_index=True, sort=False)
 
 	logger.info("Number of Atelectasis")
 	logger.info("Training:")
-	logger.info(min(len(data_no_temp.index), 8000))
+	logger.info(min(len(data_no_temp.index), 6000))
 	logger.info("Testing:")
 	logger.info(len(data_no_temp_test.index))
 
@@ -158,19 +158,19 @@ def main():
 	data_no_temp = data[data['Finding Labels'] == "Nodule"]
 	data_no_temp_test = data_no_temp[data_no_temp['Image Index'].isin(test_data_filenames)].sample(500)
 	data_no_temp = data_no_temp.drop(data_no_temp_test.index)
-	train_df = pd.concat([train_df, data_no_temp.sample(min(len(data_no_temp.index), 8000))], ignore_index=True, sort=False)
+	train_df = pd.concat([train_df, data_no_temp.sample(min(len(data_no_temp.index), 6000))], ignore_index=True, sort=False)
 	test_df = pd.concat([test_df, data_no_temp_test], ignore_index=True, sort=False)
 
 	logger.info("Number of Nodule")
 	logger.info("Training:")
-	logger.info(min(len(data_no_temp.index), 8000))
+	logger.info(min(len(data_no_temp.index), 6000))
 	logger.info("Testing:")
 	logger.info(len(data_no_temp_test.index))
 
 	# data_no_temp = data[data['Finding Labels'] == "Mass"]
 	# data_no_temp_test = data_no_temp[data_no_temp['Image Index'].isin(test_data_filenames)]
 	# data_no_temp = data_no_temp[data_no_temp['Image Index'].isin(train_data_filenames)]
-	# train_df = pd.concat([train_df, data_no_temp.sample(min(len(data_no_temp.index), 8000))], ignore_index=True, sort=False)
+	# train_df = pd.concat([train_df, data_no_temp.sample(min(len(data_no_temp.index), 6000))], ignore_index=True, sort=False)
 	# test_df = pd.concat([test_df, data_no_temp_test], ignore_index=True, sort=False)
 
 	data_no_temp = None
