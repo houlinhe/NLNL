@@ -8,7 +8,7 @@ def args():
 	parser.add_argument('--realdataroot', default='real_data', help='path to dataset')
 	parser.add_argument('--model', type=str, default='resnet34', help='type of model')
 	parser.add_argument('--workers', type=int, help='number of data loading workers', default=3)
-	parser.add_argument('--batchSize', type=int, default=16, help='input batch size') # 32
+	parser.add_argument('--batchSize', type=int, default=32, help='input batch size') # 32
 	parser.add_argument('--imageSize', type=int, default=224, help='the height / width of the input image to network')
 	# parser.add_argument('--imageSize', type=int, default=224, help='the height / width of the input image to network')
 	# parser.add_argument('--imageSize', type=int, default=224, help='the height / width of the input image to network')
@@ -19,16 +19,16 @@ def args():
 	# parser.add_argument('--max_epochs_NL', type=int, default=240, help='number of iterations to train for') 
 	# parser.add_argument('--switch_epoch', type=int, default=120, help='epoch where training method changes')
 
-	# parser.add_argument('--max_epochs', type=int, default=240, help='number of iterations to train for') # looks like x 2??
-	# parser.add_argument('--max_epochs_NL', type=int, default=120, help='number of iterations to train for') 
-	# parser.add_argument('--switch_epoch', type=int, default=60, help='epoch where training method changes')
-	parser.add_argument('--max_epochs', type=int, default=88, help='number of iterations to train for') # looks like x 2??
-	parser.add_argument('--max_epochs_NL', type=int, default=44, help='number of iterations to train for') 
-	parser.add_argument('--switch_epoch', type=int, default=22, help='epoch where training method changes')
+	parser.add_argument('--max_epochs', type=int, default=240, help='number of iterations to train for') # looks like x 2??
+	parser.add_argument('--max_epochs_NL', type=int, default=120, help='number of iterations to train for') 
+	parser.add_argument('--switch_epoch', type=int, default=60, help='epoch where training method changes')
+	# parser.add_argument('--max_epochs', type=int, default=88, help='number of iterations to train for') # looks like x 2??
+	# parser.add_argument('--max_epochs_NL', type=int, default=44, help='number of iterations to train for') 
+	# parser.add_argument('--switch_epoch', type=int, default=22, help='epoch where training method changes')
  
 	# parser.add_argument('--lr', type=float, default=0.02, help='learning rate')
 	# parser.add_argument('--lr', type=float, default=0.01, help='learning rate')
-	parser.add_argument('--lr', type=float, default=0.002, help='learning rate')
+	parser.add_argument('--lr', type=float, default=0.005, help='learning rate')
 	parser.add_argument('--epoch_step', type=int, nargs='+', default=[-1, -1], help='Learning Rate Decay Steps') 
 	parser.add_argument('--momentum', type=float, default=0.9, help='Momentum')
 	parser.add_argument('--weight_decay', type=float, default=1e-4, help='Weight decay')

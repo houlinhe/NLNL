@@ -17,7 +17,7 @@ def main():
 		assert os.path.isdir(opt.load_dir)
 		opt.save_dir = opt.load_dir
 	else: 			  		   		
-		opt.save_dir = '{}/{}'.format(opt.save_dir, "NLNL7")
+		opt.save_dir = '{}/{}'.format(opt.save_dir, "NLNL7_rerun")
 	try:
 		os.makedirs(opt.save_dir)
 	except OSError:
@@ -68,21 +68,9 @@ def main():
 	# Added: drop no finding data['Finding Labels'] and ['Hernia']
 	# data = data.drop(data[data['Finding Labels'] == "No Finding"].index)
 
-	data = data.drop(data[data['Finding Labels'].str.contains("\|") == True].index) # drop multi label
-
-	data = data.drop(data[data['Finding Labels'].str.contains("Cardiomegaly") == True].index)
-	data = data.drop(data[data['Finding Labels'].str.contains("Consolidation") == True].index)
-	data = data.drop(data[data['Finding Labels'].str.contains("Edema") == True].index)
-	data = data.drop(data[data['Finding Labels'].str.contains("Emphysema") == True].index)
-	
-	data = data.drop(data[data['Finding Labels'].str.contains("Fibrosis") == True].index)
-	data = data.drop(data[data['Finding Labels'].str.contains("Hernia") == True].index)
-	
-	# data = data.drop(data[data['Finding Labels'].str.contains("Mass") == True].index)
-	data = data.drop(data[data['Finding Labels'].str.contains("Pleural_Thickening") == True].index)
-	data = data.drop(data[data['Finding Labels'].str.contains("Pneumonia") == True].index)
-	data = data.drop(data[data['Finding Labels'].str.contains("Pneumothorax") == True].index)
-	data = data.drop(data[data['Finding Labels'].str.contains("No Finding") == True].index)
+	data = LabelDropper(data, ["Effusion", "Infiltration", "Atelectasis", "Nodule", "Mass"])
+	pd.set_option('display.max_rows', 500)
+	print(data)
 
 	print("now dataset length")
 	print(len(data))
@@ -127,8 +115,10 @@ def main():
 	# [ 1.5399,         5.9636,          6.1887,       13.1200,  1.7587,       9.7910,     8.7467,   82.0000,      0.6521,     2.8398,    0.0971,     2.0061,         5.9099,          23.4286,       3.9281]
 	# 		+														+												+			  +			+			+
 	# want 5 classes, each with 4000 labels
+
+	# Pneumothorax, Effusion, Atelectasis, Mass
+
 	data_no_temp = data[data['Finding Labels'] == "Effusion"]
- 	
 	data_no_temp_test = data_no_temp[data_no_temp['Image Index'].isin(test_data_filenames)]
 	data_no_temp = data_no_temp[data_no_temp['Image Index'].isin(train_data_filenames)]
 	train_df = data_no_temp
@@ -205,6 +195,9 @@ def main():
 	paths = [x_value[1] for x_value in df_values]
 
 	trainset_array = [(paths[i], pd.to_numeric(labels[i], downcast='float')) for i in range(len(labels))]
+	# print(trainset_array)
+	# print("trainset_array shape")
+	# print((torch.Tensor(trainset_array)).shape)
 
 	transform_train = transforms.Compose(
 		[
@@ -275,13 +268,12 @@ def main():
 		net = resnet.resnet34(in_channels=in_channels, num_classes=num_classes)
 	else: logger.info('no model exists')
 
-	labels_array = np.array(trainset.imgs)[:, 1]
+	labels_array = np.array(trainset.imgs, dtype=object)[:, 1]
 	weight = torch.FloatTensor(num_classes).cuda().zero_() + 1.
 	# weight_neg = torch.FloatTensor(num_classes).cuda().zero_() + 1.
 	for i in range(num_classes):
 		# Changed
 		temp_sum = 0
-		temp_sum_neg = 0
 		for image_label in labels_array:
 			if image_label[i].astype(int) == 1:
 				temp_sum += 1
@@ -311,7 +303,8 @@ def main():
 
 	# https://www.aime.info/blog/en/multi-gpu-pytorch-training/
 	net = net.cuda()
-	net = nn.DataParallel(net)
+
+	# net = nn.DataParallel(net)
 	# criterion_nr .cuda()
 
 	# optimizer = optim.SGD(net.parameters(), 
@@ -462,8 +455,10 @@ def main():
 						# print("cal_loss: " + str(cal_loss))
 						if i == 0 and epoch % 5 == 0:
 							logger.info("Gradient")
-							logger.info(net.module.layer4[2].conv2.weight.grad[0, 0, 0])
-							logger.info(net.module.layer4[2].conv2.weight[0,0,0])
+							# logger.info(net.module.layer4[2].conv2.weight.grad[0, 0, 0])
+							# logger.info(net.module.layer4[2].conv2.weight[0,0,0])
+							logger.info(net.layer4[2].conv2.weight.grad[0, 0, 0])
+							logger.info(net.layer4[2].conv2.weight[0,0,0])
 						optimizer.step()
 
 						train_preds[index.cpu()] = F.softmax(logits, -1).cpu().data
@@ -577,7 +572,8 @@ def main():
 				best_test_acc = max(test_acc, best_test_acc)
 				state = ({
 					'epoch' 		  : epoch,
-					'state_dict' 	  : net 	 .module.state_dict(),
+					# 'state_dict' 	  : net 	 .module.state_dict(),
+					'state_dict' 	  : net 	 .state_dict(),
 					'optimizer' 	  : optimizer.state_dict(),
 					'train_preds_hist': train_preds_hist,
 					'pl_ratio' 		  : pl_ratio,
@@ -632,7 +628,6 @@ if __name__ == "__main__":
 	import pandas as pd
 	from glob import glob
 	from itertools import chain
-	from sklearn.model_selection import train_test_split
-	from utils import ImageDataset, NLNLCrossEntropyLossNL, NLNLCrossEntropyLossPL
+	from utils import ImageDataset, NLNLCrossEntropyLossNL, NLNLCrossEntropyLossPL, LabelDropper
 	import time
 	main()

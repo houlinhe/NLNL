@@ -4,7 +4,6 @@ from torch.autograd import Variable
 from PIL import Image
 import math
 import torch.nn.functional as F
-from sklearn.metrics import roc_auc_score
 import numpy as np
 
 class ImageDataset(torch.utils.data.Dataset): 
@@ -120,3 +119,18 @@ class NLNLCrossEntropyLossPL():
                                 * loss_log[:,i] * y_true[:,i])*mask).sum(dim=0)/mask.sum(dim=0)
                 loss += -1 * loss_mean
         return loss
+    
+def LabelDropper(data, labels):
+
+    for index in len(labels):
+        label = labels[index]
+        
+        for index2 in len(labels):
+            if index != index2:
+                label2 = labels[index2]
+                data = data.drop(data[(data['Finding Labels'].str.contains(label) == True) & (data['Finding Labels'].str.contains(label2) == True)].index)
+
+        # finished dropping
+        data.loc[data['Finding Labels'].str.contains(label) == True, 'Finding Labels'] = label
+
+    return data
