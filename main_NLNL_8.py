@@ -17,7 +17,7 @@ def main():
 		assert os.path.isdir(opt.load_dir)
 		opt.save_dir = opt.load_dir
 	else: 			  		   		
-		opt.save_dir = '{}/{}'.format(opt.save_dir, "NLNL7_rerun")
+		opt.save_dir = '{}/{}'.format(opt.save_dir, "NLNL8")
 	try:
 		os.makedirs(opt.save_dir)
 	except OSError:
@@ -121,34 +121,45 @@ def main():
 	data_no_temp = data[data['Finding Labels'] == "Effusion"]
 	data_no_temp_test = data_no_temp[data_no_temp['Image Index'].isin(test_data_filenames)]
 	data_no_temp = data_no_temp[data_no_temp['Image Index'].isin(train_data_filenames)]
-	train_df = data_no_temp
+	train_df = data_no_temp.sample(min(len(data_no_temp.index), 8000))
 	test_df = data_no_temp_test
+
+	logger.info("Number of Effusion")
+	logger.info(min(len(data_no_temp.index), 8000))
 
 	data_no_temp = data[data['Finding Labels'] == "Infiltration"]
 	data_no_temp_test = data_no_temp[data_no_temp['Image Index'].isin(test_data_filenames)]
 	data_no_temp = data_no_temp[data_no_temp['Image Index'].isin(train_data_filenames)]
-	train_df = pd.concat([train_df, data_no_temp.sample(2800)], ignore_index=True, sort=False)
+	train_df = pd.concat([train_df, data_no_temp.sample(min(len(data_no_temp.index), 8000))], ignore_index=True, sort=False)
 	test_df = pd.concat([test_df, data_no_temp_test], ignore_index=True, sort=False)
 
+	logger.info("Number of Infiltration")
+	logger.info(min(len(data_no_temp.index), 8000))
 
 	data_no_temp = data[data['Finding Labels'] == "Atelectasis"]
 	data_no_temp_test = data_no_temp[data_no_temp['Image Index'].isin(test_data_filenames)]
 	data_no_temp = data_no_temp[data_no_temp['Image Index'].isin(train_data_filenames)]
-	train_df = pd.concat([train_df, data_no_temp], ignore_index=True, sort=False)
+	train_df = pd.concat([train_df, data_no_temp.sample(min(len(data_no_temp.index), 8000))], ignore_index=True, sort=False)
 	test_df = pd.concat([test_df, data_no_temp_test], ignore_index=True, sort=False)
+
+	logger.info("Number of Atelectasis")
+	logger.info(min(len(data_no_temp.index), 8000))
 
 	# These two less than the sample size
 	data_no_temp = data[data['Finding Labels'] == "Nodule"]
 	data_no_temp_test = data_no_temp[data_no_temp['Image Index'].isin(test_data_filenames)]
 	data_no_temp = data_no_temp[data_no_temp['Image Index'].isin(train_data_filenames)]
-	train_df = pd.concat([train_df, data_no_temp], ignore_index=True, sort=False)
+	train_df = pd.concat([train_df, data_no_temp.sample(min(len(data_no_temp.index), 8000))], ignore_index=True, sort=False)
 	test_df = pd.concat([test_df, data_no_temp_test], ignore_index=True, sort=False)
 
-	data_no_temp = data[data['Finding Labels'] == "Mass"]
-	data_no_temp_test = data_no_temp[data_no_temp['Image Index'].isin(test_data_filenames)]
-	data_no_temp = data_no_temp[data_no_temp['Image Index'].isin(train_data_filenames)]
-	train_df = pd.concat([train_df, data_no_temp], ignore_index=True, sort=False)
-	test_df = pd.concat([test_df, data_no_temp_test], ignore_index=True, sort=False)
+	logger.info("Number of Nodule")
+	logger.info(min(len(data_no_temp.index), 8000))
+
+	# data_no_temp = data[data['Finding Labels'] == "Mass"]
+	# data_no_temp_test = data_no_temp[data_no_temp['Image Index'].isin(test_data_filenames)]
+	# data_no_temp = data_no_temp[data_no_temp['Image Index'].isin(train_data_filenames)]
+	# train_df = pd.concat([train_df, data_no_temp.sample(min(len(data_no_temp.index), 8000))], ignore_index=True, sort=False)
+	# test_df = pd.concat([test_df, data_no_temp_test], ignore_index=True, sort=False)
 
 	data_no_temp = None
 	data_no_temp_test = None
