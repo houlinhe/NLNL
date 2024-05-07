@@ -23,8 +23,10 @@ def args():
 	# parser.add_argument('--max_epochs_NL', type=int, default=120, help='number of iterations to train for') 
 	# parser.add_argument('--switch_epoch', type=int, default=60, help='epoch where training method changes')
 	parser.add_argument('--max_epochs', type=int, default=88, help='number of iterations to train for') # looks like x 2??
-	parser.add_argument('--max_epochs_NL', type=int, default=44, help='number of iterations to train for') 
-	parser.add_argument('--switch_epoch', type=int, default=22, help='epoch where training method changes')
+	# parser.add_argument('--max_epochs_NL', type=int, default=44, help='number of iterations to train for') 
+	# parser.add_argument('--switch_epoch', type=int, default=22, help='epoch where training method changes')
+	parser.add_argument('--max_epochs_NL', type=int, default=0, help='number of iterations to train for') 
+	parser.add_argument('--switch_epoch', type=int, default=0, help='epoch where training method changes')
  
 	# parser.add_argument('--lr', type=float, default=0.02, help='learning rate')
 	# parser.add_argument('--lr', type=float, default=0.01, help='learning rate')

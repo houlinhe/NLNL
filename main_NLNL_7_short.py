@@ -325,6 +325,10 @@ def main():
 	pl_ratio = 0.; nl_ratio = 1.-pl_ratio
 	train_losses      = torch.zeros(len(trainset)) - 1.
 
+	train_df = None
+	test_df = None
+	df_values = None
+
 	if opt.load_dir:
 		ckpt = torch.load(opt.load_dir+'/'+opt.load_pth)
 		net 	     .load_state_dict(ckpt['state_dict'])
