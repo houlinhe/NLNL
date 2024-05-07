@@ -122,10 +122,10 @@ class NLNLCrossEntropyLossPL():
     
 def LabelDropper(data, labels):
 
-    for index in len(labels):
+    for index in range(len(labels)):
         label = labels[index]
         
-        for index2 in len(labels):
+        for index2 in range(len(labels)):
             if index != index2:
                 label2 = labels[index2]
                 data = data.drop(data[(data['Finding Labels'].str.contains(label) == True) & (data['Finding Labels'].str.contains(label2) == True)].index)
