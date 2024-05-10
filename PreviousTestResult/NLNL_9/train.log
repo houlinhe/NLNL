@@ -1,0 +1,4020 @@
+Namespace(dataset='cifar10_wo_val', dataroot='data', realdataroot='real_data', model='resnet34', workers=3, batchSize=32, imageSize=224, max_epochs=480, max_epochs_NL=240, switch_epoch=120, lr=0.005, epoch_step=[-1, -1], momentum=0.9, weight_decay=0.0001, save_dir='logs/NLNL9', load_dir='', load_pth='', pretrained='', noise=0.2, noise_type='val_split_symm_exc', ln_neg=1, cut=0.5)
+24
+Number of Effusion
+Training:
+6000
+Testing:
+500
+Number of Infiltration
+Training:
+6000
+Testing:
+500
+Number of Atelectasis
+Training:
+5451
+Testing:
+500
+Number of Nodule
+Training:
+3366
+Testing:
+500
+Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    RandomCrop(size=(224, 224), padding=4)
+    RandomHorizontalFlip(p=0.5)
+    ToTensor()
+    Normalize(mean=0.49494901299476624, std=0.22869524359703064)
+)
+Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=0.49494901299476624, std=0.22869524359703064)
+)
+Weight
+[1.1007154 1.        1.        1.7825313]
+loading network FAILURE
+Begin epoch [     0]
+Begin to NL
+Gradient
+tensor([4.6461e-05, 7.8682e-05, 5.3863e-05], device='cuda:0')
+tensor([ 0.0047, -0.0035, -0.0057], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[     0/   480] loss: 3.042127, loss_neg: 0.316866, loss_real(cal_loss): 0.280311, acc: 0.288130, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+logs/NLNL9/x.jpg saved
+Pred
+tensor([[2],
+        [2],
+        [2],
+        [1],
+        [2]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 3.811110, acc: 0.248000, best_acc: 0.000000
+saving model...
+saving best model...
+Begin epoch [     1]
+All labels are 0[     0]
+[     1/   480] loss: 2.757472, loss_neg: 0.301528, loss_real(cal_loss): 0.253452, acc: 0.296921, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 3.415952, acc: 0.256500, best_acc: 0.248000
+saving model...
+saving best model...
+Begin epoch [     2]
+All labels are 0[     0]
+[     2/   480] loss: 2.738847, loss_neg: 0.302797, loss_real(cal_loss): 0.311975, acc: 0.293510, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 3.757722, acc: 0.250000, best_acc: 0.256500
+saving model...
+Begin epoch [     3]
+All labels are 0[     0]
+[     3/   480] loss: 2.910923, loss_neg: 0.300353, loss_real(cal_loss): 0.318919, acc: 0.290196, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 3.864465, acc: 0.250000, best_acc: 0.256500
+saving model...
+Begin epoch [     4]
+All labels are 0[     0]
+[     4/   480] loss: 2.962078, loss_neg: 0.302273, loss_real(cal_loss): 0.338390, acc: 0.297401, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 3.973612, acc: 0.262000, best_acc: 0.256500
+saving model...
+saving best model...
+Begin epoch [     5]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0056, -0.0243, -0.0174], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[     5/   480] loss: 3.046905, loss_neg: 0.303949, loss_real(cal_loss): 0.295414, acc: 0.291973, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+Pred
+tensor([[1],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 3.884863, acc: 0.250000, best_acc: 0.262000
+saving model...
+Begin epoch [     6]
+All labels are 0[     0]
+[     6/   480] loss: 3.048351, loss_neg: 0.302409, loss_real(cal_loss): 0.318565, acc: 0.293702, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 3.911955, acc: 0.250000, best_acc: 0.262000
+saving model...
+Begin epoch [     7]
+All labels are 0[     0]
+[     7/   480] loss: 3.365680, loss_neg: 0.300219, loss_real(cal_loss): 0.337022, acc: 0.298218, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.125865, acc: 0.289500, best_acc: 0.262000
+saving model...
+saving best model...
+Begin epoch [     8]
+All labels are 0[     0]
+[     8/   480] loss: 3.352559, loss_neg: 0.300415, loss_real(cal_loss): 0.268653, acc: 0.321324, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 4.427934, acc: 0.288000, best_acc: 0.289500
+saving model...
+Begin epoch [     9]
+All labels are 0[     0]
+[     9/   480] loss: 3.314274, loss_neg: 0.298728, loss_real(cal_loss): 0.370055, acc: 0.318538, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 6.595335, acc: 0.254000, best_acc: 0.289500
+saving model...
+Begin epoch [    10]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0103, -0.0301, -0.0211], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[    10/   480] loss: 3.451197, loss_neg: 0.298324, loss_real(cal_loss): 0.295681, acc: 0.315319, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [2],
+        [1],
+        [2],
+        [2]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 4.114364, acc: 0.290500, best_acc: 0.289500
+saving model...
+saving best model...
+Begin epoch [    11]
+All labels are 0[     0]
+[    11/   480] loss: 3.679247, loss_neg: 0.300030, loss_real(cal_loss): 0.313424, acc: 0.309795, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 4.998233, acc: 0.246500, best_acc: 0.290500
+saving model...
+Begin epoch [    12]
+All labels are 0[     0]
+[    12/   480] loss: 3.523365, loss_neg: 0.300411, loss_real(cal_loss): 0.340314, acc: 0.300860, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 4.925913, acc: 0.289500, best_acc: 0.290500
+saving model...
+Begin epoch [    13]
+All labels are 0[     0]
+[    13/   480] loss: 3.562383, loss_neg: 0.299757, loss_real(cal_loss): 0.315397, acc: 0.331460, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.098365, acc: 0.298500, best_acc: 0.290500
+saving model...
+saving best model...
+Begin epoch [    14]
+All labels are 0[     0]
+[    14/   480] loss: 3.601351, loss_neg: 0.298088, loss_real(cal_loss): 0.307795, acc: 0.341836, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.002513, acc: 0.289500, best_acc: 0.298500
+saving model...
+Begin epoch [    15]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0104, -0.0301, -0.0212], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[    15/   480] loss: 3.599489, loss_neg: 0.299807, loss_real(cal_loss): 0.300228, acc: 0.317865, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+Pred
+tensor([[2],
+        [1],
+        [2],
+        [2],
+        [2]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 4.837085, acc: 0.245000, best_acc: 0.298500
+saving model...
+Begin epoch [    16]
+All labels are 0[     0]
+[    16/   480] loss: 3.659671, loss_neg: 0.299904, loss_real(cal_loss): 0.365783, acc: 0.291252, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.338881, acc: 0.270500, best_acc: 0.298500
+saving model...
+Begin epoch [    17]
+All labels are 0[     0]
+[    17/   480] loss: 3.818213, loss_neg: 0.299135, loss_real(cal_loss): 0.258728, acc: 0.332613, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.386993, acc: 0.286000, best_acc: 0.298500
+saving model...
+Begin epoch [    18]
+All labels are 0[     0]
+[    18/   480] loss: 3.985299, loss_neg: 0.297536, loss_real(cal_loss): 0.230808, acc: 0.344766, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 6.148702, acc: 0.256500, best_acc: 0.298500
+saving model...
+Begin epoch [    19]
+All labels are 0[     0]
+[    19/   480] loss: 4.096272, loss_neg: 0.298701, loss_real(cal_loss): 0.369033, acc: 0.337320, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.924872, acc: 0.258000, best_acc: 0.298500
+saving model...
+Begin epoch [    20]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0100, -0.0299, -0.0209], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[    20/   480] loss: 4.176792, loss_neg: 0.299950, loss_real(cal_loss): 0.321977, acc: 0.288610, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+Pred
+tensor([[2],
+        [2],
+        [2],
+        [2],
+        [2]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 5.890489, acc: 0.250000, best_acc: 0.298500
+saving model...
+Begin epoch [    21]
+All labels are 0[     0]
+[    21/   480] loss: 4.221101, loss_neg: 0.300031, loss_real(cal_loss): 0.341193, acc: 0.284959, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.970974, acc: 0.248000, best_acc: 0.298500
+saving model...
+Begin epoch [    22]
+All labels are 0[     0]
+[    22/   480] loss: 4.267722, loss_neg: 0.301523, loss_real(cal_loss): 0.291139, acc: 0.310323, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 6.005893, acc: 0.250000, best_acc: 0.298500
+saving model...
+Begin epoch [    23]
+All labels are 0[     0]
+[    23/   480] loss: 4.268752, loss_neg: 0.297601, loss_real(cal_loss): 0.292694, acc: 0.315848, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.992279, acc: 0.250500, best_acc: 0.298500
+saving model...
+Begin epoch [    24]
+All labels are 0[     0]
+[    24/   480] loss: 4.278862, loss_neg: 0.301581, loss_real(cal_loss): 0.332419, acc: 0.286785, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.987500, acc: 0.280500, best_acc: 0.298500
+saving model...
+Begin epoch [    25]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0100, -0.0299, -0.0209], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[    25/   480] loss: 4.269112, loss_neg: 0.298485, loss_real(cal_loss): 0.264379, acc: 0.317433, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [2],
+        [1],
+        [2],
+        [2]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 5.972671, acc: 0.298500, best_acc: 0.298500
+saving model...
+Begin epoch [    26]
+All labels are 0[     0]
+[    26/   480] loss: 4.253438, loss_neg: 0.297595, loss_real(cal_loss): 0.292973, acc: 0.351876, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.984233, acc: 0.301000, best_acc: 0.298500
+saving model...
+saving best model...
+Begin epoch [    27]
+All labels are 0[     0]
+[    27/   480] loss: 4.255163, loss_neg: 0.296166, loss_real(cal_loss): 0.282824, acc: 0.344094, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.983568, acc: 0.294000, best_acc: 0.301000
+saving model...
+Begin epoch [    28]
+All labels are 0[     0]
+[    28/   480] loss: 4.251089, loss_neg: 0.294724, loss_real(cal_loss): 0.206012, acc: 0.355767, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.990118, acc: 0.294000, best_acc: 0.301000
+saving model...
+Begin epoch [    29]
+All labels are 0[     0]
+[    29/   480] loss: 4.251740, loss_neg: 0.296768, loss_real(cal_loss): 0.249286, acc: 0.359274, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.983675, acc: 0.303500, best_acc: 0.301000
+saving model...
+saving best model...
+Begin epoch [    30]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0100, -0.0299, -0.0209], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[    30/   480] loss: 4.250366, loss_neg: 0.294842, loss_real(cal_loss): 0.223457, acc: 0.365374, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+Pred
+tensor([[1],
+        [2],
+        [1],
+        [0],
+        [2]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 6.047348, acc: 0.280000, best_acc: 0.303500
+saving model...
+Begin epoch [    31]
+All labels are 0[     0]
+[    31/   480] loss: 4.249753, loss_neg: 0.295969, loss_real(cal_loss): 0.354155, acc: 0.357016, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.986032, acc: 0.304500, best_acc: 0.303500
+saving model...
+saving best model...
+Begin epoch [    32]
+All labels are 0[     0]
+[    32/   480] loss: 4.247015, loss_neg: 0.296992, loss_real(cal_loss): 0.310098, acc: 0.361483, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.987951, acc: 0.300500, best_acc: 0.304500
+saving model...
+Begin epoch [    33]
+All labels are 0[     0]
+[    33/   480] loss: 4.249497, loss_neg: 0.293827, loss_real(cal_loss): 0.388675, acc: 0.363261, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.981081, acc: 0.299000, best_acc: 0.304500
+saving model...
+Begin epoch [    34]
+All labels are 0[     0]
+[    34/   480] loss: 4.246179, loss_neg: 0.295526, loss_real(cal_loss): 0.298839, acc: 0.365711, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 6.174470, acc: 0.280000, best_acc: 0.304500
+saving model...
+Begin epoch [    35]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0100, -0.0299, -0.0209], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[    35/   480] loss: 4.241405, loss_neg: 0.296349, loss_real(cal_loss): 0.319273, acc: 0.371908, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [2],
+        [2],
+        [2],
+        [2]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 5.975865, acc: 0.303500, best_acc: 0.304500
+saving model...
+Begin epoch [    36]
+All labels are 0[     0]
+[    36/   480] loss: 4.243836, loss_neg: 0.296360, loss_real(cal_loss): 0.362160, acc: 0.361387, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.975493, acc: 0.297000, best_acc: 0.304500
+saving model...
+Begin epoch [    37]
+All labels are 0[     0]
+[    37/   480] loss: 4.242560, loss_neg: 0.297082, loss_real(cal_loss): 0.351573, acc: 0.368929, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.973394, acc: 0.305500, best_acc: 0.304500
+saving model...
+saving best model...
+Begin epoch [    38]
+All labels are 0[     0]
+[    38/   480] loss: 4.241988, loss_neg: 0.296726, loss_real(cal_loss): 0.299761, acc: 0.366864, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.974804, acc: 0.305500, best_acc: 0.305500
+saving model...
+Begin epoch [    39]
+All labels are 0[     0]
+[    39/   480] loss: 4.243863, loss_neg: 0.294305, loss_real(cal_loss): 0.264641, acc: 0.367344, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.983911, acc: 0.305000, best_acc: 0.305500
+saving model...
+Begin epoch [    40]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0100, -0.0299, -0.0209], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[    40/   480] loss: 4.244394, loss_neg: 0.293850, loss_real(cal_loss): 0.335348, acc: 0.369458, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [2],
+        [1],
+        [2],
+        [2]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 5.978415, acc: 0.306500, best_acc: 0.305500
+saving model...
+saving best model...
+Begin epoch [    41]
+All labels are 0[     0]
+[    41/   480] loss: 4.241176, loss_neg: 0.298086, loss_real(cal_loss): 0.242032, acc: 0.373541, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.981596, acc: 0.297000, best_acc: 0.306500
+saving model...
+Begin epoch [    42]
+All labels are 0[     0]
+[    42/   480] loss: 4.238952, loss_neg: 0.297093, loss_real(cal_loss): 0.184650, acc: 0.371715, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 6.023795, acc: 0.292000, best_acc: 0.306500
+saving model...
+Begin epoch [    43]
+All labels are 0[     0]
+[    43/   480] loss: 4.245170, loss_neg: 0.292459, loss_real(cal_loss): 0.354284, acc: 0.368977, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 6.018502, acc: 0.290000, best_acc: 0.306500
+saving model...
+Begin epoch [    44]
+All labels are 0[     0]
+[    44/   480] loss: 4.240867, loss_neg: 0.293965, loss_real(cal_loss): 0.266716, acc: 0.373012, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.998204, acc: 0.293000, best_acc: 0.306500
+saving model...
+Begin epoch [    45]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0100, -0.0299, -0.0209], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[    45/   480] loss: 4.245242, loss_neg: 0.295071, loss_real(cal_loss): 0.256590, acc: 0.368785, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [2],
+        [2],
+        [0],
+        [2]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 5.967074, acc: 0.317000, best_acc: 0.306500
+saving model...
+saving best model...
+Begin epoch [    46]
+All labels are 0[     0]
+[    46/   480] loss: 4.240812, loss_neg: 0.298149, loss_real(cal_loss): 0.263002, acc: 0.372052, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.976395, acc: 0.311000, best_acc: 0.317000
+saving model...
+Begin epoch [    47]
+All labels are 0[     0]
+[    47/   480] loss: 4.238796, loss_neg: 0.294957, loss_real(cal_loss): 0.161492, acc: 0.374261, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 6.068542, acc: 0.284000, best_acc: 0.317000
+saving model...
+Begin epoch [    48]
+All labels are 0[     0]
+[    48/   480] loss: 4.239532, loss_neg: 0.296631, loss_real(cal_loss): 0.293154, acc: 0.375174, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.986932, acc: 0.280000, best_acc: 0.317000
+saving model...
+Begin epoch [    49]
+All labels are 0[     0]
+[    49/   480] loss: 4.236165, loss_neg: 0.290485, loss_real(cal_loss): 0.344240, acc: 0.375895, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.968701, acc: 0.314500, best_acc: 0.317000
+saving model...
+Begin epoch [    50]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0100, -0.0299, -0.0209], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[    50/   480] loss: 4.235091, loss_neg: 0.295447, loss_real(cal_loss): 0.212093, acc: 0.380218, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+Pred
+tensor([[1],
+        [2],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 6.036853, acc: 0.280500, best_acc: 0.317000
+saving model...
+Begin epoch [    51]
+All labels are 0[     0]
+[    51/   480] loss: 4.234035, loss_neg: 0.296184, loss_real(cal_loss): 0.366036, acc: 0.379690, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.990685, acc: 0.288000, best_acc: 0.317000
+saving model...
+Begin epoch [    52]
+All labels are 0[     0]
+[    52/   480] loss: 4.235567, loss_neg: 0.293564, loss_real(cal_loss): 0.393963, acc: 0.380122, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.995399, acc: 0.292500, best_acc: 0.317000
+saving model...
+Begin epoch [    53]
+All labels are 0[     0]
+[    53/   480] loss: 4.237176, loss_neg: 0.294167, loss_real(cal_loss): 0.349894, acc: 0.376327, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.981709, acc: 0.300000, best_acc: 0.317000
+saving model...
+Begin epoch [    54]
+All labels are 0[     0]
+[    54/   480] loss: 4.233214, loss_neg: 0.296164, loss_real(cal_loss): 0.224222, acc: 0.380410, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.974586, acc: 0.308500, best_acc: 0.317000
+saving model...
+Begin epoch [    55]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0100, -0.0299, -0.0209], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[    55/   480] loss: 4.232464, loss_neg: 0.293964, loss_real(cal_loss): 0.315163, acc: 0.380170, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+Pred
+tensor([[2],
+        [2],
+        [2],
+        [1],
+        [2]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 5.985836, acc: 0.302000, best_acc: 0.317000
+saving model...
+Begin epoch [    56]
+All labels are 0[     0]
+[    56/   480] loss: 4.232945, loss_neg: 0.292991, loss_real(cal_loss): 0.346411, acc: 0.381419, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.979090, acc: 0.301500, best_acc: 0.317000
+saving model...
+Begin epoch [    57]
+All labels are 0[     0]
+[    57/   480] loss: 4.233209, loss_neg: 0.291501, loss_real(cal_loss): 0.305241, acc: 0.380410, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 6.016263, acc: 0.303000, best_acc: 0.317000
+saving model...
+Begin epoch [    58]
+All labels are 0[     0]
+[    58/   480] loss: 4.229300, loss_neg: 0.293237, loss_real(cal_loss): 0.254756, acc: 0.384013, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.990022, acc: 0.307500, best_acc: 0.317000
+saving model...
+Begin epoch [    59]
+All labels are 0[     0]
+[    59/   480] loss: 4.222159, loss_neg: 0.291795, loss_real(cal_loss): 0.358143, acc: 0.388048, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 6.011889, acc: 0.305000, best_acc: 0.317000
+saving model...
+Begin epoch [    60]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0085, -0.0289, -0.0206], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[    60/   480] loss: 4.223834, loss_neg: 0.292985, loss_real(cal_loss): 0.308842, acc: 0.389633, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [2],
+        [2],
+        [0],
+        [2]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 5.975821, acc: 0.317000, best_acc: 0.317000
+saving model...
+Begin epoch [    61]
+All labels are 0[     0]
+[    61/   480] loss: 4.226178, loss_neg: 0.293511, loss_real(cal_loss): 0.231758, acc: 0.386799, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.990458, acc: 0.309000, best_acc: 0.317000
+saving model...
+Begin epoch [    62]
+All labels are 0[     0]
+[    62/   480] loss: 4.222378, loss_neg: 0.291164, loss_real(cal_loss): 0.259993, acc: 0.386319, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.953788, acc: 0.320500, best_acc: 0.317000
+saving model...
+saving best model...
+Begin epoch [    63]
+All labels are 0[     0]
+[    63/   480] loss: 4.215947, loss_neg: 0.289537, loss_real(cal_loss): 0.271692, acc: 0.392804, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 6.022351, acc: 0.297000, best_acc: 0.320500
+saving model...
+Begin epoch [    64]
+All labels are 0[     0]
+[    64/   480] loss: 4.214386, loss_neg: 0.290668, loss_real(cal_loss): 0.273902, acc: 0.396503, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.957573, acc: 0.328000, best_acc: 0.320500
+saving model...
+saving best model...
+Begin epoch [    65]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[    65/   480] loss: 4.214877, loss_neg: 0.291597, loss_real(cal_loss): 0.222695, acc: 0.396983, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [2],
+        [2],
+        [2],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 5.977166, acc: 0.308500, best_acc: 0.328000
+saving model...
+Begin epoch [    66]
+All labels are 0[     0]
+[    66/   480] loss: 4.213912, loss_neg: 0.291478, loss_real(cal_loss): 0.384337, acc: 0.398472, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.973548, acc: 0.317000, best_acc: 0.328000
+saving model...
+Begin epoch [    67]
+All labels are 0[     0]
+[    67/   480] loss: 4.208292, loss_neg: 0.289318, loss_real(cal_loss): 0.310800, acc: 0.402219, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.985121, acc: 0.315000, best_acc: 0.328000
+saving model...
+Begin epoch [    68]
+All labels are 0[     0]
+[    68/   480] loss: 4.208453, loss_neg: 0.289142, loss_real(cal_loss): 0.209032, acc: 0.403564, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.975403, acc: 0.312000, best_acc: 0.328000
+saving model...
+Begin epoch [    69]
+All labels are 0[     0]
+[    69/   480] loss: 4.206264, loss_neg: 0.291633, loss_real(cal_loss): 0.323792, acc: 0.400778, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.995966, acc: 0.313000, best_acc: 0.328000
+saving model...
+Begin epoch [    70]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[    70/   480] loss: 4.207316, loss_neg: 0.293157, loss_real(cal_loss): 0.210532, acc: 0.404237, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+Pred
+tensor([[1],
+        [1],
+        [1],
+        [2],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 5.973961, acc: 0.316500, best_acc: 0.328000
+saving model...
+Begin epoch [    71]
+All labels are 0[     0]
+[    71/   480] loss: 4.200107, loss_neg: 0.289005, loss_real(cal_loss): 0.255284, acc: 0.407888, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.988162, acc: 0.317000, best_acc: 0.328000
+saving model...
+Begin epoch [    72]
+All labels are 0[     0]
+[    72/   480] loss: 4.199944, loss_neg: 0.288138, loss_real(cal_loss): 0.335058, acc: 0.409761, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.943772, acc: 0.329500, best_acc: 0.328000
+saving model...
+saving best model...
+Begin epoch [    73]
+All labels are 0[     0]
+[    73/   480] loss: 4.200564, loss_neg: 0.290682, loss_real(cal_loss): 0.280090, acc: 0.413076, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.959144, acc: 0.325500, best_acc: 0.329500
+saving model...
+Begin epoch [    74]
+All labels are 0[     0]
+[    74/   480] loss: 4.198530, loss_neg: 0.290458, loss_real(cal_loss): 0.323465, acc: 0.412067, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.979078, acc: 0.302500, best_acc: 0.329500
+saving model...
+Begin epoch [    75]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[    75/   480] loss: 4.188200, loss_neg: 0.289093, loss_real(cal_loss): 0.328607, acc: 0.418072, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+Pred
+tensor([[2],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 5.946055, acc: 0.345000, best_acc: 0.329500
+saving model...
+saving best model...
+Begin epoch [    76]
+All labels are 0[     0]
+[    76/   480] loss: 4.193373, loss_neg: 0.286312, loss_real(cal_loss): 0.271316, acc: 0.412884, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.941736, acc: 0.347500, best_acc: 0.345000
+saving model...
+saving best model...
+Begin epoch [    77]
+All labels are 0[     0]
+[    77/   480] loss: 4.193175, loss_neg: 0.289237, loss_real(cal_loss): 0.290245, acc: 0.420330, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.996302, acc: 0.308000, best_acc: 0.347500
+saving model...
+Begin epoch [    78]
+All labels are 0[     0]
+[    78/   480] loss: 4.192693, loss_neg: 0.288897, loss_real(cal_loss): 0.326702, acc: 0.418504, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.979456, acc: 0.320500, best_acc: 0.347500
+saving model...
+Begin epoch [    79]
+All labels are 0[     0]
+[    79/   480] loss: 4.180912, loss_neg: 0.286463, loss_real(cal_loss): 0.342854, acc: 0.425229, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.943738, acc: 0.336500, best_acc: 0.347500
+saving model...
+Begin epoch [    80]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[    80/   480] loss: 4.186978, loss_neg: 0.288409, loss_real(cal_loss): 0.257688, acc: 0.422107, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 5.933920, acc: 0.354000, best_acc: 0.347500
+saving model...
+saving best model...
+Begin epoch [    81]
+All labels are 0[     0]
+[    81/   480] loss: 4.180204, loss_neg: 0.286058, loss_real(cal_loss): 0.265462, acc: 0.429841, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.936895, acc: 0.357500, best_acc: 0.354000
+saving model...
+saving best model...
+Begin epoch [    82]
+All labels are 0[     0]
+[    82/   480] loss: 4.183947, loss_neg: 0.287831, loss_real(cal_loss): 0.256793, acc: 0.426046, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.935513, acc: 0.350500, best_acc: 0.357500
+saving model...
+Begin epoch [    83]
+All labels are 0[     0]
+[    83/   480] loss: 4.181177, loss_neg: 0.286184, loss_real(cal_loss): 0.250218, acc: 0.428160, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.992196, acc: 0.319500, best_acc: 0.357500
+saving model...
+Begin epoch [    84]
+All labels are 0[     0]
+[    84/   480] loss: 4.170690, loss_neg: 0.284429, loss_real(cal_loss): 0.262094, acc: 0.434981, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.957664, acc: 0.326000, best_acc: 0.357500
+saving model...
+Begin epoch [    85]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[    85/   480] loss: 4.170961, loss_neg: 0.283935, loss_real(cal_loss): 0.209704, acc: 0.437623, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [2],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 5.937174, acc: 0.337500, best_acc: 0.357500
+saving model...
+Begin epoch [    86]
+All labels are 0[     0]
+[    86/   480] loss: 4.166317, loss_neg: 0.284452, loss_real(cal_loss): 0.316836, acc: 0.439545, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.947134, acc: 0.365500, best_acc: 0.357500
+saving model...
+saving best model...
+Begin epoch [    87]
+All labels are 0[     0]
+[    87/   480] loss: 4.168870, loss_neg: 0.282253, loss_real(cal_loss): 0.198705, acc: 0.441514, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.944880, acc: 0.340500, best_acc: 0.365500
+saving model...
+Begin epoch [    88]
+All labels are 0[     0]
+[    88/   480] loss: 4.160160, loss_neg: 0.283054, loss_real(cal_loss): 0.248936, acc: 0.442907, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.936595, acc: 0.357000, best_acc: 0.365500
+saving model...
+Begin epoch [    89]
+All labels are 0[     0]
+[    89/   480] loss: 4.162562, loss_neg: 0.282117, loss_real(cal_loss): 0.352301, acc: 0.444877, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.920659, acc: 0.350000, best_acc: 0.365500
+saving model...
+Begin epoch [    90]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[    90/   480] loss: 4.161986, loss_neg: 0.281594, loss_real(cal_loss): 0.233935, acc: 0.444973, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+Pred
+tensor([[2],
+        [2],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 5.952442, acc: 0.339500, best_acc: 0.365500
+saving model...
+Begin epoch [    91]
+All labels are 0[     0]
+[    91/   480] loss: 4.155611, loss_neg: 0.280791, loss_real(cal_loss): 0.261943, acc: 0.447471, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.907618, acc: 0.373500, best_acc: 0.365500
+saving model...
+saving best model...
+Begin epoch [    92]
+All labels are 0[     0]
+[    92/   480] loss: 4.151091, loss_neg: 0.280881, loss_real(cal_loss): 0.282319, acc: 0.450449, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.940927, acc: 0.348500, best_acc: 0.373500
+saving model...
+Begin epoch [    93]
+All labels are 0[     0]
+[    93/   480] loss: 4.157991, loss_neg: 0.283756, loss_real(cal_loss): 0.238268, acc: 0.446414, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.920375, acc: 0.374500, best_acc: 0.373500
+saving model...
+saving best model...
+Begin epoch [    94]
+All labels are 0[     0]
+[    94/   480] loss: 4.153223, loss_neg: 0.282380, loss_real(cal_loss): 0.210697, acc: 0.451314, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.927036, acc: 0.358000, best_acc: 0.374500
+saving model...
+Begin epoch [    95]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[    95/   480] loss: 4.144413, loss_neg: 0.280788, loss_real(cal_loss): 0.411598, acc: 0.460153, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+Pred
+tensor([[1],
+        [2],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 5.943499, acc: 0.340500, best_acc: 0.374500
+saving model...
+Begin epoch [    96]
+All labels are 0[     0]
+[    96/   480] loss: 4.145018, loss_neg: 0.279343, loss_real(cal_loss): 0.138504, acc: 0.461930, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.955215, acc: 0.353000, best_acc: 0.374500
+saving model...
+Begin epoch [    97]
+All labels are 0[     0]
+[    97/   480] loss: 4.146696, loss_neg: 0.278650, loss_real(cal_loss): 0.281722, acc: 0.457943, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.910982, acc: 0.380500, best_acc: 0.374500
+saving model...
+saving best model...
+Begin epoch [    98]
+All labels are 0[     0]
+[    98/   480] loss: 4.141051, loss_neg: 0.279512, loss_real(cal_loss): 0.310250, acc: 0.462266, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.884654, acc: 0.394000, best_acc: 0.380500
+saving model...
+saving best model...
+Begin epoch [    99]
+All labels are 0[     0]
+[    99/   480] loss: 4.139161, loss_neg: 0.281049, loss_real(cal_loss): 0.323244, acc: 0.465245, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.947435, acc: 0.357000, best_acc: 0.394000
+saving model...
+Begin epoch [   100]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   100/   480] loss: 4.140714, loss_neg: 0.277941, loss_real(cal_loss): 0.220976, acc: 0.463275, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [0],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 5.914413, acc: 0.380500, best_acc: 0.394000
+saving model...
+Begin epoch [   101]
+All labels are 0[     0]
+[   101/   480] loss: 4.135735, loss_neg: 0.278803, loss_real(cal_loss): 0.263973, acc: 0.467262, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.926697, acc: 0.367000, best_acc: 0.394000
+saving model...
+Begin epoch [   102]
+All labels are 0[     0]
+[   102/   480] loss: 4.132621, loss_neg: 0.272332, loss_real(cal_loss): 0.189141, acc: 0.469664, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.899704, acc: 0.388000, best_acc: 0.394000
+saving model...
+Begin epoch [   103]
+All labels are 0[     0]
+[   103/   480] loss: 4.127378, loss_neg: 0.276779, loss_real(cal_loss): 0.408820, acc: 0.472402, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.907201, acc: 0.380000, best_acc: 0.394000
+saving model...
+Begin epoch [   104]
+All labels are 0[     0]
+[   104/   480] loss: 4.127110, loss_neg: 0.277693, loss_real(cal_loss): 0.251499, acc: 0.477542, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.913489, acc: 0.379000, best_acc: 0.394000
+saving model...
+Begin epoch [   105]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   105/   480] loss: 4.130303, loss_neg: 0.278235, loss_real(cal_loss): 0.211323, acc: 0.475092, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [1],
+        [2],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 5.917228, acc: 0.371000, best_acc: 0.394000
+saving model...
+Begin epoch [   106]
+All labels are 0[     0]
+[   106/   480] loss: 4.125882, loss_neg: 0.275709, loss_real(cal_loss): 0.289117, acc: 0.476389, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.907295, acc: 0.393500, best_acc: 0.394000
+saving model...
+Begin epoch [   107]
+All labels are 0[     0]
+[   107/   480] loss: 4.123958, loss_neg: 0.275574, loss_real(cal_loss): 0.380647, acc: 0.476389, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.920585, acc: 0.373000, best_acc: 0.394000
+saving model...
+Begin epoch [   108]
+All labels are 0[     0]
+[   108/   480] loss: 4.131278, loss_neg: 0.274139, loss_real(cal_loss): 0.211319, acc: 0.475573, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.911674, acc: 0.385000, best_acc: 0.394000
+saving model...
+Begin epoch [   109]
+All labels are 0[     0]
+[   109/   480] loss: 4.122139, loss_neg: 0.274015, loss_real(cal_loss): 0.314210, acc: 0.480521, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.892453, acc: 0.405000, best_acc: 0.394000
+saving model...
+saving best model...
+Begin epoch [   110]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   110/   480] loss: 4.120996, loss_neg: 0.278096, loss_real(cal_loss): 0.624886, acc: 0.481866, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [2],
+        [2],
+        [2],
+        [2]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 5.929153, acc: 0.368000, best_acc: 0.405000
+saving model...
+Begin epoch [   111]
+All labels are 0[     0]
+[   111/   480] loss: 4.116042, loss_neg: 0.273675, loss_real(cal_loss): 0.278003, acc: 0.484700, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.921034, acc: 0.387500, best_acc: 0.405000
+saving model...
+Begin epoch [   112]
+All labels are 0[     0]
+[   112/   480] loss: 4.119566, loss_neg: 0.275904, loss_real(cal_loss): 0.203083, acc: 0.483643, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.940263, acc: 0.379500, best_acc: 0.405000
+saving model...
+Begin epoch [   113]
+All labels are 0[     0]
+[   113/   480] loss: 4.116334, loss_neg: 0.272769, loss_real(cal_loss): 0.311425, acc: 0.485469, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.912163, acc: 0.389500, best_acc: 0.405000
+saving model...
+Begin epoch [   114]
+All labels are 0[     0]
+[   114/   480] loss: 4.112717, loss_neg: 0.275142, loss_real(cal_loss): 0.206972, acc: 0.488831, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.895934, acc: 0.394500, best_acc: 0.405000
+saving model...
+Begin epoch [   115]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   115/   480] loss: 4.108063, loss_neg: 0.273475, loss_real(cal_loss): 0.173880, acc: 0.492674, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+Pred
+tensor([[2],
+        [2],
+        [2],
+        [2],
+        [2]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 5.939790, acc: 0.368000, best_acc: 0.405000
+saving model...
+Begin epoch [   116]
+All labels are 0[     0]
+[   116/   480] loss: 4.110448, loss_neg: 0.269745, loss_real(cal_loss): 0.327502, acc: 0.491281, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.898720, acc: 0.389500, best_acc: 0.405000
+saving model...
+Begin epoch [   117]
+All labels are 0[     0]
+[   117/   480] loss: 4.112086, loss_neg: 0.272460, loss_real(cal_loss): 0.304143, acc: 0.488207, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.918507, acc: 0.384500, best_acc: 0.405000
+saving model...
+Begin epoch [   118]
+All labels are 0[     0]
+[   118/   480] loss: 4.109737, loss_neg: 0.273517, loss_real(cal_loss): 0.281638, acc: 0.491569, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.898746, acc: 0.395500, best_acc: 0.405000
+saving model...
+Begin epoch [   119]
+All labels are 0[     0]
+[   119/   480] loss: 4.103577, loss_neg: 0.270859, loss_real(cal_loss): 0.234679, acc: 0.493251, lr: 0.005000, pl: 0.000000, nl: 1.000000, noise_ratio: 1.000000
+	TESTING...loss: 5.897699, acc: 0.396000, best_acc: 0.405000
+saving model...
+Begin epoch [   120]
+Switch to SelNL
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   120/   480] loss: 4.134885, loss_neg: 0.285638, loss_real(cal_loss): 0.231563, acc: 0.491954, lr: 0.005000, pl: 0.000000, nl: 0.732286, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [2],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 6.046127, acc: 0.390500, best_acc: 0.405000
+saving model...
+Begin epoch [   121]
+All labels are 0[     0]
+[   121/   480] loss: 4.141877, loss_neg: 0.303390, loss_real(cal_loss): 0.117625, acc: 0.502042, lr: 0.005000, pl: 0.000000, nl: 0.720517, noise_ratio: 1.000000
+	TESTING...loss: 6.086251, acc: 0.381500, best_acc: 0.405000
+saving model...
+Begin epoch [   122]
+All labels are 0[     0]
+[   122/   480] loss: 4.150808, loss_neg: 0.299371, loss_real(cal_loss): 0.163219, acc: 0.499928, lr: 0.005000, pl: 0.000000, nl: 0.712206, noise_ratio: 1.000000
+	TESTING...loss: 6.062603, acc: 0.392000, best_acc: 0.405000
+saving model...
+Begin epoch [   123]
+All labels are 0[     0]
+[   123/   480] loss: 4.172435, loss_neg: 0.312212, loss_real(cal_loss): 0.205735, acc: 0.506893, lr: 0.005000, pl: 0.000000, nl: 0.702166, noise_ratio: 1.000000
+	TESTING...loss: 5.979208, acc: 0.403500, best_acc: 0.405000
+saving model...
+Begin epoch [   124]
+All labels are 0[     0]
+[   124/   480] loss: 4.175927, loss_neg: 0.318565, loss_real(cal_loss): 0.267238, acc: 0.507710, lr: 0.005000, pl: 0.000000, nl: 0.693328, noise_ratio: 1.000000
+	TESTING...loss: 6.082479, acc: 0.410500, best_acc: 0.405000
+saving model...
+saving best model...
+Begin epoch [   125]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   125/   480] loss: 4.206563, loss_neg: 0.324506, loss_real(cal_loss): 0.113424, acc: 0.507710, lr: 0.005000, pl: 0.000000, nl: 0.684345, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [0],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 6.036636, acc: 0.412000, best_acc: 0.410500
+saving model...
+saving best model...
+Begin epoch [   126]
+All labels are 0[     0]
+[   126/   480] loss: 4.215189, loss_neg: 0.335158, loss_real(cal_loss): 0.174503, acc: 0.511121, lr: 0.005000, pl: 0.000000, nl: 0.675410, noise_ratio: 1.000000
+	TESTING...loss: 6.239286, acc: 0.384000, best_acc: 0.412000
+saving model...
+Begin epoch [   127]
+All labels are 0[     0]
+[   127/   480] loss: 4.236544, loss_neg: 0.343388, loss_real(cal_loss): 0.192657, acc: 0.509055, lr: 0.005000, pl: 0.000000, nl: 0.667675, noise_ratio: 1.000000
+	TESTING...loss: 6.140907, acc: 0.408000, best_acc: 0.412000
+saving model...
+Begin epoch [   128]
+All labels are 0[     0]
+[   128/   480] loss: 4.243945, loss_neg: 0.348303, loss_real(cal_loss): 0.036768, acc: 0.507566, lr: 0.005000, pl: 0.000000, nl: 0.661575, noise_ratio: 1.000000
+	TESTING...loss: 6.153847, acc: 0.402500, best_acc: 0.412000
+saving model...
+Begin epoch [   129]
+All labels are 0[     0]
+[   129/   480] loss: 4.277151, loss_neg: 0.360939, loss_real(cal_loss): 0.144663, acc: 0.510352, lr: 0.005000, pl: 0.000000, nl: 0.654609, noise_ratio: 1.000000
+	TESTING...loss: 6.142080, acc: 0.405500, best_acc: 0.412000
+saving model...
+Begin epoch [   130]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   130/   480] loss: 4.268770, loss_neg: 0.366865, loss_real(cal_loss): 0.370944, acc: 0.512994, lr: 0.005000, pl: 0.000000, nl: 0.647980, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [2],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 6.291485, acc: 0.402500, best_acc: 0.412000
+saving model...
+Begin epoch [   131]
+All labels are 0[     0]
+[   131/   480] loss: 4.289966, loss_neg: 0.372167, loss_real(cal_loss): 0.053243, acc: 0.515348, lr: 0.005000, pl: 0.000000, nl: 0.644521, noise_ratio: 1.000000
+	TESTING...loss: 6.075150, acc: 0.409500, best_acc: 0.412000
+saving model...
+Begin epoch [   132]
+All labels are 0[     0]
+[   132/   480] loss: 4.284234, loss_neg: 0.379431, loss_real(cal_loss): 0.121120, acc: 0.515684, lr: 0.005000, pl: 0.000000, nl: 0.641927, noise_ratio: 1.000000
+	TESTING...loss: 6.252952, acc: 0.409500, best_acc: 0.412000
+saving model...
+Begin epoch [   133]
+All labels are 0[     0]
+[   133/   480] loss: 4.311121, loss_neg: 0.392657, loss_real(cal_loss): 0.137105, acc: 0.514099, lr: 0.005000, pl: 0.000000, nl: 0.639766, noise_ratio: 1.000000
+	TESTING...loss: 6.197984, acc: 0.414000, best_acc: 0.412000
+saving model...
+saving best model...
+Begin epoch [   134]
+All labels are 0[     0]
+[   134/   480] loss: 4.346272, loss_neg: 0.390858, loss_real(cal_loss): 0.093721, acc: 0.516021, lr: 0.005000, pl: 0.000000, nl: 0.636451, noise_ratio: 1.000000
+	TESTING...loss: 6.338332, acc: 0.400000, best_acc: 0.414000
+saving model...
+Begin epoch [   135]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   135/   480] loss: 4.327477, loss_neg: 0.392072, loss_real(cal_loss): 0.101180, acc: 0.515636, lr: 0.005000, pl: 0.000000, nl: 0.634578, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [2],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 6.167720, acc: 0.414500, best_acc: 0.414000
+saving model...
+saving best model...
+Begin epoch [   136]
+All labels are 0[     0]
+[   136/   480] loss: 4.329895, loss_neg: 0.398852, loss_real(cal_loss): 0.030952, acc: 0.518855, lr: 0.005000, pl: 0.000000, nl: 0.633040, noise_ratio: 1.000000
+	TESTING...loss: 6.203552, acc: 0.413000, best_acc: 0.414500
+saving model...
+Begin epoch [   137]
+All labels are 0[     0]
+[   137/   480] loss: 4.344869, loss_neg: 0.399521, loss_real(cal_loss): 0.148030, acc: 0.524043, lr: 0.005000, pl: 0.000000, nl: 0.631503, noise_ratio: 1.000000
+	TESTING...loss: 6.288274, acc: 0.407000, best_acc: 0.414500
+saving model...
+Begin epoch [   138]
+All labels are 0[     0]
+[   138/   480] loss: 4.355248, loss_neg: 0.410653, loss_real(cal_loss): 0.265338, acc: 0.520056, lr: 0.005000, pl: 0.000000, nl: 0.629774, noise_ratio: 1.000000
+	TESTING...loss: 6.229609, acc: 0.408500, best_acc: 0.414500
+saving model...
+Begin epoch [   139]
+All labels are 0[     0]
+[   139/   480] loss: 4.371531, loss_neg: 0.429590, loss_real(cal_loss): 0.066164, acc: 0.522362, lr: 0.005000, pl: 0.000000, nl: 0.629293, noise_ratio: 1.000000
+	TESTING...loss: 6.281789, acc: 0.417500, best_acc: 0.414500
+saving model...
+saving best model...
+Begin epoch [   140]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   140/   480] loss: 4.391652, loss_neg: 0.426005, loss_real(cal_loss): 0.107469, acc: 0.524379, lr: 0.005000, pl: 0.000000, nl: 0.627948, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 6.459794, acc: 0.395000, best_acc: 0.417500
+saving model...
+Begin epoch [   141]
+All labels are 0[     0]
+[   141/   480] loss: 4.399536, loss_neg: 0.428349, loss_real(cal_loss): 0.323713, acc: 0.522698, lr: 0.005000, pl: 0.000000, nl: 0.627180, noise_ratio: 1.000000
+	TESTING...loss: 6.343443, acc: 0.403500, best_acc: 0.417500
+saving model...
+Begin epoch [   142]
+All labels are 0[     0]
+[   142/   480] loss: 4.400157, loss_neg: 0.436871, loss_real(cal_loss): 0.049667, acc: 0.526445, lr: 0.005000, pl: 0.000000, nl: 0.626507, noise_ratio: 1.000000
+	TESTING...loss: 6.383105, acc: 0.408500, best_acc: 0.417500
+saving model...
+Begin epoch [   143]
+All labels are 0[     0]
+[   143/   480] loss: 4.385681, loss_neg: 0.414651, loss_real(cal_loss): 0.181728, acc: 0.527646, lr: 0.005000, pl: 0.000000, nl: 0.624922, noise_ratio: 1.000000
+	TESTING...loss: 6.520372, acc: 0.407000, best_acc: 0.417500
+saving model...
+Begin epoch [   144]
+All labels are 0[     0]
+[   144/   480] loss: 4.396729, loss_neg: 0.425982, loss_real(cal_loss): 0.011257, acc: 0.522265, lr: 0.005000, pl: 0.000000, nl: 0.624394, noise_ratio: 1.000000
+	TESTING...loss: 6.283839, acc: 0.410500, best_acc: 0.417500
+saving model...
+Begin epoch [   145]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   145/   480] loss: 4.383990, loss_neg: 0.425816, loss_real(cal_loss): 0.022720, acc: 0.527742, lr: 0.005000, pl: 0.000000, nl: 0.624249, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 6.272346, acc: 0.419500, best_acc: 0.417500
+saving model...
+saving best model...
+Begin epoch [   146]
+All labels are 0[     0]
+[   146/   480] loss: 4.403422, loss_neg: 0.445705, loss_real(cal_loss): 0.064455, acc: 0.525964, lr: 0.005000, pl: 0.000000, nl: 0.623913, noise_ratio: 1.000000
+	TESTING...loss: 6.378875, acc: 0.420500, best_acc: 0.419500
+saving model...
+saving best model...
+Begin epoch [   147]
+All labels are 0[     0]
+[   147/   480] loss: 4.419948, loss_neg: 0.451331, loss_real(cal_loss): 0.218136, acc: 0.526445, lr: 0.005000, pl: 0.000000, nl: 0.622952, noise_ratio: 1.000000
+	TESTING...loss: 6.513268, acc: 0.414000, best_acc: 0.420500
+saving model...
+Begin epoch [   148]
+All labels are 0[     0]
+[   148/   480] loss: 4.448174, loss_neg: 0.455429, loss_real(cal_loss): 0.053261, acc: 0.527406, lr: 0.005000, pl: 0.000000, nl: 0.622232, noise_ratio: 1.000000
+	TESTING...loss: 6.332054, acc: 0.403000, best_acc: 0.420500
+saving model...
+Begin epoch [   149]
+All labels are 0[     0]
+[   149/   480] loss: 4.416941, loss_neg: 0.456536, loss_real(cal_loss): 0.065908, acc: 0.526685, lr: 0.005000, pl: 0.000000, nl: 0.621319, noise_ratio: 1.000000
+	TESTING...loss: 6.249317, acc: 0.414500, best_acc: 0.420500
+saving model...
+Begin epoch [   150]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   150/   480] loss: 4.434483, loss_neg: 0.436946, loss_real(cal_loss): 0.010205, acc: 0.526589, lr: 0.005000, pl: 0.000000, nl: 0.621223, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 6.408054, acc: 0.419000, best_acc: 0.420500
+saving model...
+Begin epoch [   151]
+All labels are 0[     0]
+[   151/   480] loss: 4.437213, loss_neg: 0.455632, loss_real(cal_loss): 0.420255, acc: 0.531681, lr: 0.005000, pl: 0.000000, nl: 0.620983, noise_ratio: 1.000000
+	TESTING...loss: 6.440391, acc: 0.414000, best_acc: 0.420500
+saving model...
+Begin epoch [   152]
+All labels are 0[     0]
+[   152/   480] loss: 4.436471, loss_neg: 0.447511, loss_real(cal_loss): 0.060220, acc: 0.531008, lr: 0.005000, pl: 0.000000, nl: 0.621415, noise_ratio: 1.000000
+	TESTING...loss: 6.560015, acc: 0.400000, best_acc: 0.420500
+saving model...
+Begin epoch [   153]
+All labels are 0[     0]
+[   153/   480] loss: 4.440557, loss_neg: 0.464189, loss_real(cal_loss): 0.242300, acc: 0.532594, lr: 0.005000, pl: 0.000000, nl: 0.622616, noise_ratio: 1.000000
+	TESTING...loss: 6.296284, acc: 0.412000, best_acc: 0.420500
+saving model...
+Begin epoch [   154]
+All labels are 0[     0]
+[   154/   480] loss: 4.417600, loss_neg: 0.447302, loss_real(cal_loss): 0.164805, acc: 0.535380, lr: 0.005000, pl: 0.000000, nl: 0.622184, noise_ratio: 1.000000
+	TESTING...loss: 6.443250, acc: 0.417500, best_acc: 0.420500
+saving model...
+Begin epoch [   155]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   155/   480] loss: 4.455484, loss_neg: 0.468754, loss_real(cal_loss): 0.092109, acc: 0.532161, lr: 0.005000, pl: 0.000000, nl: 0.621751, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 6.414218, acc: 0.416500, best_acc: 0.420500
+saving model...
+Begin epoch [   156]
+All labels are 0[     0]
+[   156/   480] loss: 4.454029, loss_neg: 0.460846, loss_real(cal_loss): 0.038356, acc: 0.536196, lr: 0.005000, pl: 0.000000, nl: 0.621944, noise_ratio: 1.000000
+	TESTING...loss: 6.454189, acc: 0.410000, best_acc: 0.420500
+saving model...
+Begin epoch [   157]
+All labels are 0[     0]
+[   157/   480] loss: 4.452816, loss_neg: 0.455520, loss_real(cal_loss): 0.025883, acc: 0.533074, lr: 0.005000, pl: 0.000000, nl: 0.621463, noise_ratio: 1.000000
+	TESTING...loss: 6.466506, acc: 0.412500, best_acc: 0.420500
+saving model...
+Begin epoch [   158]
+All labels are 0[     0]
+[   158/   480] loss: 4.453394, loss_neg: 0.462487, loss_real(cal_loss): 0.049054, acc: 0.536629, lr: 0.005000, pl: 0.000000, nl: 0.621463, noise_ratio: 1.000000
+	TESTING...loss: 6.383708, acc: 0.422500, best_acc: 0.420500
+saving model...
+saving best model...
+Begin epoch [   159]
+All labels are 0[     0]
+[   159/   480] loss: 4.483314, loss_neg: 0.466909, loss_real(cal_loss): 0.375246, acc: 0.537061, lr: 0.005000, pl: 0.000000, nl: 0.623048, noise_ratio: 1.000000
+	TESTING...loss: 6.439554, acc: 0.424500, best_acc: 0.422500
+saving model...
+saving best model...
+Begin epoch [   160]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   160/   480] loss: 4.461773, loss_neg: 0.467429, loss_real(cal_loss): 0.023446, acc: 0.535043, lr: 0.005000, pl: 0.000000, nl: 0.621848, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 6.279327, acc: 0.426000, best_acc: 0.424500
+saving model...
+saving best model...
+Begin epoch [   161]
+All labels are 0[     0]
+[   161/   480] loss: 4.460886, loss_neg: 0.462620, loss_real(cal_loss): 0.254807, acc: 0.537878, lr: 0.005000, pl: 0.000000, nl: 0.622376, noise_ratio: 1.000000
+	TESTING...loss: 6.453342, acc: 0.414500, best_acc: 0.426000
+saving model...
+Begin epoch [   162]
+All labels are 0[     0]
+[   162/   480] loss: 4.465461, loss_neg: 0.465675, loss_real(cal_loss): 0.098092, acc: 0.541481, lr: 0.005000, pl: 0.000000, nl: 0.621992, noise_ratio: 1.000000
+	TESTING...loss: 6.317902, acc: 0.428500, best_acc: 0.426000
+saving model...
+saving best model...
+Begin epoch [   163]
+All labels are 0[     0]
+[   163/   480] loss: 4.437002, loss_neg: 0.457515, loss_real(cal_loss): 0.281265, acc: 0.537974, lr: 0.005000, pl: 0.000000, nl: 0.621463, noise_ratio: 1.000000
+	TESTING...loss: 6.550169, acc: 0.404500, best_acc: 0.428500
+saving model...
+Begin epoch [   164]
+All labels are 0[     0]
+[   164/   480] loss: 4.476724, loss_neg: 0.469187, loss_real(cal_loss): 0.074153, acc: 0.537541, lr: 0.005000, pl: 0.000000, nl: 0.621559, noise_ratio: 1.000000
+	TESTING...loss: 6.407499, acc: 0.418000, best_acc: 0.428500
+saving model...
+Begin epoch [   165]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   165/   480] loss: 4.500328, loss_neg: 0.476213, loss_real(cal_loss): 0.015721, acc: 0.539415, lr: 0.005000, pl: 0.000000, nl: 0.621703, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [1],
+        [2],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 6.430449, acc: 0.423000, best_acc: 0.428500
+saving model...
+Begin epoch [   166]
+All labels are 0[     0]
+[   166/   480] loss: 4.470346, loss_neg: 0.468829, loss_real(cal_loss): 0.108171, acc: 0.543402, lr: 0.005000, pl: 0.000000, nl: 0.622808, noise_ratio: 1.000000
+	TESTING...loss: 6.564173, acc: 0.424500, best_acc: 0.428500
+saving model...
+Begin epoch [   167]
+All labels are 0[     0]
+[   167/   480] loss: 4.466658, loss_neg: 0.477677, loss_real(cal_loss): 0.392583, acc: 0.543066, lr: 0.005000, pl: 0.000000, nl: 0.622616, noise_ratio: 1.000000
+	TESTING...loss: 6.464586, acc: 0.417000, best_acc: 0.428500
+saving model...
+Begin epoch [   168]
+All labels are 0[     0]
+[   168/   480] loss: 4.450223, loss_neg: 0.467340, loss_real(cal_loss): 0.205514, acc: 0.542393, lr: 0.005000, pl: 0.000000, nl: 0.622712, noise_ratio: 1.000000
+	TESTING...loss: 6.396629, acc: 0.417500, best_acc: 0.428500
+saving model...
+Begin epoch [   169]
+All labels are 0[     0]
+[   169/   480] loss: 4.449799, loss_neg: 0.474244, loss_real(cal_loss): 0.110688, acc: 0.542729, lr: 0.005000, pl: 0.000000, nl: 0.623097, noise_ratio: 1.000000
+	TESTING...loss: 6.281210, acc: 0.417500, best_acc: 0.428500
+saving model...
+Begin epoch [   170]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   170/   480] loss: 4.449542, loss_neg: 0.464120, loss_real(cal_loss): 0.160805, acc: 0.544219, lr: 0.005000, pl: 0.000000, nl: 0.622856, noise_ratio: 1.000000
+Pred
+tensor([[2],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 6.416873, acc: 0.425000, best_acc: 0.428500
+saving model...
+Begin epoch [   171]
+All labels are 0[     0]
+[   171/   480] loss: 4.483442, loss_neg: 0.478652, loss_real(cal_loss): 0.101245, acc: 0.543258, lr: 0.005000, pl: 0.000000, nl: 0.623433, noise_ratio: 1.000000
+	TESTING...loss: 6.443320, acc: 0.434000, best_acc: 0.428500
+saving model...
+saving best model...
+Begin epoch [   172]
+All labels are 0[     0]
+[   172/   480] loss: 4.472797, loss_neg: 0.463751, loss_real(cal_loss): 0.085835, acc: 0.542970, lr: 0.005000, pl: 0.000000, nl: 0.624345, noise_ratio: 1.000000
+	TESTING...loss: 6.364025, acc: 0.432500, best_acc: 0.434000
+saving model...
+Begin epoch [   173]
+All labels are 0[     0]
+[   173/   480] loss: 4.496856, loss_neg: 0.479322, loss_real(cal_loss): 0.137987, acc: 0.546140, lr: 0.005000, pl: 0.000000, nl: 0.623193, noise_ratio: 1.000000
+	TESTING...loss: 6.497798, acc: 0.415000, best_acc: 0.434000
+saving model...
+Begin epoch [   174]
+All labels are 0[     0]
+[   174/   480] loss: 4.512199, loss_neg: 0.489239, loss_real(cal_loss): 0.034535, acc: 0.548014, lr: 0.005000, pl: 0.000000, nl: 0.622808, noise_ratio: 1.000000
+	TESTING...loss: 6.441032, acc: 0.428500, best_acc: 0.434000
+saving model...
+Begin epoch [   175]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   175/   480] loss: 4.496259, loss_neg: 0.485115, loss_real(cal_loss): 0.002402, acc: 0.543690, lr: 0.005000, pl: 0.000000, nl: 0.623769, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [2],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 6.511603, acc: 0.421500, best_acc: 0.434000
+saving model...
+Begin epoch [   176]
+All labels are 0[     0]
+[   176/   480] loss: 4.504077, loss_neg: 0.483683, loss_real(cal_loss): 0.191537, acc: 0.544315, lr: 0.005000, pl: 0.000000, nl: 0.624057, noise_ratio: 1.000000
+	TESTING...loss: 6.339693, acc: 0.437500, best_acc: 0.434000
+saving model...
+saving best model...
+Begin epoch [   177]
+All labels are 0[     0]
+[   177/   480] loss: 4.493765, loss_neg: 0.495755, loss_real(cal_loss): 0.010314, acc: 0.547293, lr: 0.005000, pl: 0.000000, nl: 0.624490, noise_ratio: 1.000000
+	TESTING...loss: 6.374419, acc: 0.418500, best_acc: 0.437500
+saving model...
+Begin epoch [   178]
+All labels are 0[     0]
+[   178/   480] loss: 4.495327, loss_neg: 0.482981, loss_real(cal_loss): 0.082755, acc: 0.550079, lr: 0.005000, pl: 0.000000, nl: 0.624201, noise_ratio: 1.000000
+	TESTING...loss: 6.607628, acc: 0.424500, best_acc: 0.437500
+saving model...
+Begin epoch [   179]
+All labels are 0[     0]
+[   179/   480] loss: 4.489069, loss_neg: 0.488949, loss_real(cal_loss): 0.109785, acc: 0.547341, lr: 0.005000, pl: 0.000000, nl: 0.625691, noise_ratio: 1.000000
+	TESTING...loss: 6.402406, acc: 0.415000, best_acc: 0.437500
+saving model...
+Begin epoch [   180]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   180/   480] loss: 4.539566, loss_neg: 0.519287, loss_real(cal_loss): 0.079608, acc: 0.549215, lr: 0.005000, pl: 0.000000, nl: 0.624874, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [2],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 6.407627, acc: 0.426500, best_acc: 0.437500
+saving model...
+Begin epoch [   181]
+All labels are 0[     0]
+[   181/   480] loss: 4.499768, loss_neg: 0.498138, loss_real(cal_loss): 0.053557, acc: 0.547581, lr: 0.005000, pl: 0.000000, nl: 0.625450, noise_ratio: 1.000000
+	TESTING...loss: 6.779162, acc: 0.404000, best_acc: 0.437500
+saving model...
+Begin epoch [   182]
+All labels are 0[     0]
+[   182/   480] loss: 4.516491, loss_neg: 0.500291, loss_real(cal_loss): 0.170884, acc: 0.549983, lr: 0.005000, pl: 0.000000, nl: 0.625066, noise_ratio: 1.000000
+	TESTING...loss: 6.715102, acc: 0.411500, best_acc: 0.437500
+saving model...
+Begin epoch [   183]
+All labels are 0[     0]
+[   183/   480] loss: 4.513522, loss_neg: 0.504454, loss_real(cal_loss): 0.013633, acc: 0.552769, lr: 0.005000, pl: 0.000000, nl: 0.625979, noise_ratio: 1.000000
+	TESTING...loss: 6.540595, acc: 0.418000, best_acc: 0.437500
+saving model...
+Begin epoch [   184]
+All labels are 0[     0]
+[   184/   480] loss: 4.520433, loss_neg: 0.495418, loss_real(cal_loss): 0.006997, acc: 0.549743, lr: 0.005000, pl: 0.000000, nl: 0.626027, noise_ratio: 1.000000
+	TESTING...loss: 6.388507, acc: 0.428500, best_acc: 0.437500
+saving model...
+Begin epoch [   185]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   185/   480] loss: 4.502247, loss_neg: 0.481976, loss_real(cal_loss): 0.173958, acc: 0.545996, lr: 0.005000, pl: 0.000000, nl: 0.626411, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 6.569248, acc: 0.421500, best_acc: 0.437500
+saving model...
+Begin epoch [   186]
+All labels are 0[     0]
+[   186/   480] loss: 4.527441, loss_neg: 0.502026, loss_real(cal_loss): 0.224677, acc: 0.552721, lr: 0.005000, pl: 0.000000, nl: 0.626315, noise_ratio: 1.000000
+	TESTING...loss: 6.500781, acc: 0.421500, best_acc: 0.437500
+saving model...
+Begin epoch [   187]
+All labels are 0[     0]
+[   187/   480] loss: 4.528446, loss_neg: 0.493565, loss_real(cal_loss): 0.045667, acc: 0.552289, lr: 0.005000, pl: 0.000000, nl: 0.627084, noise_ratio: 1.000000
+	TESTING...loss: 6.406070, acc: 0.425000, best_acc: 0.437500
+saving model...
+Begin epoch [   188]
+All labels are 0[     0]
+[   188/   480] loss: 4.482676, loss_neg: 0.485634, loss_real(cal_loss): 0.252707, acc: 0.550416, lr: 0.005000, pl: 0.000000, nl: 0.627228, noise_ratio: 1.000000
+	TESTING...loss: 6.406475, acc: 0.437000, best_acc: 0.437500
+saving model...
+Begin epoch [   189]
+All labels are 0[     0]
+[   189/   480] loss: 4.509208, loss_neg: 0.506167, loss_real(cal_loss): 0.187896, acc: 0.554547, lr: 0.005000, pl: 0.000000, nl: 0.626219, noise_ratio: 1.000000
+	TESTING...loss: 6.416444, acc: 0.435000, best_acc: 0.437500
+saving model...
+Begin epoch [   190]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   190/   480] loss: 4.509837, loss_neg: 0.506527, loss_real(cal_loss): 0.025287, acc: 0.555363, lr: 0.005000, pl: 0.000000, nl: 0.626411, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [1],
+        [2],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 6.404636, acc: 0.426000, best_acc: 0.437500
+saving model...
+Begin epoch [   191]
+All labels are 0[     0]
+[   191/   480] loss: 4.499696, loss_neg: 0.487294, loss_real(cal_loss): 0.014824, acc: 0.550464, lr: 0.005000, pl: 0.000000, nl: 0.626123, noise_ratio: 1.000000
+	TESTING...loss: 6.673079, acc: 0.424500, best_acc: 0.437500
+saving model...
+Begin epoch [   192]
+All labels are 0[     0]
+[   192/   480] loss: 4.526202, loss_neg: 0.504394, loss_real(cal_loss): 0.249842, acc: 0.555844, lr: 0.005000, pl: 0.000000, nl: 0.626651, noise_ratio: 1.000000
+	TESTING...loss: 6.375687, acc: 0.439000, best_acc: 0.437500
+saving model...
+saving best model...
+Begin epoch [   193]
+All labels are 0[     0]
+[   193/   480] loss: 4.522278, loss_neg: 0.513145, loss_real(cal_loss): 0.090487, acc: 0.556660, lr: 0.005000, pl: 0.000000, nl: 0.626411, noise_ratio: 1.000000
+	TESTING...loss: 6.408401, acc: 0.431500, best_acc: 0.439000
+saving model...
+Begin epoch [   194]
+All labels are 0[     0]
+[   194/   480] loss: 4.539498, loss_neg: 0.504884, loss_real(cal_loss): 0.010950, acc: 0.554691, lr: 0.005000, pl: 0.000000, nl: 0.626411, noise_ratio: 1.000000
+	TESTING...loss: 6.537926, acc: 0.430500, best_acc: 0.439000
+saving model...
+Begin epoch [   195]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   195/   480] loss: 4.545455, loss_neg: 0.514453, loss_real(cal_loss): 0.061383, acc: 0.552337, lr: 0.005000, pl: 0.000000, nl: 0.626603, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 6.574937, acc: 0.424500, best_acc: 0.439000
+saving model...
+Begin epoch [   196]
+All labels are 0[     0]
+[   196/   480] loss: 4.559267, loss_neg: 0.526699, loss_real(cal_loss): 0.017747, acc: 0.557765, lr: 0.005000, pl: 0.000000, nl: 0.627036, noise_ratio: 1.000000
+	TESTING...loss: 6.404950, acc: 0.423500, best_acc: 0.439000
+saving model...
+Begin epoch [   197]
+All labels are 0[     0]
+[   197/   480] loss: 4.496463, loss_neg: 0.492133, loss_real(cal_loss): 0.128323, acc: 0.555940, lr: 0.005000, pl: 0.000000, nl: 0.626603, noise_ratio: 1.000000
+	TESTING...loss: 6.540453, acc: 0.423000, best_acc: 0.439000
+saving model...
+Begin epoch [   198]
+All labels are 0[     0]
+[   198/   480] loss: 4.503559, loss_neg: 0.489446, loss_real(cal_loss): 0.009178, acc: 0.557525, lr: 0.005000, pl: 0.000000, nl: 0.627228, noise_ratio: 1.000000
+	TESTING...loss: 6.539732, acc: 0.423000, best_acc: 0.439000
+saving model...
+Begin epoch [   199]
+All labels are 0[     0]
+[   199/   480] loss: 4.529275, loss_neg: 0.513722, loss_real(cal_loss): 0.055836, acc: 0.556324, lr: 0.005000, pl: 0.000000, nl: 0.627468, noise_ratio: 1.000000
+	TESTING...loss: 6.399420, acc: 0.441500, best_acc: 0.439000
+saving model...
+saving best model...
+Begin epoch [   200]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   200/   480] loss: 4.512889, loss_neg: 0.505271, loss_real(cal_loss): 0.139973, acc: 0.560840, lr: 0.005000, pl: 0.000000, nl: 0.628381, noise_ratio: 1.000000
+Pred
+tensor([[2],
+        [2],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 6.448902, acc: 0.434000, best_acc: 0.441500
+saving model...
+Begin epoch [   201]
+All labels are 0[     0]
+[   201/   480] loss: 4.542527, loss_neg: 0.514261, loss_real(cal_loss): 0.022246, acc: 0.559543, lr: 0.005000, pl: 0.000000, nl: 0.627852, noise_ratio: 1.000000
+	TESTING...loss: 6.499565, acc: 0.432000, best_acc: 0.441500
+saving model...
+Begin epoch [   202]
+All labels are 0[     0]
+[   202/   480] loss: 4.562180, loss_neg: 0.529653, loss_real(cal_loss): 0.062675, acc: 0.561656, lr: 0.005000, pl: 0.000000, nl: 0.628621, noise_ratio: 1.000000
+	TESTING...loss: 6.652551, acc: 0.416500, best_acc: 0.441500
+saving model...
+Begin epoch [   203]
+All labels are 0[     0]
+[   203/   480] loss: 4.560977, loss_neg: 0.511259, loss_real(cal_loss): 0.017767, acc: 0.558582, lr: 0.005000, pl: 0.000000, nl: 0.628909, noise_ratio: 1.000000
+	TESTING...loss: 6.675290, acc: 0.416500, best_acc: 0.441500
+saving model...
+Begin epoch [   204]
+All labels are 0[     0]
+[   204/   480] loss: 4.551685, loss_neg: 0.526013, loss_real(cal_loss): 0.196161, acc: 0.563722, lr: 0.005000, pl: 0.000000, nl: 0.628813, noise_ratio: 1.000000
+	TESTING...loss: 6.634307, acc: 0.431500, best_acc: 0.441500
+saving model...
+Begin epoch [   205]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   205/   480] loss: 4.533953, loss_neg: 0.505135, loss_real(cal_loss): 0.143732, acc: 0.564587, lr: 0.005000, pl: 0.000000, nl: 0.629534, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [2],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 6.436814, acc: 0.431500, best_acc: 0.441500
+saving model...
+Begin epoch [   206]
+All labels are 0[     0]
+[   206/   480] loss: 4.520523, loss_neg: 0.511466, loss_real(cal_loss): 0.009084, acc: 0.564875, lr: 0.005000, pl: 0.000000, nl: 0.629341, noise_ratio: 1.000000
+	TESTING...loss: 6.665901, acc: 0.425000, best_acc: 0.441500
+saving model...
+Begin epoch [   207]
+All labels are 0[     0]
+[   207/   480] loss: 4.555492, loss_neg: 0.524961, loss_real(cal_loss): 0.097626, acc: 0.561993, lr: 0.005000, pl: 0.000000, nl: 0.629918, noise_ratio: 1.000000
+	TESTING...loss: 6.745314, acc: 0.421000, best_acc: 0.441500
+saving model...
+Begin epoch [   208]
+All labels are 0[     0]
+[   208/   480] loss: 4.559332, loss_neg: 0.528362, loss_real(cal_loss): 0.007623, acc: 0.563194, lr: 0.005000, pl: 0.000000, nl: 0.629437, noise_ratio: 1.000000
+	TESTING...loss: 6.472428, acc: 0.431500, best_acc: 0.441500
+saving model...
+Begin epoch [   209]
+All labels are 0[     0]
+[   209/   480] loss: 4.592450, loss_neg: 0.539201, loss_real(cal_loss): 0.041973, acc: 0.564298, lr: 0.005000, pl: 0.000000, nl: 0.629774, noise_ratio: 1.000000
+	TESTING...loss: 6.628798, acc: 0.424500, best_acc: 0.441500
+saving model...
+Begin epoch [   210]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   210/   480] loss: 4.575923, loss_neg: 0.527535, loss_real(cal_loss): 0.105111, acc: 0.563097, lr: 0.005000, pl: 0.000000, nl: 0.630254, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 6.641720, acc: 0.422500, best_acc: 0.441500
+saving model...
+Begin epoch [   211]
+All labels are 0[     0]
+[   211/   480] loss: 4.576263, loss_neg: 0.542348, loss_real(cal_loss): 0.057940, acc: 0.564010, lr: 0.005000, pl: 0.000000, nl: 0.629822, noise_ratio: 1.000000
+	TESTING...loss: 6.789693, acc: 0.426000, best_acc: 0.441500
+saving model...
+Begin epoch [   212]
+All labels are 0[     0]
+[   212/   480] loss: 4.611392, loss_neg: 0.545103, loss_real(cal_loss): 0.215415, acc: 0.565403, lr: 0.005000, pl: 0.000000, nl: 0.629534, noise_ratio: 1.000000
+	TESTING...loss: 6.578857, acc: 0.441500, best_acc: 0.441500
+saving model...
+Begin epoch [   213]
+All labels are 0[     0]
+[   213/   480] loss: 4.600421, loss_neg: 0.549633, loss_real(cal_loss): 0.245462, acc: 0.565595, lr: 0.005000, pl: 0.000000, nl: 0.630350, noise_ratio: 1.000000
+	TESTING...loss: 6.745278, acc: 0.430000, best_acc: 0.441500
+saving model...
+Begin epoch [   214]
+All labels are 0[     0]
+[   214/   480] loss: 4.620028, loss_neg: 0.535558, loss_real(cal_loss): 0.112609, acc: 0.566364, lr: 0.005000, pl: 0.000000, nl: 0.629534, noise_ratio: 1.000000
+	TESTING...loss: 6.729467, acc: 0.429000, best_acc: 0.441500
+saving model...
+Begin epoch [   215]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   215/   480] loss: 4.619257, loss_neg: 0.550258, loss_real(cal_loss): 0.171649, acc: 0.564827, lr: 0.005000, pl: 0.000000, nl: 0.630542, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [2],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 6.565168, acc: 0.421000, best_acc: 0.441500
+saving model...
+Begin epoch [   216]
+All labels are 0[     0]
+[   216/   480] loss: 4.586334, loss_neg: 0.551091, loss_real(cal_loss): 0.114140, acc: 0.567133, lr: 0.005000, pl: 0.000000, nl: 0.630590, noise_ratio: 1.000000
+	TESTING...loss: 6.561838, acc: 0.430500, best_acc: 0.441500
+saving model...
+Begin epoch [   217]
+All labels are 0[     0]
+[   217/   480] loss: 4.566151, loss_neg: 0.541914, loss_real(cal_loss): 0.066697, acc: 0.565836, lr: 0.005000, pl: 0.000000, nl: 0.630734, noise_ratio: 1.000000
+	TESTING...loss: 6.700861, acc: 0.418000, best_acc: 0.441500
+saving model...
+Begin epoch [   218]
+All labels are 0[     0]
+[   218/   480] loss: 4.583724, loss_neg: 0.525923, loss_real(cal_loss): 0.002588, acc: 0.569583, lr: 0.005000, pl: 0.000000, nl: 0.630975, noise_ratio: 1.000000
+	TESTING...loss: 6.698785, acc: 0.429000, best_acc: 0.441500
+saving model...
+Begin epoch [   219]
+All labels are 0[     0]
+[   219/   480] loss: 4.602664, loss_neg: 0.557406, loss_real(cal_loss): 0.021136, acc: 0.567085, lr: 0.005000, pl: 0.000000, nl: 0.630734, noise_ratio: 1.000000
+	TESTING...loss: 6.525406, acc: 0.426000, best_acc: 0.441500
+saving model...
+Begin epoch [   220]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   220/   480] loss: 4.609159, loss_neg: 0.555896, loss_real(cal_loss): 0.075314, acc: 0.568526, lr: 0.005000, pl: 0.000000, nl: 0.630542, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 6.610372, acc: 0.433500, best_acc: 0.441500
+saving model...
+Begin epoch [   221]
+All labels are 0[     0]
+[   221/   480] loss: 4.608203, loss_neg: 0.558361, loss_real(cal_loss): 0.120390, acc: 0.568670, lr: 0.005000, pl: 0.000000, nl: 0.630638, noise_ratio: 1.000000
+	TESTING...loss: 6.488220, acc: 0.442000, best_acc: 0.441500
+saving model...
+saving best model...
+Begin epoch [   222]
+All labels are 0[     0]
+[   222/   480] loss: 4.574114, loss_neg: 0.533967, loss_real(cal_loss): 0.079874, acc: 0.567133, lr: 0.005000, pl: 0.000000, nl: 0.631215, noise_ratio: 1.000000
+	TESTING...loss: 6.669198, acc: 0.424500, best_acc: 0.442000
+saving model...
+Begin epoch [   223]
+All labels are 0[     0]
+[   223/   480] loss: 4.613322, loss_neg: 0.552328, loss_real(cal_loss): 0.028233, acc: 0.571888, lr: 0.005000, pl: 0.000000, nl: 0.631503, noise_ratio: 1.000000
+	TESTING...loss: 6.541480, acc: 0.429000, best_acc: 0.442000
+saving model...
+Begin epoch [   224]
+All labels are 0[     0]
+[   224/   480] loss: 4.568319, loss_neg: 0.526322, loss_real(cal_loss): 0.034828, acc: 0.571504, lr: 0.005000, pl: 0.000000, nl: 0.632464, noise_ratio: 1.000000
+	TESTING...loss: 6.556303, acc: 0.429500, best_acc: 0.442000
+saving model...
+Begin epoch [   225]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   225/   480] loss: 4.605422, loss_neg: 0.544614, loss_real(cal_loss): 0.001948, acc: 0.570687, lr: 0.005000, pl: 0.000000, nl: 0.632992, noise_ratio: 1.000000
+Pred
+tensor([[2],
+        [2],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 6.449962, acc: 0.423500, best_acc: 0.442000
+saving model...
+Begin epoch [   226]
+All labels are 0[     0]
+[   226/   480] loss: 4.597535, loss_neg: 0.562870, loss_real(cal_loss): 0.053201, acc: 0.573474, lr: 0.005000, pl: 0.000000, nl: 0.632944, noise_ratio: 1.000000
+	TESTING...loss: 6.797779, acc: 0.423000, best_acc: 0.442000
+saving model...
+Begin epoch [   227]
+All labels are 0[     0]
+[   227/   480] loss: 4.590479, loss_neg: 0.550134, loss_real(cal_loss): 0.032856, acc: 0.571360, lr: 0.005000, pl: 0.000000, nl: 0.633329, noise_ratio: 1.000000
+	TESTING...loss: 6.619293, acc: 0.427000, best_acc: 0.442000
+saving model...
+Begin epoch [   228]
+All labels are 0[     0]
+[   228/   480] loss: 4.616128, loss_neg: 0.543689, loss_real(cal_loss): 0.071245, acc: 0.571888, lr: 0.005000, pl: 0.000000, nl: 0.633857, noise_ratio: 1.000000
+	TESTING...loss: 6.682573, acc: 0.431500, best_acc: 0.442000
+saving model...
+Begin epoch [   229]
+All labels are 0[     0]
+[   229/   480] loss: 4.628581, loss_neg: 0.559082, loss_real(cal_loss): 0.006091, acc: 0.572273, lr: 0.005000, pl: 0.000000, nl: 0.633425, noise_ratio: 1.000000
+	TESTING...loss: 6.625756, acc: 0.429500, best_acc: 0.442000
+saving model...
+Begin epoch [   230]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   230/   480] loss: 4.553702, loss_neg: 0.509627, loss_real(cal_loss): 0.011177, acc: 0.573137, lr: 0.005000, pl: 0.000000, nl: 0.633136, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 6.615851, acc: 0.430000, best_acc: 0.442000
+saving model...
+Begin epoch [   231]
+All labels are 0[     0]
+[   231/   480] loss: 4.582729, loss_neg: 0.539691, loss_real(cal_loss): 0.006469, acc: 0.572225, lr: 0.005000, pl: 0.000000, nl: 0.633329, noise_ratio: 1.000000
+	TESTING...loss: 6.745709, acc: 0.431000, best_acc: 0.442000
+saving model...
+Begin epoch [   232]
+All labels are 0[     0]
+[   232/   480] loss: 4.609406, loss_neg: 0.563790, loss_real(cal_loss): 0.071307, acc: 0.572417, lr: 0.005000, pl: 0.000000, nl: 0.634337, noise_ratio: 1.000000
+	TESTING...loss: 6.500756, acc: 0.435000, best_acc: 0.442000
+saving model...
+Begin epoch [   233]
+All labels are 0[     0]
+[   233/   480] loss: 4.589864, loss_neg: 0.534921, loss_real(cal_loss): 0.015976, acc: 0.574530, lr: 0.005000, pl: 0.000000, nl: 0.634193, noise_ratio: 1.000000
+	TESTING...loss: 6.679557, acc: 0.419500, best_acc: 0.442000
+saving model...
+Begin epoch [   234]
+All labels are 0[     0]
+[   234/   480] loss: 4.607173, loss_neg: 0.557862, loss_real(cal_loss): 0.013632, acc: 0.577173, lr: 0.005000, pl: 0.000000, nl: 0.634529, noise_ratio: 1.000000
+	TESTING...loss: 6.579498, acc: 0.436500, best_acc: 0.442000
+saving model...
+Begin epoch [   235]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   235/   480] loss: 4.612536, loss_neg: 0.565953, loss_real(cal_loss): 0.160795, acc: 0.573281, lr: 0.005000, pl: 0.000000, nl: 0.634578, noise_ratio: 1.000000
+Pred
+tensor([[0],
+        [2],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 6.559727, acc: 0.441000, best_acc: 0.442000
+saving model...
+Begin epoch [   236]
+All labels are 0[     0]
+[   236/   480] loss: 4.594958, loss_neg: 0.562943, loss_real(cal_loss): 0.023689, acc: 0.576404, lr: 0.005000, pl: 0.000000, nl: 0.635154, noise_ratio: 1.000000
+	TESTING...loss: 6.643388, acc: 0.435000, best_acc: 0.442000
+saving model...
+Begin epoch [   237]
+All labels are 0[     0]
+[   237/   480] loss: 4.607278, loss_neg: 0.548474, loss_real(cal_loss): 0.039791, acc: 0.575155, lr: 0.005000, pl: 0.000000, nl: 0.634529, noise_ratio: 1.000000
+	TESTING...loss: 6.654772, acc: 0.428000, best_acc: 0.442000
+saving model...
+Begin epoch [   238]
+All labels are 0[     0]
+[   238/   480] loss: 4.578855, loss_neg: 0.546971, loss_real(cal_loss): 0.071100, acc: 0.576740, lr: 0.005000, pl: 0.000000, nl: 0.634529, noise_ratio: 1.000000
+	TESTING...loss: 6.656054, acc: 0.433000, best_acc: 0.442000
+saving model...
+Begin epoch [   239]
+All labels are 0[     0]
+[   239/   480] loss: 4.593397, loss_neg: 0.565524, loss_real(cal_loss): 0.270417, acc: 0.578277, lr: 0.005000, pl: 0.000000, nl: 0.635634, noise_ratio: 1.000000
+	TESTING...loss: 6.767199, acc: 0.424500, best_acc: 0.442000
+saving model...
+Begin epoch [   240]
+Switch to SelPL
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   240/   480] loss: 4.824915, loss_neg: 0.677547, loss_real(cal_loss): 0.204615, acc: 0.579574, lr: 0.005000, pl: 0.585195, nl: 0.000000, noise_ratio: 0.414805
+Pred
+tensor([[0],
+        [2],
+        [1],
+        [0],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 6.974471, acc: 0.430500, best_acc: 0.442000
+saving model...
+Begin epoch [   241]
+All labels are 0[     0]
+[   241/   480] loss: 4.967887, loss_neg: 0.750511, loss_real(cal_loss): 0.220587, acc: 0.580343, lr: 0.005000, pl: 0.585867, nl: 0.000000, noise_ratio: 0.414133
+	TESTING...loss: 7.081013, acc: 0.435000, best_acc: 0.442000
+saving model...
+Begin epoch [   242]
+All labels are 0[     0]
+[   242/   480] loss: 5.004947, loss_neg: 0.783441, loss_real(cal_loss): 0.064228, acc: 0.585867, lr: 0.005000, pl: 0.587837, nl: 0.000000, noise_ratio: 0.412163
+	TESTING...loss: 7.200079, acc: 0.429500, best_acc: 0.442000
+saving model...
+Begin epoch [   243]
+All labels are 0[     0]
+[   243/   480] loss: 5.024122, loss_neg: 0.781398, loss_real(cal_loss): 0.062142, acc: 0.586011, lr: 0.005000, pl: 0.589806, nl: 0.000000, noise_ratio: 0.410194
+	TESTING...loss: 7.183471, acc: 0.437000, best_acc: 0.442000
+saving model...
+Begin epoch [   244]
+All labels are 0[     0]
+[   244/   480] loss: 5.075803, loss_neg: 0.818376, loss_real(cal_loss): 0.047379, acc: 0.587549, lr: 0.005000, pl: 0.591632, nl: 0.000000, noise_ratio: 0.408368
+	TESTING...loss: 7.175092, acc: 0.440000, best_acc: 0.442000
+saving model...
+Begin epoch [   245]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   245/   480] loss: 5.096090, loss_neg: 0.819992, loss_real(cal_loss): 0.168314, acc: 0.588557, lr: 0.005000, pl: 0.592689, nl: 0.000000, noise_ratio: 0.407311
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.401275, acc: 0.425500, best_acc: 0.442000
+saving model...
+Begin epoch [   246]
+All labels are 0[     0]
+[   246/   480] loss: 5.090762, loss_neg: 0.833850, loss_real(cal_loss): 0.031654, acc: 0.589230, lr: 0.005000, pl: 0.594610, nl: 0.000000, noise_ratio: 0.405390
+	TESTING...loss: 7.231708, acc: 0.433500, best_acc: 0.442000
+saving model...
+Begin epoch [   247]
+All labels are 0[     0]
+[   247/   480] loss: 5.137829, loss_neg: 0.837044, loss_real(cal_loss): 0.002474, acc: 0.592545, lr: 0.005000, pl: 0.595907, nl: 0.000000, noise_ratio: 0.404093
+	TESTING...loss: 7.218184, acc: 0.447000, best_acc: 0.442000
+saving model...
+saving best model...
+Begin epoch [   248]
+All labels are 0[     0]
+[   248/   480] loss: 5.136784, loss_neg: 0.841774, loss_real(cal_loss): 0.031015, acc: 0.591055, lr: 0.005000, pl: 0.597012, nl: 0.000000, noise_ratio: 0.402988
+	TESTING...loss: 7.335563, acc: 0.440500, best_acc: 0.447000
+saving model...
+Begin epoch [   249]
+All labels are 0[     0]
+[   249/   480] loss: 5.136157, loss_neg: 0.849153, loss_real(cal_loss): 0.139377, acc: 0.590959, lr: 0.005000, pl: 0.598597, nl: 0.000000, noise_ratio: 0.401403
+	TESTING...loss: 7.303223, acc: 0.437000, best_acc: 0.447000
+saving model...
+Begin epoch [   250]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   250/   480] loss: 5.156436, loss_neg: 0.845553, loss_real(cal_loss): 0.023335, acc: 0.592112, lr: 0.005000, pl: 0.598597, nl: 0.000000, noise_ratio: 0.401403
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.421719, acc: 0.439500, best_acc: 0.447000
+saving model...
+Begin epoch [   251]
+All labels are 0[     0]
+[   251/   480] loss: 5.174294, loss_neg: 0.868547, loss_real(cal_loss): 0.091146, acc: 0.594322, lr: 0.005000, pl: 0.600567, nl: 0.000000, noise_ratio: 0.399433
+	TESTING...loss: 7.391472, acc: 0.436500, best_acc: 0.447000
+saving model...
+Begin epoch [   252]
+All labels are 0[     0]
+[   252/   480] loss: 5.183829, loss_neg: 0.871191, loss_real(cal_loss): 0.258192, acc: 0.594562, lr: 0.005000, pl: 0.600423, nl: 0.000000, noise_ratio: 0.399577
+	TESTING...loss: 7.425307, acc: 0.437500, best_acc: 0.447000
+saving model...
+Begin epoch [   253]
+All labels are 0[     0]
+[   253/   480] loss: 5.207185, loss_neg: 0.870424, loss_real(cal_loss): 0.027829, acc: 0.595523, lr: 0.005000, pl: 0.601480, nl: 0.000000, noise_ratio: 0.398520
+	TESTING...loss: 7.473761, acc: 0.436500, best_acc: 0.447000
+saving model...
+Begin epoch [   254]
+All labels are 0[     0]
+[   254/   480] loss: 5.193480, loss_neg: 0.870754, loss_real(cal_loss): 0.255657, acc: 0.596628, lr: 0.005000, pl: 0.602152, nl: 0.000000, noise_ratio: 0.397848
+	TESTING...loss: 7.308242, acc: 0.438000, best_acc: 0.447000
+saving model...
+Begin epoch [   255]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   255/   480] loss: 5.219047, loss_neg: 0.923880, loss_real(cal_loss): 0.233726, acc: 0.595475, lr: 0.005000, pl: 0.603257, nl: 0.000000, noise_ratio: 0.396743
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.398004, acc: 0.440000, best_acc: 0.447000
+saving model...
+Begin epoch [   256]
+All labels are 0[     0]
+[   256/   480] loss: 5.221948, loss_neg: 0.895079, loss_real(cal_loss): 0.022387, acc: 0.597012, lr: 0.005000, pl: 0.604026, nl: 0.000000, noise_ratio: 0.395974
+	TESTING...loss: 7.389812, acc: 0.433500, best_acc: 0.447000
+saving model...
+Begin epoch [   257]
+All labels are 0[     0]
+[   257/   480] loss: 5.202801, loss_neg: 0.891976, loss_real(cal_loss): 0.042545, acc: 0.598261, lr: 0.005000, pl: 0.604362, nl: 0.000000, noise_ratio: 0.395638
+	TESTING...loss: 7.399569, acc: 0.439000, best_acc: 0.447000
+saving model...
+Begin epoch [   258]
+All labels are 0[     0]
+[   258/   480] loss: 5.229644, loss_neg: 0.927131, loss_real(cal_loss): 0.517577, acc: 0.599174, lr: 0.005000, pl: 0.604698, nl: 0.000000, noise_ratio: 0.395302
+	TESTING...loss: 7.404794, acc: 0.438500, best_acc: 0.447000
+saving model...
+Begin epoch [   259]
+All labels are 0[     0]
+[   259/   480] loss: 5.241533, loss_neg: 0.912581, loss_real(cal_loss): 0.059429, acc: 0.599414, lr: 0.005000, pl: 0.605371, nl: 0.000000, noise_ratio: 0.394629
+	TESTING...loss: 7.448606, acc: 0.443000, best_acc: 0.447000
+saving model...
+Begin epoch [   260]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   260/   480] loss: 5.256403, loss_neg: 0.917517, loss_real(cal_loss): 0.207084, acc: 0.599750, lr: 0.005000, pl: 0.605899, nl: 0.000000, noise_ratio: 0.394101
+Pred
+tensor([[1],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.542722, acc: 0.438000, best_acc: 0.447000
+saving model...
+Begin epoch [   261]
+All labels are 0[     0]
+[   261/   480] loss: 5.254116, loss_neg: 0.946146, loss_real(cal_loss): 0.024094, acc: 0.601912, lr: 0.005000, pl: 0.606331, nl: 0.000000, noise_ratio: 0.393669
+	TESTING...loss: 7.496502, acc: 0.436000, best_acc: 0.447000
+saving model...
+Begin epoch [   262]
+All labels are 0[     0]
+[   262/   480] loss: 5.252183, loss_neg: 0.865275, loss_real(cal_loss): 0.060665, acc: 0.600567, lr: 0.005000, pl: 0.606764, nl: 0.000000, noise_ratio: 0.393236
+	TESTING...loss: 7.461407, acc: 0.433500, best_acc: 0.447000
+saving model...
+Begin epoch [   263]
+All labels are 0[     0]
+[   263/   480] loss: 5.255613, loss_neg: 0.941913, loss_real(cal_loss): 0.000068, acc: 0.601335, lr: 0.005000, pl: 0.607196, nl: 0.000000, noise_ratio: 0.392804
+	TESTING...loss: 7.329252, acc: 0.440500, best_acc: 0.447000
+saving model...
+Begin epoch [   264]
+All labels are 0[     0]
+[   264/   480] loss: 5.268054, loss_neg: 0.911155, loss_real(cal_loss): 0.096929, acc: 0.601912, lr: 0.005000, pl: 0.607676, nl: 0.000000, noise_ratio: 0.392324
+	TESTING...loss: 7.511452, acc: 0.438000, best_acc: 0.447000
+saving model...
+Begin epoch [   265]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   265/   480] loss: 5.278113, loss_neg: 0.912513, loss_real(cal_loss): 0.089560, acc: 0.603353, lr: 0.005000, pl: 0.607484, nl: 0.000000, noise_ratio: 0.392516
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.505286, acc: 0.439500, best_acc: 0.447000
+saving model...
+Begin epoch [   266]
+All labels are 0[     0]
+[   266/   480] loss: 5.287953, loss_neg: 0.947931, loss_real(cal_loss): 0.033660, acc: 0.603257, lr: 0.005000, pl: 0.608109, nl: 0.000000, noise_ratio: 0.391891
+	TESTING...loss: 7.528999, acc: 0.438000, best_acc: 0.447000
+saving model...
+Begin epoch [   267]
+All labels are 0[     0]
+[   267/   480] loss: 5.296650, loss_neg: 0.968273, loss_real(cal_loss): 0.100269, acc: 0.602729, lr: 0.005000, pl: 0.608493, nl: 0.000000, noise_ratio: 0.391507
+	TESTING...loss: 7.472530, acc: 0.442000, best_acc: 0.447000
+saving model...
+Begin epoch [   268]
+All labels are 0[     0]
+[   268/   480] loss: 5.285153, loss_neg: 0.974910, loss_real(cal_loss): 0.392135, acc: 0.603689, lr: 0.005000, pl: 0.608877, nl: 0.000000, noise_ratio: 0.391123
+	TESTING...loss: 7.644642, acc: 0.438000, best_acc: 0.447000
+saving model...
+Begin epoch [   269]
+All labels are 0[     0]
+[   269/   480] loss: 5.286061, loss_neg: 0.937161, loss_real(cal_loss): 0.019773, acc: 0.601960, lr: 0.005000, pl: 0.609070, nl: 0.000000, noise_ratio: 0.390930
+	TESTING...loss: 7.546267, acc: 0.436500, best_acc: 0.447000
+saving model...
+Begin epoch [   270]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   270/   480] loss: 5.305383, loss_neg: 0.957739, loss_real(cal_loss): 0.179679, acc: 0.605178, lr: 0.005000, pl: 0.609550, nl: 0.000000, noise_ratio: 0.390450
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.466614, acc: 0.446500, best_acc: 0.447000
+saving model...
+Begin epoch [   271]
+All labels are 0[     0]
+[   271/   480] loss: 5.296296, loss_neg: 0.963592, loss_real(cal_loss): 0.066928, acc: 0.604362, lr: 0.005000, pl: 0.609454, nl: 0.000000, noise_ratio: 0.390546
+	TESTING...loss: 7.561705, acc: 0.442000, best_acc: 0.447000
+saving model...
+Begin epoch [   272]
+All labels are 0[     0]
+[   272/   480] loss: 5.316590, loss_neg: 0.959946, loss_real(cal_loss): 0.000511, acc: 0.604986, lr: 0.005000, pl: 0.609886, nl: 0.000000, noise_ratio: 0.390114
+	TESTING...loss: 7.632514, acc: 0.436000, best_acc: 0.447000
+saving model...
+Begin epoch [   273]
+All labels are 0[     0]
+[   273/   480] loss: 5.328637, loss_neg: 0.973024, loss_real(cal_loss): 0.646385, acc: 0.605178, lr: 0.005000, pl: 0.610078, nl: 0.000000, noise_ratio: 0.389922
+	TESTING...loss: 7.537206, acc: 0.442000, best_acc: 0.447000
+saving model...
+Begin epoch [   274]
+All labels are 0[     0]
+[   274/   480] loss: 5.323684, loss_neg: 0.964406, loss_real(cal_loss): 0.040174, acc: 0.605995, lr: 0.005000, pl: 0.610222, nl: 0.000000, noise_ratio: 0.389778
+	TESTING...loss: 7.590304, acc: 0.446500, best_acc: 0.447000
+saving model...
+Begin epoch [   275]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   275/   480] loss: 5.334861, loss_neg: 0.966774, loss_real(cal_loss): 0.014391, acc: 0.607532, lr: 0.005000, pl: 0.610607, nl: 0.000000, noise_ratio: 0.389393
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.615104, acc: 0.438000, best_acc: 0.447000
+saving model...
+Begin epoch [   276]
+All labels are 0[     0]
+[   276/   480] loss: 5.350038, loss_neg: 0.984294, loss_real(cal_loss): 0.001880, acc: 0.606283, lr: 0.005000, pl: 0.610991, nl: 0.000000, noise_ratio: 0.389009
+	TESTING...loss: 7.569172, acc: 0.438000, best_acc: 0.447000
+saving model...
+Begin epoch [   277]
+All labels are 0[     0]
+[   277/   480] loss: 5.354373, loss_neg: 0.946449, loss_real(cal_loss): 0.004905, acc: 0.608589, lr: 0.005000, pl: 0.611135, nl: 0.000000, noise_ratio: 0.388865
+	TESTING...loss: 7.677900, acc: 0.434500, best_acc: 0.447000
+saving model...
+Begin epoch [   278]
+All labels are 0[     0]
+[   278/   480] loss: 5.358245, loss_neg: 0.997061, loss_real(cal_loss): 0.008236, acc: 0.607773, lr: 0.005000, pl: 0.611327, nl: 0.000000, noise_ratio: 0.388673
+	TESTING...loss: 7.485198, acc: 0.440000, best_acc: 0.447000
+saving model...
+Begin epoch [   279]
+All labels are 0[     0]
+[   279/   480] loss: 5.349064, loss_neg: 0.970106, loss_real(cal_loss): 0.035095, acc: 0.607388, lr: 0.005000, pl: 0.611135, nl: 0.000000, noise_ratio: 0.388865
+	TESTING...loss: 7.640118, acc: 0.439000, best_acc: 0.447000
+saving model...
+Begin epoch [   280]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   280/   480] loss: 5.375352, loss_neg: 1.037187, loss_real(cal_loss): 0.022943, acc: 0.610367, lr: 0.005000, pl: 0.611616, nl: 0.000000, noise_ratio: 0.388384
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.699290, acc: 0.432500, best_acc: 0.447000
+saving model...
+Begin epoch [   281]
+All labels are 0[     0]
+[   281/   480] loss: 5.331594, loss_neg: 0.962431, loss_real(cal_loss): 0.011291, acc: 0.609358, lr: 0.005000, pl: 0.612048, nl: 0.000000, noise_ratio: 0.387952
+	TESTING...loss: 7.755148, acc: 0.427500, best_acc: 0.447000
+saving model...
+Begin epoch [   282]
+All labels are 0[     0]
+[   282/   480] loss: 5.379876, loss_neg: 0.989430, loss_real(cal_loss): 0.001274, acc: 0.609886, lr: 0.005000, pl: 0.612240, nl: 0.000000, noise_ratio: 0.387760
+	TESTING...loss: 7.690091, acc: 0.443500, best_acc: 0.447000
+saving model...
+Begin epoch [   283]
+All labels are 0[     0]
+[   283/   480] loss: 5.357772, loss_neg: 0.976070, loss_real(cal_loss): 0.029311, acc: 0.608973, lr: 0.005000, pl: 0.612576, nl: 0.000000, noise_ratio: 0.387424
+	TESTING...loss: 7.586703, acc: 0.438500, best_acc: 0.447000
+saving model...
+Begin epoch [   284]
+All labels are 0[     0]
+[   284/   480] loss: 5.351423, loss_neg: 0.998233, loss_real(cal_loss): 0.137878, acc: 0.609790, lr: 0.005000, pl: 0.612720, nl: 0.000000, noise_ratio: 0.387280
+	TESTING...loss: 7.635715, acc: 0.442500, best_acc: 0.447000
+saving model...
+Begin epoch [   285]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   285/   480] loss: 5.406395, loss_neg: 1.015716, loss_real(cal_loss): 0.031927, acc: 0.609406, lr: 0.005000, pl: 0.612864, nl: 0.000000, noise_ratio: 0.387136
+Pred
+tensor([[2],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.613882, acc: 0.435500, best_acc: 0.447000
+saving model...
+Begin epoch [   286]
+All labels are 0[     0]
+[   286/   480] loss: 5.359407, loss_neg: 1.006180, loss_real(cal_loss): 0.006326, acc: 0.611183, lr: 0.005000, pl: 0.613057, nl: 0.000000, noise_ratio: 0.386943
+	TESTING...loss: 7.580785, acc: 0.441500, best_acc: 0.447000
+saving model...
+Begin epoch [   287]
+All labels are 0[     0]
+[   287/   480] loss: 5.418468, loss_neg: 1.036113, loss_real(cal_loss): 0.124577, acc: 0.609550, lr: 0.005000, pl: 0.613153, nl: 0.000000, noise_ratio: 0.386847
+	TESTING...loss: 7.859514, acc: 0.426000, best_acc: 0.447000
+saving model...
+Begin epoch [   288]
+All labels are 0[     0]
+[   288/   480] loss: 5.359612, loss_neg: 1.000942, loss_real(cal_loss): 0.023793, acc: 0.609454, lr: 0.005000, pl: 0.613537, nl: 0.000000, noise_ratio: 0.386463
+	TESTING...loss: 7.703014, acc: 0.433500, best_acc: 0.447000
+saving model...
+Begin epoch [   289]
+All labels are 0[     0]
+[   289/   480] loss: 5.403472, loss_neg: 1.029740, loss_real(cal_loss): 0.007315, acc: 0.610463, lr: 0.005000, pl: 0.613441, nl: 0.000000, noise_ratio: 0.386559
+	TESTING...loss: 7.821896, acc: 0.428500, best_acc: 0.447000
+saving model...
+Begin epoch [   290]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   290/   480] loss: 5.394223, loss_neg: 1.003313, loss_real(cal_loss): 0.041265, acc: 0.610751, lr: 0.005000, pl: 0.613825, nl: 0.000000, noise_ratio: 0.386175
+Pred
+tensor([[1],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.828642, acc: 0.430500, best_acc: 0.447000
+saving model...
+Begin epoch [   291]
+All labels are 0[     0]
+[   291/   480] loss: 5.355116, loss_neg: 1.004522, loss_real(cal_loss): 0.017753, acc: 0.611087, lr: 0.005000, pl: 0.614162, nl: 0.000000, noise_ratio: 0.385838
+	TESTING...loss: 7.655068, acc: 0.437500, best_acc: 0.447000
+saving model...
+Begin epoch [   292]
+All labels are 0[     0]
+[   292/   480] loss: 5.388584, loss_neg: 1.018063, loss_real(cal_loss): 0.001787, acc: 0.613297, lr: 0.005000, pl: 0.614354, nl: 0.000000, noise_ratio: 0.385646
+	TESTING...loss: 7.929642, acc: 0.425000, best_acc: 0.447000
+saving model...
+Begin epoch [   293]
+All labels are 0[     0]
+[   293/   480] loss: 5.421982, loss_neg: 1.057876, loss_real(cal_loss): 0.022126, acc: 0.613057, lr: 0.005000, pl: 0.614450, nl: 0.000000, noise_ratio: 0.385550
+	TESTING...loss: 7.621121, acc: 0.443000, best_acc: 0.447000
+saving model...
+Begin epoch [   294]
+All labels are 0[     0]
+[   294/   480] loss: 5.379650, loss_neg: 0.997680, loss_real(cal_loss): 0.030497, acc: 0.611952, lr: 0.005000, pl: 0.614594, nl: 0.000000, noise_ratio: 0.385406
+	TESTING...loss: 7.716530, acc: 0.434500, best_acc: 0.447000
+saving model...
+Begin epoch [   295]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   295/   480] loss: 5.409265, loss_neg: 1.048473, loss_real(cal_loss): 0.060188, acc: 0.612672, lr: 0.005000, pl: 0.614738, nl: 0.000000, noise_ratio: 0.385262
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.757799, acc: 0.435500, best_acc: 0.447000
+saving model...
+Begin epoch [   296]
+All labels are 0[     0]
+[   296/   480] loss: 5.413584, loss_neg: 1.031479, loss_real(cal_loss): 0.002828, acc: 0.612672, lr: 0.005000, pl: 0.614834, nl: 0.000000, noise_ratio: 0.385166
+	TESTING...loss: 7.770190, acc: 0.436000, best_acc: 0.447000
+saving model...
+Begin epoch [   297]
+All labels are 0[     0]
+[   297/   480] loss: 5.414969, loss_neg: 1.053662, loss_real(cal_loss): 0.020094, acc: 0.613057, lr: 0.005000, pl: 0.615074, nl: 0.000000, noise_ratio: 0.384926
+	TESTING...loss: 7.723136, acc: 0.444500, best_acc: 0.447000
+saving model...
+Begin epoch [   298]
+All labels are 0[     0]
+[   298/   480] loss: 5.395751, loss_neg: 1.049292, loss_real(cal_loss): 0.058187, acc: 0.612240, lr: 0.005000, pl: 0.615170, nl: 0.000000, noise_ratio: 0.384830
+	TESTING...loss: 7.647627, acc: 0.439000, best_acc: 0.447000
+saving model...
+Begin epoch [   299]
+All labels are 0[     0]
+[   299/   480] loss: 5.380084, loss_neg: 0.985022, loss_real(cal_loss): 0.000303, acc: 0.614690, lr: 0.005000, pl: 0.615603, nl: 0.000000, noise_ratio: 0.384397
+	TESTING...loss: 7.725074, acc: 0.433500, best_acc: 0.447000
+saving model...
+Begin epoch [   300]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   300/   480] loss: 5.386643, loss_neg: 1.003299, loss_real(cal_loss): 0.077121, acc: 0.614306, lr: 0.005000, pl: 0.615939, nl: 0.000000, noise_ratio: 0.384061
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.641690, acc: 0.439500, best_acc: 0.447000
+saving model...
+Begin epoch [   301]
+All labels are 0[     0]
+[   301/   480] loss: 5.384124, loss_neg: 0.998500, loss_real(cal_loss): 0.000107, acc: 0.614402, lr: 0.005000, pl: 0.616179, nl: 0.000000, noise_ratio: 0.383821
+	TESTING...loss: 7.796651, acc: 0.430500, best_acc: 0.447000
+saving model...
+Begin epoch [   302]
+All labels are 0[     0]
+[   302/   480] loss: 5.378497, loss_neg: 1.000596, loss_real(cal_loss): 0.015511, acc: 0.613009, lr: 0.005000, pl: 0.616275, nl: 0.000000, noise_ratio: 0.383725
+	TESTING...loss: 7.637326, acc: 0.443000, best_acc: 0.447000
+saving model...
+Begin epoch [   303]
+All labels are 0[     0]
+[   303/   480] loss: 5.389617, loss_neg: 1.027150, loss_real(cal_loss): 0.000837, acc: 0.616083, lr: 0.005000, pl: 0.616323, nl: 0.000000, noise_ratio: 0.383677
+	TESTING...loss: 7.858093, acc: 0.430500, best_acc: 0.447000
+saving model...
+Begin epoch [   304]
+All labels are 0[     0]
+[   304/   480] loss: 5.417292, loss_neg: 1.041151, loss_real(cal_loss): 0.004209, acc: 0.614306, lr: 0.005000, pl: 0.616515, nl: 0.000000, noise_ratio: 0.383485
+	TESTING...loss: 7.696610, acc: 0.444000, best_acc: 0.447000
+saving model...
+Begin epoch [   305]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   305/   480] loss: 5.384687, loss_neg: 0.987695, loss_real(cal_loss): 0.000807, acc: 0.615266, lr: 0.005000, pl: 0.616707, nl: 0.000000, noise_ratio: 0.383293
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.817371, acc: 0.441000, best_acc: 0.447000
+saving model...
+Begin epoch [   306]
+All labels are 0[     0]
+[   306/   480] loss: 5.388680, loss_neg: 1.027422, loss_real(cal_loss): 0.020346, acc: 0.614017, lr: 0.005000, pl: 0.616852, nl: 0.000000, noise_ratio: 0.383148
+	TESTING...loss: 7.690714, acc: 0.442500, best_acc: 0.447000
+saving model...
+Begin epoch [   307]
+All labels are 0[     0]
+[   307/   480] loss: 5.401907, loss_neg: 1.024159, loss_real(cal_loss): 0.044555, acc: 0.617044, lr: 0.005000, pl: 0.617140, nl: 0.000000, noise_ratio: 0.382860
+	TESTING...loss: 7.732218, acc: 0.439000, best_acc: 0.447000
+saving model...
+Begin epoch [   308]
+All labels are 0[     0]
+[   308/   480] loss: 5.396730, loss_neg: 1.002319, loss_real(cal_loss): 0.013178, acc: 0.614113, lr: 0.005000, pl: 0.617284, nl: 0.000000, noise_ratio: 0.382716
+	TESTING...loss: 7.801843, acc: 0.436500, best_acc: 0.447000
+saving model...
+Begin epoch [   309]
+All labels are 0[     0]
+[   309/   480] loss: 5.379331, loss_neg: 0.995538, loss_real(cal_loss): 0.003818, acc: 0.616708, lr: 0.005000, pl: 0.617332, nl: 0.000000, noise_ratio: 0.382668
+	TESTING...loss: 7.685840, acc: 0.439000, best_acc: 0.447000
+saving model...
+Begin epoch [   310]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   310/   480] loss: 5.434161, loss_neg: 1.050490, loss_real(cal_loss): 0.098391, acc: 0.616131, lr: 0.005000, pl: 0.617476, nl: 0.000000, noise_ratio: 0.382524
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [0],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.774956, acc: 0.437500, best_acc: 0.447000
+saving model...
+Begin epoch [   311]
+All labels are 0[     0]
+[   311/   480] loss: 5.389081, loss_neg: 1.031189, loss_real(cal_loss): 0.001290, acc: 0.616756, lr: 0.005000, pl: 0.617764, nl: 0.000000, noise_ratio: 0.382236
+	TESTING...loss: 7.781090, acc: 0.434500, best_acc: 0.447000
+saving model...
+Begin epoch [   312]
+All labels are 0[     0]
+[   312/   480] loss: 5.385051, loss_neg: 1.070084, loss_real(cal_loss): 0.085766, acc: 0.617524, lr: 0.005000, pl: 0.617860, nl: 0.000000, noise_ratio: 0.382140
+	TESTING...loss: 7.739432, acc: 0.435500, best_acc: 0.447000
+saving model...
+Begin epoch [   313]
+All labels are 0[     0]
+[   313/   480] loss: 5.407781, loss_neg: 1.007204, loss_real(cal_loss): 0.011751, acc: 0.618053, lr: 0.005000, pl: 0.618005, nl: 0.000000, noise_ratio: 0.381995
+	TESTING...loss: 7.768737, acc: 0.438500, best_acc: 0.447000
+saving model...
+Begin epoch [   314]
+All labels are 0[     0]
+[   314/   480] loss: 5.401227, loss_neg: 1.055857, loss_real(cal_loss): 0.000890, acc: 0.618341, lr: 0.005000, pl: 0.618005, nl: 0.000000, noise_ratio: 0.381995
+	TESTING...loss: 7.757365, acc: 0.445500, best_acc: 0.447000
+saving model...
+Begin epoch [   315]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   315/   480] loss: 5.407844, loss_neg: 1.051160, loss_real(cal_loss): 0.060656, acc: 0.617620, lr: 0.005000, pl: 0.618197, nl: 0.000000, noise_ratio: 0.381803
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.865273, acc: 0.433500, best_acc: 0.447000
+saving model...
+Begin epoch [   316]
+All labels are 0[     0]
+[   316/   480] loss: 5.436389, loss_neg: 1.074293, loss_real(cal_loss): 0.000409, acc: 0.617908, lr: 0.005000, pl: 0.618629, nl: 0.000000, noise_ratio: 0.381371
+	TESTING...loss: 7.774398, acc: 0.439000, best_acc: 0.447000
+saving model...
+Begin epoch [   317]
+All labels are 0[     0]
+[   317/   480] loss: 5.409194, loss_neg: 1.039249, loss_real(cal_loss): 0.005060, acc: 0.619013, lr: 0.005000, pl: 0.618629, nl: 0.000000, noise_ratio: 0.381371
+	TESTING...loss: 7.718315, acc: 0.436000, best_acc: 0.447000
+saving model...
+Begin epoch [   318]
+All labels are 0[     0]
+[   318/   480] loss: 5.380870, loss_neg: 1.021430, loss_real(cal_loss): 0.011809, acc: 0.615891, lr: 0.005000, pl: 0.618677, nl: 0.000000, noise_ratio: 0.381323
+	TESTING...loss: 7.712543, acc: 0.438500, best_acc: 0.447000
+saving model...
+Begin epoch [   319]
+All labels are 0[     0]
+[   319/   480] loss: 5.382324, loss_neg: 1.043822, loss_real(cal_loss): 0.019075, acc: 0.616563, lr: 0.005000, pl: 0.619013, nl: 0.000000, noise_ratio: 0.380987
+	TESTING...loss: 7.752957, acc: 0.437000, best_acc: 0.447000
+saving model...
+Begin epoch [   320]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   320/   480] loss: 5.393543, loss_neg: 1.032207, loss_real(cal_loss): 0.014933, acc: 0.617380, lr: 0.005000, pl: 0.618917, nl: 0.000000, noise_ratio: 0.381083
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.773540, acc: 0.443000, best_acc: 0.447000
+saving model...
+Begin epoch [   321]
+All labels are 0[     0]
+[   321/   480] loss: 5.402860, loss_neg: 1.027147, loss_real(cal_loss): 0.662214, acc: 0.618581, lr: 0.005000, pl: 0.619061, nl: 0.000000, noise_ratio: 0.380939
+	TESTING...loss: 7.805795, acc: 0.435000, best_acc: 0.447000
+saving model...
+Begin epoch [   322]
+All labels are 0[     0]
+[   322/   480] loss: 5.421045, loss_neg: 1.037634, loss_real(cal_loss): 0.000196, acc: 0.617860, lr: 0.005000, pl: 0.619061, nl: 0.000000, noise_ratio: 0.380939
+	TESTING...loss: 7.751140, acc: 0.442000, best_acc: 0.447000
+saving model...
+Begin epoch [   323]
+All labels are 0[     0]
+[   323/   480] loss: 5.429324, loss_neg: 1.047253, loss_real(cal_loss): 0.011345, acc: 0.618677, lr: 0.005000, pl: 0.619013, nl: 0.000000, noise_ratio: 0.380987
+	TESTING...loss: 7.771141, acc: 0.442500, best_acc: 0.447000
+saving model...
+Begin epoch [   324]
+All labels are 0[     0]
+[   324/   480] loss: 5.440979, loss_neg: 1.053147, loss_real(cal_loss): 0.000634, acc: 0.618341, lr: 0.005000, pl: 0.619302, nl: 0.000000, noise_ratio: 0.380698
+	TESTING...loss: 7.704634, acc: 0.434000, best_acc: 0.447000
+saving model...
+Begin epoch [   325]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   325/   480] loss: 5.426698, loss_neg: 1.070026, loss_real(cal_loss): 0.003552, acc: 0.618197, lr: 0.005000, pl: 0.619398, nl: 0.000000, noise_ratio: 0.380602
+Pred
+tensor([[2],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.777840, acc: 0.437500, best_acc: 0.447000
+saving model...
+Begin epoch [   326]
+All labels are 0[     0]
+[   326/   480] loss: 5.409261, loss_neg: 1.064145, loss_real(cal_loss): 0.043183, acc: 0.617380, lr: 0.005000, pl: 0.619494, nl: 0.000000, noise_ratio: 0.380506
+	TESTING...loss: 7.760451, acc: 0.441000, best_acc: 0.447000
+saving model...
+Begin epoch [   327]
+All labels are 0[     0]
+[   327/   480] loss: 5.433679, loss_neg: 1.079046, loss_real(cal_loss): 0.108418, acc: 0.620166, lr: 0.005000, pl: 0.619638, nl: 0.000000, noise_ratio: 0.380362
+	TESTING...loss: 7.765134, acc: 0.436000, best_acc: 0.447000
+saving model...
+Begin epoch [   328]
+All labels are 0[     0]
+[   328/   480] loss: 5.406853, loss_neg: 1.008560, loss_real(cal_loss): 0.001692, acc: 0.620118, lr: 0.005000, pl: 0.619590, nl: 0.000000, noise_ratio: 0.380410
+	TESTING...loss: 7.911841, acc: 0.432500, best_acc: 0.447000
+saving model...
+Begin epoch [   329]
+All labels are 0[     0]
+[   329/   480] loss: 5.431034, loss_neg: 1.062650, loss_real(cal_loss): 0.001074, acc: 0.620022, lr: 0.005000, pl: 0.619638, nl: 0.000000, noise_ratio: 0.380362
+	TESTING...loss: 7.770933, acc: 0.443500, best_acc: 0.447000
+saving model...
+Begin epoch [   330]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   330/   480] loss: 5.422626, loss_neg: 1.026008, loss_real(cal_loss): 0.124127, acc: 0.619302, lr: 0.005000, pl: 0.619734, nl: 0.000000, noise_ratio: 0.380266
+Pred
+tensor([[1],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.859933, acc: 0.432500, best_acc: 0.447000
+saving model...
+Begin epoch [   331]
+All labels are 0[     0]
+[   331/   480] loss: 5.450940, loss_neg: 1.048264, loss_real(cal_loss): 0.086781, acc: 0.619686, lr: 0.005000, pl: 0.619974, nl: 0.000000, noise_ratio: 0.380026
+	TESTING...loss: 7.787000, acc: 0.448000, best_acc: 0.447000
+saving model...
+saving best model...
+Begin epoch [   332]
+All labels are 0[     0]
+[   332/   480] loss: 5.440454, loss_neg: 1.051587, loss_real(cal_loss): 0.000438, acc: 0.619157, lr: 0.005000, pl: 0.620166, nl: 0.000000, noise_ratio: 0.379834
+	TESTING...loss: 7.994366, acc: 0.427000, best_acc: 0.448000
+saving model...
+Begin epoch [   333]
+All labels are 0[     0]
+[   333/   480] loss: 5.432509, loss_neg: 1.051651, loss_real(cal_loss): 0.002043, acc: 0.618869, lr: 0.005000, pl: 0.620262, nl: 0.000000, noise_ratio: 0.379738
+	TESTING...loss: 7.783442, acc: 0.442500, best_acc: 0.448000
+saving model...
+Begin epoch [   334]
+All labels are 0[     0]
+[   334/   480] loss: 5.419892, loss_neg: 1.045377, loss_real(cal_loss): 0.043628, acc: 0.619302, lr: 0.005000, pl: 0.620262, nl: 0.000000, noise_ratio: 0.379738
+	TESTING...loss: 7.716749, acc: 0.446500, best_acc: 0.448000
+saving model...
+Begin epoch [   335]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   335/   480] loss: 5.458168, loss_neg: 1.069960, loss_real(cal_loss): 0.051870, acc: 0.621031, lr: 0.005000, pl: 0.620310, nl: 0.000000, noise_ratio: 0.379690
+Pred
+tensor([[2],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.805993, acc: 0.431000, best_acc: 0.448000
+saving model...
+Begin epoch [   336]
+All labels are 0[     0]
+[   336/   480] loss: 5.469347, loss_neg: 1.055120, loss_real(cal_loss): 0.008099, acc: 0.620743, lr: 0.005000, pl: 0.620551, nl: 0.000000, noise_ratio: 0.379449
+	TESTING...loss: 7.825930, acc: 0.446000, best_acc: 0.448000
+saving model...
+Begin epoch [   337]
+All labels are 0[     0]
+[   337/   480] loss: 5.443943, loss_neg: 1.114160, loss_real(cal_loss): 0.092581, acc: 0.619926, lr: 0.005000, pl: 0.620599, nl: 0.000000, noise_ratio: 0.379401
+	TESTING...loss: 7.720343, acc: 0.446000, best_acc: 0.448000
+saving model...
+Begin epoch [   338]
+All labels are 0[     0]
+[   338/   480] loss: 5.404068, loss_neg: 1.037042, loss_real(cal_loss): 0.013105, acc: 0.620502, lr: 0.005000, pl: 0.620599, nl: 0.000000, noise_ratio: 0.379401
+	TESTING...loss: 7.889125, acc: 0.432500, best_acc: 0.448000
+saving model...
+Begin epoch [   339]
+All labels are 0[     0]
+[   339/   480] loss: 5.448732, loss_neg: 1.043095, loss_real(cal_loss): 0.000006, acc: 0.621607, lr: 0.005000, pl: 0.620695, nl: 0.000000, noise_ratio: 0.379305
+	TESTING...loss: 7.827241, acc: 0.442500, best_acc: 0.448000
+saving model...
+Begin epoch [   340]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   340/   480] loss: 5.457368, loss_neg: 1.060959, loss_real(cal_loss): 0.002863, acc: 0.619878, lr: 0.005000, pl: 0.620695, nl: 0.000000, noise_ratio: 0.379305
+Pred
+tensor([[2],
+        [1],
+        [1],
+        [0],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.846888, acc: 0.432000, best_acc: 0.448000
+saving model...
+Begin epoch [   341]
+All labels are 0[     0]
+[   341/   480] loss: 5.448949, loss_neg: 1.074032, loss_real(cal_loss): 0.012880, acc: 0.618725, lr: 0.005000, pl: 0.620839, nl: 0.000000, noise_ratio: 0.379161
+	TESTING...loss: 7.770590, acc: 0.444500, best_acc: 0.448000
+saving model...
+Begin epoch [   342]
+All labels are 0[     0]
+[   342/   480] loss: 5.468435, loss_neg: 1.045691, loss_real(cal_loss): 0.119092, acc: 0.621415, lr: 0.005000, pl: 0.621127, nl: 0.000000, noise_ratio: 0.378873
+	TESTING...loss: 7.903874, acc: 0.432500, best_acc: 0.448000
+saving model...
+Begin epoch [   343]
+All labels are 0[     0]
+[   343/   480] loss: 5.431640, loss_neg: 1.045210, loss_real(cal_loss): 0.222043, acc: 0.618821, lr: 0.005000, pl: 0.621127, nl: 0.000000, noise_ratio: 0.378873
+	TESTING...loss: 7.778436, acc: 0.442500, best_acc: 0.448000
+saving model...
+Begin epoch [   344]
+All labels are 0[     0]
+[   344/   480] loss: 5.431257, loss_neg: 1.057874, loss_real(cal_loss): 0.001124, acc: 0.621896, lr: 0.005000, pl: 0.621031, nl: 0.000000, noise_ratio: 0.378969
+	TESTING...loss: 7.786477, acc: 0.441000, best_acc: 0.448000
+saving model...
+Begin epoch [   345]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   345/   480] loss: 5.438458, loss_neg: 1.060625, loss_real(cal_loss): 0.003852, acc: 0.619782, lr: 0.005000, pl: 0.621127, nl: 0.000000, noise_ratio: 0.378873
+Pred
+tensor([[2],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.918493, acc: 0.430000, best_acc: 0.448000
+saving model...
+Begin epoch [   346]
+All labels are 0[     0]
+[   346/   480] loss: 5.446300, loss_neg: 1.083211, loss_real(cal_loss): 0.009463, acc: 0.621799, lr: 0.005000, pl: 0.621367, nl: 0.000000, noise_ratio: 0.378633
+	TESTING...loss: 7.780630, acc: 0.437500, best_acc: 0.448000
+saving model...
+Begin epoch [   347]
+All labels are 0[     0]
+[   347/   480] loss: 5.443722, loss_neg: 1.050872, loss_real(cal_loss): 0.000040, acc: 0.622808, lr: 0.005000, pl: 0.621223, nl: 0.000000, noise_ratio: 0.378777
+	TESTING...loss: 7.785888, acc: 0.438000, best_acc: 0.448000
+saving model...
+Begin epoch [   348]
+All labels are 0[     0]
+[   348/   480] loss: 5.452726, loss_neg: 1.061844, loss_real(cal_loss): 0.585354, acc: 0.622952, lr: 0.005000, pl: 0.621271, nl: 0.000000, noise_ratio: 0.378729
+	TESTING...loss: 7.843359, acc: 0.438000, best_acc: 0.448000
+saving model...
+Begin epoch [   349]
+All labels are 0[     0]
+[   349/   480] loss: 5.430559, loss_neg: 1.044973, loss_real(cal_loss): 0.000051, acc: 0.621031, lr: 0.005000, pl: 0.621511, nl: 0.000000, noise_ratio: 0.378489
+	TESTING...loss: 7.833323, acc: 0.438500, best_acc: 0.448000
+saving model...
+Begin epoch [   350]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   350/   480] loss: 5.426173, loss_neg: 1.051235, loss_real(cal_loss): 0.021103, acc: 0.622856, lr: 0.005000, pl: 0.621799, nl: 0.000000, noise_ratio: 0.378201
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [0],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.819777, acc: 0.440500, best_acc: 0.448000
+saving model...
+Begin epoch [   351]
+All labels are 0[     0]
+[   351/   480] loss: 5.428504, loss_neg: 1.050291, loss_real(cal_loss): 0.008925, acc: 0.621223, lr: 0.005000, pl: 0.621703, nl: 0.000000, noise_ratio: 0.378297
+	TESTING...loss: 7.749618, acc: 0.445500, best_acc: 0.448000
+saving model...
+Begin epoch [   352]
+All labels are 0[     0]
+[   352/   480] loss: 5.453560, loss_neg: 1.048015, loss_real(cal_loss): 0.015811, acc: 0.623000, lr: 0.005000, pl: 0.621799, nl: 0.000000, noise_ratio: 0.378201
+	TESTING...loss: 7.830279, acc: 0.433000, best_acc: 0.448000
+saving model...
+Begin epoch [   353]
+All labels are 0[     0]
+[   353/   480] loss: 5.441749, loss_neg: 1.045716, loss_real(cal_loss): 0.000333, acc: 0.622088, lr: 0.005000, pl: 0.621992, nl: 0.000000, noise_ratio: 0.378008
+	TESTING...loss: 7.811026, acc: 0.446000, best_acc: 0.448000
+saving model...
+Begin epoch [   354]
+All labels are 0[     0]
+[   354/   480] loss: 5.452298, loss_neg: 1.069920, loss_real(cal_loss): 0.001164, acc: 0.622424, lr: 0.005000, pl: 0.621944, nl: 0.000000, noise_ratio: 0.378056
+	TESTING...loss: 7.775660, acc: 0.446000, best_acc: 0.448000
+saving model...
+Begin epoch [   355]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   355/   480] loss: 5.434585, loss_neg: 1.035059, loss_real(cal_loss): 0.002869, acc: 0.623673, lr: 0.005000, pl: 0.621896, nl: 0.000000, noise_ratio: 0.378104
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.815548, acc: 0.438500, best_acc: 0.448000
+saving model...
+Begin epoch [   356]
+All labels are 0[     0]
+[   356/   480] loss: 5.457798, loss_neg: 1.043247, loss_real(cal_loss): 0.015015, acc: 0.622520, lr: 0.005000, pl: 0.621896, nl: 0.000000, noise_ratio: 0.378104
+	TESTING...loss: 7.892096, acc: 0.432500, best_acc: 0.448000
+saving model...
+Begin epoch [   357]
+All labels are 0[     0]
+[   357/   480] loss: 5.445977, loss_neg: 1.067037, loss_real(cal_loss): 0.001696, acc: 0.621367, lr: 0.005000, pl: 0.621992, nl: 0.000000, noise_ratio: 0.378008
+	TESTING...loss: 7.795651, acc: 0.442500, best_acc: 0.448000
+saving model...
+Begin epoch [   358]
+All labels are 0[     0]
+[   358/   480] loss: 5.462862, loss_neg: 1.081077, loss_real(cal_loss): 0.017094, acc: 0.621751, lr: 0.005000, pl: 0.622136, nl: 0.000000, noise_ratio: 0.377864
+	TESTING...loss: 7.862115, acc: 0.439500, best_acc: 0.448000
+saving model...
+Begin epoch [   359]
+All labels are 0[     0]
+[   359/   480] loss: 5.436611, loss_neg: 1.034723, loss_real(cal_loss): 0.001905, acc: 0.621944, lr: 0.005000, pl: 0.622376, nl: 0.000000, noise_ratio: 0.377624
+	TESTING...loss: 7.924337, acc: 0.432500, best_acc: 0.448000
+saving model...
+Begin epoch [   360]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   360/   480] loss: 5.432005, loss_neg: 1.078165, loss_real(cal_loss): 0.000584, acc: 0.622232, lr: 0.005000, pl: 0.622424, nl: 0.000000, noise_ratio: 0.377576
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.810179, acc: 0.431500, best_acc: 0.448000
+saving model...
+Begin epoch [   361]
+All labels are 0[     0]
+[   361/   480] loss: 5.425542, loss_neg: 1.050507, loss_real(cal_loss): 0.037708, acc: 0.622040, lr: 0.005000, pl: 0.622376, nl: 0.000000, noise_ratio: 0.377624
+	TESTING...loss: 7.743592, acc: 0.442000, best_acc: 0.448000
+saving model...
+Begin epoch [   362]
+All labels are 0[     0]
+[   362/   480] loss: 5.443634, loss_neg: 1.078278, loss_real(cal_loss): 0.076980, acc: 0.622664, lr: 0.005000, pl: 0.622424, nl: 0.000000, noise_ratio: 0.377576
+	TESTING...loss: 7.770702, acc: 0.445500, best_acc: 0.448000
+saving model...
+Begin epoch [   363]
+All labels are 0[     0]
+[   363/   480] loss: 5.440918, loss_neg: 1.074219, loss_real(cal_loss): 0.000586, acc: 0.622376, lr: 0.005000, pl: 0.622568, nl: 0.000000, noise_ratio: 0.377432
+	TESTING...loss: 7.811347, acc: 0.432500, best_acc: 0.448000
+saving model...
+Begin epoch [   364]
+All labels are 0[     0]
+[   364/   480] loss: 5.448565, loss_neg: 1.067233, loss_real(cal_loss): 0.313304, acc: 0.623097, lr: 0.005000, pl: 0.622712, nl: 0.000000, noise_ratio: 0.377288
+	TESTING...loss: 7.843543, acc: 0.435000, best_acc: 0.448000
+saving model...
+Begin epoch [   365]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   365/   480] loss: 5.431519, loss_neg: 1.058291, loss_real(cal_loss): 0.095227, acc: 0.622424, lr: 0.005000, pl: 0.622760, nl: 0.000000, noise_ratio: 0.377240
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.929543, acc: 0.431000, best_acc: 0.448000
+saving model...
+Begin epoch [   366]
+All labels are 0[     0]
+[   366/   480] loss: 5.420475, loss_neg: 1.029061, loss_real(cal_loss): 0.000946, acc: 0.622664, lr: 0.005000, pl: 0.622760, nl: 0.000000, noise_ratio: 0.377240
+	TESTING...loss: 7.851036, acc: 0.430000, best_acc: 0.448000
+saving model...
+Begin epoch [   367]
+All labels are 0[     0]
+[   367/   480] loss: 5.460682, loss_neg: 1.102530, loss_real(cal_loss): 0.024717, acc: 0.624057, lr: 0.005000, pl: 0.622952, nl: 0.000000, noise_ratio: 0.377048
+	TESTING...loss: 7.901962, acc: 0.441500, best_acc: 0.448000
+saving model...
+Begin epoch [   368]
+All labels are 0[     0]
+[   368/   480] loss: 5.469635, loss_neg: 1.093523, loss_real(cal_loss): 0.001463, acc: 0.623337, lr: 0.005000, pl: 0.623048, nl: 0.000000, noise_ratio: 0.376952
+	TESTING...loss: 7.960992, acc: 0.435000, best_acc: 0.448000
+saving model...
+Begin epoch [   369]
+All labels are 0[     0]
+[   369/   480] loss: 5.433679, loss_neg: 1.051654, loss_real(cal_loss): 0.003982, acc: 0.623241, lr: 0.005000, pl: 0.623048, nl: 0.000000, noise_ratio: 0.376952
+	TESTING...loss: 7.814902, acc: 0.444500, best_acc: 0.448000
+saving model...
+Begin epoch [   370]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   370/   480] loss: 5.458340, loss_neg: 1.054180, loss_real(cal_loss): 0.000277, acc: 0.624249, lr: 0.005000, pl: 0.623048, nl: 0.000000, noise_ratio: 0.376952
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.902134, acc: 0.437000, best_acc: 0.448000
+saving model...
+Begin epoch [   371]
+All labels are 0[     0]
+[   371/   480] loss: 5.441790, loss_neg: 1.087027, loss_real(cal_loss): 0.000176, acc: 0.623865, lr: 0.005000, pl: 0.623145, nl: 0.000000, noise_ratio: 0.376855
+	TESTING...loss: 7.896768, acc: 0.436000, best_acc: 0.448000
+saving model...
+Begin epoch [   372]
+All labels are 0[     0]
+[   372/   480] loss: 5.464922, loss_neg: 1.102893, loss_real(cal_loss): 0.039586, acc: 0.623481, lr: 0.005000, pl: 0.623433, nl: 0.000000, noise_ratio: 0.376567
+	TESTING...loss: 8.062016, acc: 0.423000, best_acc: 0.448000
+saving model...
+Begin epoch [   373]
+All labels are 0[     0]
+[   373/   480] loss: 5.461730, loss_neg: 1.058258, loss_real(cal_loss): 0.000157, acc: 0.623769, lr: 0.005000, pl: 0.623433, nl: 0.000000, noise_ratio: 0.376567
+	TESTING...loss: 7.819796, acc: 0.437000, best_acc: 0.448000
+saving model...
+Begin epoch [   374]
+All labels are 0[     0]
+[   374/   480] loss: 5.436781, loss_neg: 1.057857, loss_real(cal_loss): 0.000049, acc: 0.624394, lr: 0.005000, pl: 0.623625, nl: 0.000000, noise_ratio: 0.376375
+	TESTING...loss: 7.856861, acc: 0.445500, best_acc: 0.448000
+saving model...
+Begin epoch [   375]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   375/   480] loss: 5.440254, loss_neg: 1.052501, loss_real(cal_loss): 0.002952, acc: 0.624201, lr: 0.005000, pl: 0.623673, nl: 0.000000, noise_ratio: 0.376327
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.839958, acc: 0.432500, best_acc: 0.448000
+saving model...
+Begin epoch [   376]
+All labels are 0[     0]
+[   376/   480] loss: 5.456656, loss_neg: 1.099646, loss_real(cal_loss): 0.002125, acc: 0.624297, lr: 0.005000, pl: 0.623769, nl: 0.000000, noise_ratio: 0.376231
+	TESTING...loss: 7.935905, acc: 0.440000, best_acc: 0.448000
+saving model...
+Begin epoch [   377]
+All labels are 0[     0]
+[   377/   480] loss: 5.460170, loss_neg: 1.068675, loss_real(cal_loss): 0.000046, acc: 0.625210, lr: 0.005000, pl: 0.623769, nl: 0.000000, noise_ratio: 0.376231
+	TESTING...loss: 7.824875, acc: 0.437000, best_acc: 0.448000
+saving model...
+Begin epoch [   378]
+All labels are 0[     0]
+[   378/   480] loss: 5.433954, loss_neg: 1.066453, loss_real(cal_loss): 0.002169, acc: 0.623865, lr: 0.005000, pl: 0.623961, nl: 0.000000, noise_ratio: 0.376039
+	TESTING...loss: 7.804209, acc: 0.435000, best_acc: 0.448000
+saving model...
+Begin epoch [   379]
+All labels are 0[     0]
+[   379/   480] loss: 5.440061, loss_neg: 1.085489, loss_real(cal_loss): 0.000002, acc: 0.625835, lr: 0.005000, pl: 0.624057, nl: 0.000000, noise_ratio: 0.375943
+	TESTING...loss: 7.930156, acc: 0.435000, best_acc: 0.448000
+saving model...
+Begin epoch [   380]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   380/   480] loss: 5.447382, loss_neg: 1.090846, loss_real(cal_loss): 0.006933, acc: 0.624249, lr: 0.005000, pl: 0.624057, nl: 0.000000, noise_ratio: 0.375943
+Pred
+tensor([[2],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.898614, acc: 0.438500, best_acc: 0.448000
+saving model...
+Begin epoch [   381]
+All labels are 0[     0]
+[   381/   480] loss: 5.430004, loss_neg: 1.056673, loss_real(cal_loss): 0.005290, acc: 0.624730, lr: 0.005000, pl: 0.624201, nl: 0.000000, noise_ratio: 0.375799
+	TESTING...loss: 8.005727, acc: 0.430000, best_acc: 0.448000
+saving model...
+Begin epoch [   382]
+All labels are 0[     0]
+[   382/   480] loss: 5.457108, loss_neg: 1.079438, loss_real(cal_loss): 0.030673, acc: 0.624105, lr: 0.005000, pl: 0.624249, nl: 0.000000, noise_ratio: 0.375751
+	TESTING...loss: 7.908547, acc: 0.425500, best_acc: 0.448000
+saving model...
+Begin epoch [   383]
+All labels are 0[     0]
+[   383/   480] loss: 5.450156, loss_neg: 1.096430, loss_real(cal_loss): 0.000363, acc: 0.625258, lr: 0.005000, pl: 0.624442, nl: 0.000000, noise_ratio: 0.375558
+	TESTING...loss: 7.974651, acc: 0.435000, best_acc: 0.448000
+saving model...
+Begin epoch [   384]
+All labels are 0[     0]
+[   384/   480] loss: 5.451915, loss_neg: 1.077032, loss_real(cal_loss): 0.000108, acc: 0.625354, lr: 0.005000, pl: 0.624538, nl: 0.000000, noise_ratio: 0.375462
+	TESTING...loss: 7.861964, acc: 0.444500, best_acc: 0.448000
+saving model...
+Begin epoch [   385]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   385/   480] loss: 5.433089, loss_neg: 1.066992, loss_real(cal_loss): 0.023418, acc: 0.625546, lr: 0.005000, pl: 0.624442, nl: 0.000000, noise_ratio: 0.375558
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.807460, acc: 0.442500, best_acc: 0.448000
+saving model...
+Begin epoch [   386]
+All labels are 0[     0]
+[   386/   480] loss: 5.437309, loss_neg: 1.074325, loss_real(cal_loss): 0.033788, acc: 0.626219, lr: 0.005000, pl: 0.624730, nl: 0.000000, noise_ratio: 0.375270
+	TESTING...loss: 7.937378, acc: 0.430000, best_acc: 0.448000
+saving model...
+Begin epoch [   387]
+All labels are 0[     0]
+[   387/   480] loss: 5.463032, loss_neg: 1.062520, loss_real(cal_loss): 0.001744, acc: 0.625258, lr: 0.005000, pl: 0.624778, nl: 0.000000, noise_ratio: 0.375222
+	TESTING...loss: 7.986464, acc: 0.434500, best_acc: 0.448000
+saving model...
+Begin epoch [   388]
+All labels are 0[     0]
+[   388/   480] loss: 5.439699, loss_neg: 1.060985, loss_real(cal_loss): 0.000165, acc: 0.624490, lr: 0.005000, pl: 0.624730, nl: 0.000000, noise_ratio: 0.375270
+	TESTING...loss: 7.872517, acc: 0.440500, best_acc: 0.448000
+saving model...
+Begin epoch [   389]
+All labels are 0[     0]
+[   389/   480] loss: 5.473777, loss_neg: 1.092188, loss_real(cal_loss): 0.001126, acc: 0.624249, lr: 0.005000, pl: 0.624970, nl: 0.000000, noise_ratio: 0.375030
+	TESTING...loss: 7.927130, acc: 0.436000, best_acc: 0.448000
+saving model...
+Begin epoch [   390]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   390/   480] loss: 5.432768, loss_neg: 1.066363, loss_real(cal_loss): 0.000257, acc: 0.623721, lr: 0.005000, pl: 0.625114, nl: 0.000000, noise_ratio: 0.374886
+Pred
+tensor([[1],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.960964, acc: 0.433500, best_acc: 0.448000
+saving model...
+Begin epoch [   391]
+All labels are 0[     0]
+[   391/   480] loss: 5.468671, loss_neg: 1.089882, loss_real(cal_loss): 0.000030, acc: 0.627372, lr: 0.005000, pl: 0.625114, nl: 0.000000, noise_ratio: 0.374886
+	TESTING...loss: 7.981722, acc: 0.434000, best_acc: 0.448000
+saving model...
+Begin epoch [   392]
+All labels are 0[     0]
+[   392/   480] loss: 5.445881, loss_neg: 1.076553, loss_real(cal_loss): 0.298083, acc: 0.625883, lr: 0.005000, pl: 0.625258, nl: 0.000000, noise_ratio: 0.374742
+	TESTING...loss: 7.974620, acc: 0.428500, best_acc: 0.448000
+saving model...
+Begin epoch [   393]
+All labels are 0[     0]
+[   393/   480] loss: 5.464482, loss_neg: 1.082661, loss_real(cal_loss): 0.073855, acc: 0.624778, lr: 0.005000, pl: 0.625354, nl: 0.000000, noise_ratio: 0.374646
+	TESTING...loss: 7.734564, acc: 0.435000, best_acc: 0.448000
+saving model...
+Begin epoch [   394]
+All labels are 0[     0]
+[   394/   480] loss: 5.424782, loss_neg: 1.045765, loss_real(cal_loss): 0.001772, acc: 0.625883, lr: 0.005000, pl: 0.625402, nl: 0.000000, noise_ratio: 0.374598
+	TESTING...loss: 7.847157, acc: 0.430500, best_acc: 0.448000
+saving model...
+Begin epoch [   395]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   395/   480] loss: 5.427973, loss_neg: 1.067338, loss_real(cal_loss): 0.000555, acc: 0.627036, lr: 0.005000, pl: 0.625258, nl: 0.000000, noise_ratio: 0.374742
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 8.059466, acc: 0.421500, best_acc: 0.448000
+saving model...
+Begin epoch [   396]
+All labels are 0[     0]
+[   396/   480] loss: 5.474144, loss_neg: 1.100587, loss_real(cal_loss): 0.001883, acc: 0.627084, lr: 0.005000, pl: 0.625306, nl: 0.000000, noise_ratio: 0.374694
+	TESTING...loss: 7.934299, acc: 0.440000, best_acc: 0.448000
+saving model...
+Begin epoch [   397]
+All labels are 0[     0]
+[   397/   480] loss: 5.474396, loss_neg: 1.083755, loss_real(cal_loss): 0.089656, acc: 0.625162, lr: 0.005000, pl: 0.625450, nl: 0.000000, noise_ratio: 0.374550
+	TESTING...loss: 7.758894, acc: 0.445000, best_acc: 0.448000
+saving model...
+Begin epoch [   398]
+All labels are 0[     0]
+[   398/   480] loss: 5.437621, loss_neg: 1.063138, loss_real(cal_loss): 0.013551, acc: 0.625450, lr: 0.005000, pl: 0.625643, nl: 0.000000, noise_ratio: 0.374357
+	TESTING...loss: 7.930831, acc: 0.434500, best_acc: 0.448000
+saving model...
+Begin epoch [   399]
+All labels are 0[     0]
+[   399/   480] loss: 5.480471, loss_neg: 1.059246, loss_real(cal_loss): 0.000082, acc: 0.626027, lr: 0.005000, pl: 0.625691, nl: 0.000000, noise_ratio: 0.374309
+	TESTING...loss: 7.974494, acc: 0.435500, best_acc: 0.448000
+saving model...
+Begin epoch [   400]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   400/   480] loss: 5.439576, loss_neg: 1.040109, loss_real(cal_loss): 0.005369, acc: 0.626363, lr: 0.005000, pl: 0.625691, nl: 0.000000, noise_ratio: 0.374309
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 8.000197, acc: 0.430500, best_acc: 0.448000
+saving model...
+Begin epoch [   401]
+All labels are 0[     0]
+[   401/   480] loss: 5.458006, loss_neg: 1.080556, loss_real(cal_loss): 0.050447, acc: 0.626747, lr: 0.005000, pl: 0.625643, nl: 0.000000, noise_ratio: 0.374357
+	TESTING...loss: 7.912833, acc: 0.440500, best_acc: 0.448000
+saving model...
+Begin epoch [   402]
+All labels are 0[     0]
+[   402/   480] loss: 5.466416, loss_neg: 1.077706, loss_real(cal_loss): 0.088497, acc: 0.626171, lr: 0.005000, pl: 0.625739, nl: 0.000000, noise_ratio: 0.374261
+	TESTING...loss: 7.978784, acc: 0.428500, best_acc: 0.448000
+saving model...
+Begin epoch [   403]
+All labels are 0[     0]
+[   403/   480] loss: 5.489238, loss_neg: 1.097514, loss_real(cal_loss): 0.000518, acc: 0.627564, lr: 0.005000, pl: 0.626027, nl: 0.000000, noise_ratio: 0.373973
+	TESTING...loss: 8.131300, acc: 0.434500, best_acc: 0.448000
+saving model...
+Begin epoch [   404]
+All labels are 0[     0]
+[   404/   480] loss: 5.484059, loss_neg: 1.116588, loss_real(cal_loss): 0.000050, acc: 0.627564, lr: 0.005000, pl: 0.625883, nl: 0.000000, noise_ratio: 0.374117
+	TESTING...loss: 7.893724, acc: 0.440000, best_acc: 0.448000
+saving model...
+Begin epoch [   405]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   405/   480] loss: 5.458326, loss_neg: 1.079154, loss_real(cal_loss): 0.002309, acc: 0.626555, lr: 0.005000, pl: 0.625979, nl: 0.000000, noise_ratio: 0.374021
+Pred
+tensor([[2],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.886745, acc: 0.442500, best_acc: 0.448000
+saving model...
+Begin epoch [   406]
+All labels are 0[     0]
+[   406/   480] loss: 5.467324, loss_neg: 1.082543, loss_real(cal_loss): 0.002680, acc: 0.626027, lr: 0.005000, pl: 0.625931, nl: 0.000000, noise_ratio: 0.374069
+	TESTING...loss: 7.917979, acc: 0.434500, best_acc: 0.448000
+saving model...
+Begin epoch [   407]
+All labels are 0[     0]
+[   407/   480] loss: 5.437749, loss_neg: 1.071453, loss_real(cal_loss): 0.023614, acc: 0.626411, lr: 0.005000, pl: 0.626075, nl: 0.000000, noise_ratio: 0.373925
+	TESTING...loss: 7.890290, acc: 0.438000, best_acc: 0.448000
+saving model...
+Begin epoch [   408]
+All labels are 0[     0]
+[   408/   480] loss: 5.440396, loss_neg: 1.072071, loss_real(cal_loss): 0.026007, acc: 0.627420, lr: 0.005000, pl: 0.626123, nl: 0.000000, noise_ratio: 0.373877
+	TESTING...loss: 7.918196, acc: 0.437000, best_acc: 0.448000
+saving model...
+Begin epoch [   409]
+All labels are 0[     0]
+[   409/   480] loss: 5.443819, loss_neg: 1.055500, loss_real(cal_loss): 0.016465, acc: 0.629726, lr: 0.005000, pl: 0.626075, nl: 0.000000, noise_ratio: 0.373925
+	TESTING...loss: 7.879793, acc: 0.444500, best_acc: 0.448000
+saving model...
+Begin epoch [   410]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   410/   480] loss: 5.467347, loss_neg: 1.085792, loss_real(cal_loss): 0.000087, acc: 0.625883, lr: 0.005000, pl: 0.626315, nl: 0.000000, noise_ratio: 0.373685
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [0],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.933246, acc: 0.432500, best_acc: 0.448000
+saving model...
+Begin epoch [   411]
+All labels are 0[     0]
+[   411/   480] loss: 5.461248, loss_neg: 1.089393, loss_real(cal_loss): 0.000651, acc: 0.626315, lr: 0.005000, pl: 0.626459, nl: 0.000000, noise_ratio: 0.373541
+	TESTING...loss: 7.838250, acc: 0.439000, best_acc: 0.448000
+saving model...
+Begin epoch [   412]
+All labels are 0[     0]
+[   412/   480] loss: 5.454708, loss_neg: 1.084117, loss_real(cal_loss): 0.021487, acc: 0.627804, lr: 0.005000, pl: 0.626411, nl: 0.000000, noise_ratio: 0.373589
+	TESTING...loss: 7.910820, acc: 0.431500, best_acc: 0.448000
+saving model...
+Begin epoch [   413]
+All labels are 0[     0]
+[   413/   480] loss: 5.421617, loss_neg: 1.079602, loss_real(cal_loss): 0.048909, acc: 0.627564, lr: 0.005000, pl: 0.626603, nl: 0.000000, noise_ratio: 0.373397
+	TESTING...loss: 7.761592, acc: 0.440500, best_acc: 0.448000
+saving model...
+Begin epoch [   414]
+All labels are 0[     0]
+[   414/   480] loss: 5.453014, loss_neg: 1.075344, loss_real(cal_loss): 0.220990, acc: 0.629678, lr: 0.005000, pl: 0.626651, nl: 0.000000, noise_ratio: 0.373349
+	TESTING...loss: 8.001993, acc: 0.430000, best_acc: 0.448000
+saving model...
+Begin epoch [   415]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   415/   480] loss: 5.471653, loss_neg: 1.107199, loss_real(cal_loss): 0.000078, acc: 0.627036, lr: 0.005000, pl: 0.626795, nl: 0.000000, noise_ratio: 0.373205
+Pred
+tensor([[1],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 8.060396, acc: 0.431000, best_acc: 0.448000
+saving model...
+Begin epoch [   416]
+All labels are 0[     0]
+[   416/   480] loss: 5.443763, loss_neg: 1.092068, loss_real(cal_loss): 0.031431, acc: 0.624778, lr: 0.005000, pl: 0.626795, nl: 0.000000, noise_ratio: 0.373205
+	TESTING...loss: 7.808859, acc: 0.438500, best_acc: 0.448000
+saving model...
+Begin epoch [   417]
+All labels are 0[     0]
+[   417/   480] loss: 5.452953, loss_neg: 1.072805, loss_real(cal_loss): 0.000011, acc: 0.629293, lr: 0.005000, pl: 0.627036, nl: 0.000000, noise_ratio: 0.372964
+	TESTING...loss: 7.852004, acc: 0.446000, best_acc: 0.448000
+saving model...
+Begin epoch [   418]
+All labels are 0[     0]
+[   418/   480] loss: 5.452045, loss_neg: 1.084245, loss_real(cal_loss): 0.006081, acc: 0.627276, lr: 0.005000, pl: 0.627084, nl: 0.000000, noise_ratio: 0.372916
+	TESTING...loss: 7.797695, acc: 0.444000, best_acc: 0.448000
+saving model...
+Begin epoch [   419]
+All labels are 0[     0]
+[   419/   480] loss: 5.446141, loss_neg: 1.080176, loss_real(cal_loss): 0.016325, acc: 0.626988, lr: 0.005000, pl: 0.627084, nl: 0.000000, noise_ratio: 0.372916
+	TESTING...loss: 7.883196, acc: 0.430500, best_acc: 0.448000
+saving model...
+Begin epoch [   420]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   420/   480] loss: 5.431534, loss_neg: 1.075359, loss_real(cal_loss): 0.001139, acc: 0.627996, lr: 0.005000, pl: 0.627084, nl: 0.000000, noise_ratio: 0.372916
+Pred
+tensor([[1],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 8.023046, acc: 0.430000, best_acc: 0.448000
+saving model...
+Begin epoch [   421]
+All labels are 0[     0]
+[   421/   480] loss: 5.412993, loss_neg: 1.036158, loss_real(cal_loss): 0.004012, acc: 0.624297, lr: 0.005000, pl: 0.627180, nl: 0.000000, noise_ratio: 0.372820
+	TESTING...loss: 7.810212, acc: 0.443000, best_acc: 0.448000
+saving model...
+Begin epoch [   422]
+All labels are 0[     0]
+[   422/   480] loss: 5.438930, loss_neg: 1.062996, loss_real(cal_loss): 0.002571, acc: 0.629678, lr: 0.005000, pl: 0.627084, nl: 0.000000, noise_ratio: 0.372916
+	TESTING...loss: 7.975896, acc: 0.431500, best_acc: 0.448000
+saving model...
+Begin epoch [   423]
+All labels are 0[     0]
+[   423/   480] loss: 5.463429, loss_neg: 1.099340, loss_real(cal_loss): 0.000255, acc: 0.630206, lr: 0.005000, pl: 0.627180, nl: 0.000000, noise_ratio: 0.372820
+	TESTING...loss: 7.893715, acc: 0.437000, best_acc: 0.448000
+saving model...
+Begin epoch [   424]
+All labels are 0[     0]
+[   424/   480] loss: 5.450229, loss_neg: 1.061377, loss_real(cal_loss): 0.012397, acc: 0.627468, lr: 0.005000, pl: 0.627132, nl: 0.000000, noise_ratio: 0.372868
+	TESTING...loss: 7.840239, acc: 0.445000, best_acc: 0.448000
+saving model...
+Begin epoch [   425]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   425/   480] loss: 5.449067, loss_neg: 1.060085, loss_real(cal_loss): 0.002313, acc: 0.627036, lr: 0.005000, pl: 0.627180, nl: 0.000000, noise_ratio: 0.372820
+Pred
+tensor([[1],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.926166, acc: 0.429500, best_acc: 0.448000
+saving model...
+Begin epoch [   426]
+All labels are 0[     0]
+[   426/   480] loss: 5.442793, loss_neg: 1.057931, loss_real(cal_loss): 0.000065, acc: 0.629197, lr: 0.005000, pl: 0.627228, nl: 0.000000, noise_ratio: 0.372772
+	TESTING...loss: 8.014941, acc: 0.439000, best_acc: 0.448000
+saving model...
+Begin epoch [   427]
+All labels are 0[     0]
+[   427/   480] loss: 5.443676, loss_neg: 1.093145, loss_real(cal_loss): 0.002963, acc: 0.628861, lr: 0.005000, pl: 0.627228, nl: 0.000000, noise_ratio: 0.372772
+	TESTING...loss: 8.074132, acc: 0.426000, best_acc: 0.448000
+saving model...
+Begin epoch [   428]
+All labels are 0[     0]
+[   428/   480] loss: 5.474855, loss_neg: 1.134079, loss_real(cal_loss): 0.000012, acc: 0.627948, lr: 0.005000, pl: 0.627276, nl: 0.000000, noise_ratio: 0.372724
+	TESTING...loss: 7.942503, acc: 0.436000, best_acc: 0.448000
+saving model...
+Begin epoch [   429]
+All labels are 0[     0]
+[   429/   480] loss: 5.471293, loss_neg: 1.108586, loss_real(cal_loss): 0.000080, acc: 0.628381, lr: 0.005000, pl: 0.627372, nl: 0.000000, noise_ratio: 0.372628
+	TESTING...loss: 7.900526, acc: 0.430000, best_acc: 0.448000
+saving model...
+Begin epoch [   430]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   430/   480] loss: 5.481262, loss_neg: 1.100663, loss_real(cal_loss): 0.017956, acc: 0.628140, lr: 0.005000, pl: 0.627468, nl: 0.000000, noise_ratio: 0.372532
+Pred
+tensor([[1],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.876418, acc: 0.447500, best_acc: 0.448000
+saving model...
+Begin epoch [   431]
+All labels are 0[     0]
+[   431/   480] loss: 5.464608, loss_neg: 1.127769, loss_real(cal_loss): 0.000252, acc: 0.628621, lr: 0.005000, pl: 0.627516, nl: 0.000000, noise_ratio: 0.372484
+	TESTING...loss: 7.882776, acc: 0.438500, best_acc: 0.448000
+saving model...
+Begin epoch [   432]
+All labels are 0[     0]
+[   432/   480] loss: 5.462855, loss_neg: 1.087963, loss_real(cal_loss): 0.005017, acc: 0.628861, lr: 0.005000, pl: 0.627516, nl: 0.000000, noise_ratio: 0.372484
+	TESTING...loss: 8.001542, acc: 0.433500, best_acc: 0.448000
+saving model...
+Begin epoch [   433]
+All labels are 0[     0]
+[   433/   480] loss: 5.478598, loss_neg: 1.140027, loss_real(cal_loss): 0.010058, acc: 0.628621, lr: 0.005000, pl: 0.627612, nl: 0.000000, noise_ratio: 0.372388
+	TESTING...loss: 8.082354, acc: 0.429500, best_acc: 0.448000
+saving model...
+Begin epoch [   434]
+All labels are 0[     0]
+[   434/   480] loss: 5.458429, loss_neg: 1.087181, loss_real(cal_loss): 0.001028, acc: 0.627468, lr: 0.005000, pl: 0.627708, nl: 0.000000, noise_ratio: 0.372292
+	TESTING...loss: 7.947161, acc: 0.438500, best_acc: 0.448000
+saving model...
+Begin epoch [   435]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   435/   480] loss: 5.442011, loss_neg: 1.105590, loss_real(cal_loss): 0.000770, acc: 0.627468, lr: 0.005000, pl: 0.627804, nl: 0.000000, noise_ratio: 0.372196
+Pred
+tensor([[1],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 8.013743, acc: 0.435500, best_acc: 0.448000
+saving model...
+Begin epoch [   436]
+All labels are 0[     0]
+[   436/   480] loss: 5.451938, loss_neg: 1.108812, loss_real(cal_loss): 0.020325, acc: 0.630014, lr: 0.005000, pl: 0.627852, nl: 0.000000, noise_ratio: 0.372148
+	TESTING...loss: 8.033611, acc: 0.428000, best_acc: 0.448000
+saving model...
+Begin epoch [   437]
+All labels are 0[     0]
+[   437/   480] loss: 5.443924, loss_neg: 1.073474, loss_real(cal_loss): 0.000752, acc: 0.629534, lr: 0.005000, pl: 0.627804, nl: 0.000000, noise_ratio: 0.372196
+	TESTING...loss: 8.020555, acc: 0.427000, best_acc: 0.448000
+saving model...
+Begin epoch [   438]
+All labels are 0[     0]
+[   438/   480] loss: 5.457442, loss_neg: 1.077089, loss_real(cal_loss): 0.000318, acc: 0.628813, lr: 0.005000, pl: 0.627804, nl: 0.000000, noise_ratio: 0.372196
+	TESTING...loss: 7.903769, acc: 0.440000, best_acc: 0.448000
+saving model...
+Begin epoch [   439]
+All labels are 0[     0]
+[   439/   480] loss: 5.443853, loss_neg: 1.069951, loss_real(cal_loss): 0.000023, acc: 0.628813, lr: 0.005000, pl: 0.627996, nl: 0.000000, noise_ratio: 0.372004
+	TESTING...loss: 7.971115, acc: 0.434000, best_acc: 0.448000
+saving model...
+Begin epoch [   440]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   440/   480] loss: 5.435347, loss_neg: 1.113839, loss_real(cal_loss): 0.000388, acc: 0.630062, lr: 0.005000, pl: 0.627996, nl: 0.000000, noise_ratio: 0.372004
+Pred
+tensor([[2],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.950221, acc: 0.437000, best_acc: 0.448000
+saving model...
+Begin epoch [   441]
+All labels are 0[     0]
+[   441/   480] loss: 5.446078, loss_neg: 1.054054, loss_real(cal_loss): 0.000181, acc: 0.629582, lr: 0.005000, pl: 0.628044, nl: 0.000000, noise_ratio: 0.371956
+	TESTING...loss: 7.961910, acc: 0.431500, best_acc: 0.448000
+saving model...
+Begin epoch [   442]
+All labels are 0[     0]
+[   442/   480] loss: 5.448647, loss_neg: 1.129726, loss_real(cal_loss): 0.003707, acc: 0.629726, lr: 0.005000, pl: 0.628188, nl: 0.000000, noise_ratio: 0.371812
+	TESTING...loss: 8.025167, acc: 0.439500, best_acc: 0.448000
+saving model...
+Begin epoch [   443]
+All labels are 0[     0]
+[   443/   480] loss: 5.460530, loss_neg: 1.092777, loss_real(cal_loss): 0.126645, acc: 0.630158, lr: 0.005000, pl: 0.628285, nl: 0.000000, noise_ratio: 0.371715
+	TESTING...loss: 8.035669, acc: 0.433500, best_acc: 0.448000
+saving model...
+Begin epoch [   444]
+All labels are 0[     0]
+[   444/   480] loss: 5.428672, loss_neg: 1.048828, loss_real(cal_loss): 0.000261, acc: 0.628573, lr: 0.005000, pl: 0.628333, nl: 0.000000, noise_ratio: 0.371667
+	TESTING...loss: 7.931553, acc: 0.440000, best_acc: 0.448000
+saving model...
+Begin epoch [   445]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   445/   480] loss: 5.451213, loss_neg: 1.091018, loss_real(cal_loss): 0.000021, acc: 0.629245, lr: 0.005000, pl: 0.628429, nl: 0.000000, noise_ratio: 0.371571
+Pred
+tensor([[1],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.925314, acc: 0.439000, best_acc: 0.448000
+saving model...
+Begin epoch [   446]
+All labels are 0[     0]
+[   446/   480] loss: 5.457167, loss_neg: 1.110600, loss_real(cal_loss): 0.000317, acc: 0.627756, lr: 0.005000, pl: 0.628477, nl: 0.000000, noise_ratio: 0.371523
+	TESTING...loss: 7.920502, acc: 0.432000, best_acc: 0.448000
+saving model...
+Begin epoch [   447]
+All labels are 0[     0]
+[   447/   480] loss: 5.453197, loss_neg: 1.132532, loss_real(cal_loss): 0.005777, acc: 0.630350, lr: 0.005000, pl: 0.628573, nl: 0.000000, noise_ratio: 0.371427
+	TESTING...loss: 7.986288, acc: 0.433000, best_acc: 0.448000
+saving model...
+Begin epoch [   448]
+All labels are 0[     0]
+[   448/   480] loss: 5.454451, loss_neg: 1.074981, loss_real(cal_loss): 0.000500, acc: 0.630446, lr: 0.005000, pl: 0.628525, nl: 0.000000, noise_ratio: 0.371475
+	TESTING...loss: 7.935119, acc: 0.443000, best_acc: 0.448000
+saving model...
+Begin epoch [   449]
+All labels are 0[     0]
+[   449/   480] loss: 5.447377, loss_neg: 1.042138, loss_real(cal_loss): 0.000354, acc: 0.630206, lr: 0.005000, pl: 0.628717, nl: 0.000000, noise_ratio: 0.371283
+	TESTING...loss: 7.919874, acc: 0.435500, best_acc: 0.448000
+saving model...
+Begin epoch [   450]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   450/   480] loss: 5.450655, loss_neg: 1.085843, loss_real(cal_loss): 0.047853, acc: 0.630783, lr: 0.005000, pl: 0.628717, nl: 0.000000, noise_ratio: 0.371283
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.906531, acc: 0.439000, best_acc: 0.448000
+saving model...
+Begin epoch [   451]
+All labels are 0[     0]
+[   451/   480] loss: 5.453433, loss_neg: 1.086609, loss_real(cal_loss): 0.075972, acc: 0.629582, lr: 0.005000, pl: 0.628813, nl: 0.000000, noise_ratio: 0.371187
+	TESTING...loss: 7.924126, acc: 0.439500, best_acc: 0.448000
+saving model...
+Begin epoch [   452]
+All labels are 0[     0]
+[   452/   480] loss: 5.436581, loss_neg: 1.098162, loss_real(cal_loss): 0.014775, acc: 0.630014, lr: 0.005000, pl: 0.628813, nl: 0.000000, noise_ratio: 0.371187
+	TESTING...loss: 8.051503, acc: 0.431000, best_acc: 0.448000
+saving model...
+Begin epoch [   453]
+All labels are 0[     0]
+[   453/   480] loss: 5.442904, loss_neg: 1.103261, loss_real(cal_loss): 0.000301, acc: 0.629534, lr: 0.005000, pl: 0.628861, nl: 0.000000, noise_ratio: 0.371139
+	TESTING...loss: 7.914568, acc: 0.434500, best_acc: 0.448000
+saving model...
+Begin epoch [   454]
+All labels are 0[     0]
+[   454/   480] loss: 5.429916, loss_neg: 1.069510, loss_real(cal_loss): 0.000002, acc: 0.630110, lr: 0.005000, pl: 0.629005, nl: 0.000000, noise_ratio: 0.370995
+	TESTING...loss: 7.895542, acc: 0.437000, best_acc: 0.448000
+saving model...
+Begin epoch [   455]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   455/   480] loss: 5.455624, loss_neg: 1.091861, loss_real(cal_loss): 0.000072, acc: 0.631695, lr: 0.005000, pl: 0.629005, nl: 0.000000, noise_ratio: 0.370995
+Pred
+tensor([[1],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.971129, acc: 0.436500, best_acc: 0.448000
+saving model...
+Begin epoch [   456]
+All labels are 0[     0]
+[   456/   480] loss: 5.444558, loss_neg: 1.071788, loss_real(cal_loss): 0.070956, acc: 0.629726, lr: 0.005000, pl: 0.629149, nl: 0.000000, noise_ratio: 0.370851
+	TESTING...loss: 8.059165, acc: 0.424000, best_acc: 0.448000
+saving model...
+Begin epoch [   457]
+All labels are 0[     0]
+[   457/   480] loss: 5.445884, loss_neg: 1.122147, loss_real(cal_loss): 0.000001, acc: 0.631119, lr: 0.005000, pl: 0.629245, nl: 0.000000, noise_ratio: 0.370755
+	TESTING...loss: 7.916312, acc: 0.438000, best_acc: 0.448000
+saving model...
+Begin epoch [   458]
+All labels are 0[     0]
+[   458/   480] loss: 5.447968, loss_neg: 1.129568, loss_real(cal_loss): 0.000266, acc: 0.629630, lr: 0.005000, pl: 0.629293, nl: 0.000000, noise_ratio: 0.370707
+	TESTING...loss: 7.942252, acc: 0.432500, best_acc: 0.448000
+saving model...
+Begin epoch [   459]
+All labels are 0[     0]
+[   459/   480] loss: 5.449783, loss_neg: 1.078037, loss_real(cal_loss): 0.000144, acc: 0.631263, lr: 0.005000, pl: 0.629389, nl: 0.000000, noise_ratio: 0.370611
+	TESTING...loss: 7.898509, acc: 0.426000, best_acc: 0.448000
+saving model...
+Begin epoch [   460]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   460/   480] loss: 5.434784, loss_neg: 1.056018, loss_real(cal_loss): 0.032633, acc: 0.631455, lr: 0.005000, pl: 0.629534, nl: 0.000000, noise_ratio: 0.370466
+Pred
+tensor([[1],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.941630, acc: 0.432000, best_acc: 0.448000
+saving model...
+Begin epoch [   461]
+All labels are 0[     0]
+[   461/   480] loss: 5.451242, loss_neg: 1.074732, loss_real(cal_loss): 0.033692, acc: 0.631023, lr: 0.005000, pl: 0.629582, nl: 0.000000, noise_ratio: 0.370418
+	TESTING...loss: 7.871305, acc: 0.445500, best_acc: 0.448000
+saving model...
+Begin epoch [   462]
+All labels are 0[     0]
+[   462/   480] loss: 5.467595, loss_neg: 1.099600, loss_real(cal_loss): 0.149565, acc: 0.631359, lr: 0.005000, pl: 0.629582, nl: 0.000000, noise_ratio: 0.370418
+	TESTING...loss: 8.037378, acc: 0.427000, best_acc: 0.448000
+saving model...
+Begin epoch [   463]
+All labels are 0[     0]
+[   463/   480] loss: 5.461319, loss_neg: 1.078500, loss_real(cal_loss): 0.471354, acc: 0.629726, lr: 0.005000, pl: 0.629678, nl: 0.000000, noise_ratio: 0.370322
+	TESTING...loss: 7.938530, acc: 0.438000, best_acc: 0.448000
+saving model...
+Begin epoch [   464]
+All labels are 0[     0]
+[   464/   480] loss: 5.455179, loss_neg: 1.096607, loss_real(cal_loss): 0.000029, acc: 0.630783, lr: 0.005000, pl: 0.629582, nl: 0.000000, noise_ratio: 0.370418
+	TESTING...loss: 8.018401, acc: 0.432000, best_acc: 0.448000
+saving model...
+Begin epoch [   465]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   465/   480] loss: 5.442468, loss_neg: 1.088445, loss_real(cal_loss): 0.005932, acc: 0.629438, lr: 0.005000, pl: 0.629726, nl: 0.000000, noise_ratio: 0.370274
+Pred
+tensor([[1],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.955961, acc: 0.429000, best_acc: 0.448000
+saving model...
+Begin epoch [   466]
+All labels are 0[     0]
+[   466/   480] loss: 5.444797, loss_neg: 1.100661, loss_real(cal_loss): 0.010057, acc: 0.630879, lr: 0.005000, pl: 0.629774, nl: 0.000000, noise_ratio: 0.370226
+	TESTING...loss: 7.957763, acc: 0.437500, best_acc: 0.448000
+saving model...
+Begin epoch [   467]
+All labels are 0[     0]
+[   467/   480] loss: 5.454758, loss_neg: 1.054082, loss_real(cal_loss): 0.000055, acc: 0.631743, lr: 0.005000, pl: 0.629822, nl: 0.000000, noise_ratio: 0.370178
+	TESTING...loss: 8.067307, acc: 0.434500, best_acc: 0.448000
+saving model...
+Begin epoch [   468]
+All labels are 0[     0]
+[   468/   480] loss: 5.459316, loss_neg: 1.122989, loss_real(cal_loss): 0.001101, acc: 0.630398, lr: 0.005000, pl: 0.629822, nl: 0.000000, noise_ratio: 0.370178
+	TESTING...loss: 7.962773, acc: 0.434000, best_acc: 0.448000
+saving model...
+Begin epoch [   469]
+All labels are 0[     0]
+[   469/   480] loss: 5.458596, loss_neg: 1.076836, loss_real(cal_loss): 0.000776, acc: 0.632224, lr: 0.005000, pl: 0.630014, nl: 0.000000, noise_ratio: 0.369986
+	TESTING...loss: 8.005095, acc: 0.437500, best_acc: 0.448000
+saving model...
+Begin epoch [   470]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   470/   480] loss: 5.461041, loss_neg: 1.118847, loss_real(cal_loss): 0.001222, acc: 0.631167, lr: 0.005000, pl: 0.630158, nl: 0.000000, noise_ratio: 0.369842
+Pred
+tensor([[0],
+        [1],
+        [1],
+        [0],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.874557, acc: 0.436500, best_acc: 0.448000
+saving model...
+Begin epoch [   471]
+All labels are 0[     0]
+[   471/   480] loss: 5.432711, loss_neg: 1.079023, loss_real(cal_loss): 0.001030, acc: 0.631647, lr: 0.005000, pl: 0.630014, nl: 0.000000, noise_ratio: 0.369986
+	TESTING...loss: 7.937426, acc: 0.439500, best_acc: 0.448000
+saving model...
+Begin epoch [   472]
+All labels are 0[     0]
+[   472/   480] loss: 5.422416, loss_neg: 1.038443, loss_real(cal_loss): 0.000055, acc: 0.630302, lr: 0.005000, pl: 0.630302, nl: 0.000000, noise_ratio: 0.369698
+	TESTING...loss: 7.919291, acc: 0.438500, best_acc: 0.448000
+saving model...
+Begin epoch [   473]
+All labels are 0[     0]
+[   473/   480] loss: 5.431084, loss_neg: 1.108898, loss_real(cal_loss): 0.060548, acc: 0.633569, lr: 0.005000, pl: 0.630350, nl: 0.000000, noise_ratio: 0.369650
+	TESTING...loss: 7.906791, acc: 0.437500, best_acc: 0.448000
+saving model...
+Begin epoch [   474]
+All labels are 0[     0]
+[   474/   480] loss: 5.434132, loss_neg: 1.067313, loss_real(cal_loss): 0.000397, acc: 0.632320, lr: 0.005000, pl: 0.630302, nl: 0.000000, noise_ratio: 0.369698
+	TESTING...loss: 7.970122, acc: 0.432500, best_acc: 0.448000
+saving model...
+Begin epoch [   475]
+Gradient
+tensor([0., 0., 0.], device='cuda:0')
+tensor([-0.0040, -0.0273, -0.0198], device='cuda:0', grad_fn=<SelectBackward0>)
+All labels are 0[     0]
+[   475/   480] loss: 5.421946, loss_neg: 1.074307, loss_real(cal_loss): 0.100385, acc: 0.630927, lr: 0.005000, pl: 0.630302, nl: 0.000000, noise_ratio: 0.369698
+Pred
+tensor([[1],
+        [1],
+        [1],
+        [1],
+        [1]], device='cuda:0')
+Labels
+tensor([[0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]], device='cuda:0')
+========
+	TESTING...loss: 7.928159, acc: 0.429500, best_acc: 0.448000
+saving model...
+Begin epoch [   476]
+All labels are 0[     0]
+[   476/   480] loss: 5.468285, loss_neg: 1.113784, loss_real(cal_loss): 0.067511, acc: 0.632320, lr: 0.005000, pl: 0.630542, nl: 0.000000, noise_ratio: 0.369458
+	TESTING...loss: 7.966147, acc: 0.437000, best_acc: 0.448000
+saving model...
+Begin epoch [   477]
+All labels are 0[     0]
+[   477/   480] loss: 5.436229, loss_neg: 1.083765, loss_real(cal_loss): 0.004644, acc: 0.631407, lr: 0.005000, pl: 0.630686, nl: 0.000000, noise_ratio: 0.369314
+	TESTING...loss: 7.903740, acc: 0.437000, best_acc: 0.448000
+saving model...
+Begin epoch [   478]
+All labels are 0[     0]
+[   478/   480] loss: 5.439614, loss_neg: 1.105937, loss_real(cal_loss): 0.050993, acc: 0.632992, lr: 0.005000, pl: 0.630879, nl: 0.000000, noise_ratio: 0.369121
+	TESTING...loss: 7.848635, acc: 0.433500, best_acc: 0.448000
+saving model...
+Begin epoch [   479]
+All labels are 0[     0]
+[   479/   480] loss: 5.410880, loss_neg: 1.039851, loss_real(cal_loss): 0.000613, acc: 0.631743, lr: 0.005000, pl: 0.631071, nl: 0.000000, noise_ratio: 0.368929
+	TESTING...loss: 8.009559, acc: 0.432500, best_acc: 0.448000
+saving model...
